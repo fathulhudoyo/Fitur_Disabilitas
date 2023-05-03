@@ -106,10 +106,11 @@ mounted() {
 
         ```
 
-    - Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini
+    - Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sama Nama Classnya
 
             ```js
-                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) {
+
+                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) 
 
             ```
 
