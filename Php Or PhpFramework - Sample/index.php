@@ -7,7 +7,14 @@
         margin-bottom: 10px;
         text-align: center;
     }
+    .greyscaleall {
+        webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
 
+    }
     .mycheckbox {
         font-size: 12px;
         color: black;
@@ -907,9 +914,9 @@
         //('Skala Abu-abu');
         var listdatagroup = cekclassactive(groups, 'egrayscale');
         if (listdatagroup.getclass.classactiv == "active") {
-            $('#effectweb').attr("class", "greyscaleall");
+            $('html').attr("class", "greyscaleall");
         } else {
-            $('#effectweb').removeAttr("class");
+            $('html').removeAttr("class");
         }
     })
 
@@ -956,7 +963,7 @@
                 })
             }
         })
-        $('#effectweb').removeAttr("class");
+        $('html').removeAttr("class");
         $('*').css({
             "text-decoration": "none"
         });

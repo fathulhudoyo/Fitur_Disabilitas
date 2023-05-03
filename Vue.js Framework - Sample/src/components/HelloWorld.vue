@@ -8,6 +8,14 @@
         color: black;
         font-weight: 500;
     }
+    .greyscaleall {
+        webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+
+    }
     .btn-color-mode-switch {
         display: inline-block;
         margin: 0px;
