@@ -21,8 +21,8 @@ Contoh Source
 
 ## Front End ( Vue js Framework ) 
 
-1. Copy Semua Source Code Yang Berada Di File Index.php Ke File Yang Ingin Anda Letakan
-2. Anda Bisa Menghapus Beberapa Source Yang Tidak Ingin Anda Gunakan Atau Yang Mungkin Sudah Ada Di Web Anda
+
+1. Anda Bisa Menghapus Beberapa Source Yang Tidak Ingin Anda Gunakan Atau Yang Mungkin Sudah Ada Di Web Anda
 
 Contoh Source
 
@@ -35,8 +35,10 @@ Contoh Source
 
 ```
 
-3. Untuk File Js Bisa Di Jadikan External Link Jika Di Perlukan Contoh Sample Di Bawah Ini
+2. Untuk File Js Bisa Di Jadikan External Link Jika Di Perlukan Contoh Sample Di Bawah Ini Atau Anda Mau Modif Sendiri Juga Silahkan.
 
+
+Contoh Sample External Link
 ```js
 mounted() {
     const plugin1 = document.createElement("script");
