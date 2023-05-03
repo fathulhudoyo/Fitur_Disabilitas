@@ -31,14 +31,39 @@ Contoh Source
 // --> Ini  Optional 
 
 <link href="https://ppid.jakarta.go.id/assets/home/ppidNew/css/bootstrap.min.css" rel="stylesheet">
-<script src="bootstrap.min.js"></script>
+
 
 ```
 
 2. Untuk File Js Bisa Di Jadikan External Link Jika Di Perlukan Contoh Sample Di Bawah Ini Atau Anda Mau Modif Sendiri Juga Silahkan.
 
 
+
+
+Letakan element di bawah ini Di Atas Tag Template 
+
+```html
+<span id="loadmodaldisabilitas"></span>
+```
+
+Contoh Seperti Di Bawah Ini
+
+```js
+
+
+  </div>
+  <div>
+    
+<span id="loadmodaldisabilitas"></span>
+  </div>
+</template>
+
+```
+
+
 Contoh Sample External Link
+
+
 ```js
 mounted() {
     const plugin1 = document.createElement("script");
