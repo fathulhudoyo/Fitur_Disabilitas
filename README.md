@@ -91,9 +91,36 @@ mounted() {
   }
 ```
 
-## All Fitur Disabilitas
+## Keterangan Beberapa Fitur Disabilitas Yang Mungkin Bisa Di Custom
 
-1. Coming soon
+1. Untuk Fitur Warna Bisa Di Custom 
 
+    - Untuk Mengganti Warna Background 
+    
+        ```js
+            $(item).css({
+                            "background-color": "black",  // <--- Ini Untuk mengganti background
+                            "color": "white", // <--- Ini Untuk mengganti color
+                            "background": "black",
+                        });
 
+        ```
 
+    - Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini
+
+            ```js
+                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) {
+
+            ```
+
+    - Untuk Mengganti Warna Color bisa di sesuaikan sama class namenya ( jika di perlukan)
+
+        ```js
+
+        if (!isBlank(links[i].href) || links[i].className == "col-md-12 feature-txt2" ||
+        links[i].className == "col-md-12 feature-txt" || links[i].className == "col-md-12 feature-txt" || links[i].className == "text-center") {
+            links[i].style.color = "#00f3f7";
+        }
+
+            ```
+2. Coming Soon
