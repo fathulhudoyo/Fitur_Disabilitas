@@ -250,8 +250,7 @@
         }
     }
 </style>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=dWWNB9Gr"></script>
-
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script>
 <span id="loadmodaldisabilitas"></span>
 <script type="text/javascript">
     if (!window.James) {
