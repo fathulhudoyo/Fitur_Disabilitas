@@ -1,7 +1,7 @@
 ## Documentation Fitur Di Sabilitas
 
 
-## Php Feramework
+## Php Framework
 
 1. Copy Semua Source Code Yang Berada Di File Index.php Ke File Yang Ingin Anda Letakan
 2. Anda Bisa Menghapus Beberapa Source Yang Tidak Ingin Anda Gunakan Atau Yang Mungkin Sudah Ada Di Web Anda
@@ -19,7 +19,7 @@ Contoh Source
 
 ```
 
-## Vue Feramework
+## Vue Framework
 
 1. Copy Semua Source Code Yang Berada Di File Index.php Ke File Yang Ingin Anda Letakan
 2. Anda Bisa Menghapus Beberapa Source Yang Tidak Ingin Anda Gunakan Atau Yang Mungkin Sudah Ada Di Web Anda
@@ -28,14 +28,14 @@ Contoh Source
 
 ```js
 
-// --> Ini  Optional  Jika Sudah Ada Tidak Pelu Di Gunakan
+// --> Ini  Optional 
 
 <link href="https://ppid.jakarta.go.id/assets/home/ppidNew/css/bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap.min.js"></script>
 
 ```
 
-3. Untuk File Js Bisa Di Jadikan External Link Jika Di Perlukan Contoh Sample Di Bawaha Ini
+3. Untuk File Js Bisa Di Jadikan External Link Jika Di Perlukan Contoh Sample Di Bawah Ini
 
 ```js
 mounted() {
@@ -66,7 +66,7 @@ mounted() {
 
 ## All Fitur Disabilitas
 
-1. Comingsoon
+1. Coming soon
 
 
 
