@@ -40,7 +40,7 @@ Contoh Source
 
 
 
-Letakan element di bawah ini Di Atas Tag Template 
+Letakan element di bawah ini Di Atas Tag </ Template >
 
 ```html
 <span id="loadmodaldisabilitas"></span>
