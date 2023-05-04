@@ -125,26 +125,25 @@ mounted() {
       Contoh Sample Code
 
         ```js
-        $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) {
-        var color = $(item).css('color')
-        $(item).css({ "background-color": "black","color": "yellow", "background": "black" });});
+        var color = $(item).css('color');
+        $(item).css({ "background-color": "black","color": "yellow", "background": "black" });
         ```
 
     - Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background / Icon Dan lain- lain Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
 
-    ```js
-        $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
-          $("* > a:not('.cameraContent > .camera_link')").hover(function(e))
-    ```
+      ```js
+          $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
+            $("* > a:not('.cameraContent > .camera_link')").hover(function(e))
+      ```
 
 3. Garis Bawahi Tautan
 
  -  Jika Di Perlukan Untuk Membuat Kondisi Underline Pada Link Bisa Di Tambahkan Class Namenya
 
-  ```js
-                if (!isBlank(links[i].href) || links[i].className == "hurufawal mylink capitalfont" || links[i].className == "subtitletools" || links[i].className == "subtitletoolsactive" 
-                    || links[i].className == "mylinkweb" || links[i].className == "hurufawal mylink" || links[i].className == "col-md-12 feature-txt2" ||
-                    links[i].className == "col-md-12 feature-txt" || links[i].className == "col-md-12 feature-txt" || links[i].className == "text-center") {
-                    links[i].style.textDecoration = "underline";
-                }
-  ```
+    ```js
+      if (!isBlank(links[i].href) || links[i].className == "hurufawal mylink capitalfont" || links[i].className == "subtitletools" || links[i].className == "subtitletoolsactive" 
+      || links[i].className == "mylinkweb" || links[i].className == "hurufawal mylink" || links[i].className == "col-md-12 feature-txt2" ||
+      links[i].className == "col-md-12 feature-txt" || links[i].className == "col-md-12 feature-txt" || links[i].className == "text-center") {
+      links[i].style.textDecoration = "underline";
+      }
+    ```
