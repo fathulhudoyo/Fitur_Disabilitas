@@ -259,31 +259,9 @@
         }
     }
 
-    .rowxdata {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-    }
 
-    .contentdsb {
-        display: flex;
-        flex-direction: column;
-        font-weight: bold;
-        font-size: 20px;
-        color: black;
-    }
 </style>
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script>
-
-<div class="rowxdata">
-    <div class="contentdsb">
-        Tester
-    </div>
-</div>
-
 <span id="loadmodaldisabilitas"></span>
 <script type="text/javascript">
     if (!window.James) {
@@ -335,6 +313,7 @@
         if (userSelection.text) selectedText = userSelection.text;
         if (selectedText != '') {
             var textvalue = window.getSelection().toString();
+         
             speach(textvalue);
             speachmobile(textvalue);
         }
@@ -920,7 +899,8 @@
 
 
 
-                if (!isBlank(links[i].href) || links[i].className == "hurufawal mylink capitalfont" || links[i].className == "subtitletools" || links[i].className == "subtitletoolsactive" || links[i].className == "mylinkweb" || links[i].className == "hurufawal mylink" || links[i].className == "col-md-12 feature-txt2" ||
+                if (!isBlank(links[i].href) || links[i].className == "hurufawal mylink capitalfont" || links[i].className == "subtitletools" || links[i].className == "subtitletoolsactive" 
+                    || links[i].className == "mylinkweb" || links[i].className == "hurufawal mylink" || links[i].className == "col-md-12 feature-txt2" ||
                     links[i].className == "col-md-12 feature-txt" || links[i].className == "col-md-12 feature-txt" || links[i].className == "text-center") {
                     links[i].style.textDecoration = "underline";
                 }
@@ -954,10 +934,6 @@
             localStorage.removeItem("permisvoice");
             localStorage.removeItem("permismobile");
         }
-
-
-
-
     })
 
 
@@ -1163,13 +1139,11 @@
     }
 
     $("a").on('mouseover', function() {
-        ;
         var textvalue = $(this).text().toString();
         speach(textvalue)
         speachmobile(textvalue)
     });
     $(".subtitletools").on('mouseover', function() {
-        ;
         var textvalue = $(this).text().toString();
         speach(textvalue)
         speachmobile(textvalue)

@@ -88,7 +88,7 @@ mounted() {
   }
 ```
 
-## Keterangan Beberapa Fitur Disabilitas Yang Mungkin Bisa / Perlu Di Custom ( Warna, klise dan garis bawahi tautan )
+## Keterangan Beberapa Fitur Disabilitas Yang Mungkin Bisa / Perlu Di Custom ( Warna, Klise dan Garis bawahi tautan )
 
 
 1. Untuk Fitur Warna Bisa Di Custom 
@@ -107,7 +107,7 @@ mounted() {
     -  Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
 
             ```js
-                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) 
+                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
             ```
 
     -  Jika Di Perlukan Untuk Mengganti Warna Color bisa di sesuaikan sama nama classnya 
@@ -121,25 +121,30 @@ mounted() {
         
 2. Untuk Fitur Klise Bisa Di Custom
 
-  -  Jika Di Perlukan Untuk Mengganti Warna Background atau Text Tulisan 
-    Contoh Sample Code
+    -  Jika Di Perlukan Untuk Mengganti Warna Background atau Text Tulisan 
+      Contoh Sample Code
+
+        ```js
+        $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) {
+        var color = $(item).css('color')
+        $(item).css({ "background-color": "black","color": "yellow", "background": "black" });});
+        ```
+
+    - Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background / Icon Dan lain- lain Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
 
     ```js
-                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) {
-                var color = $(item).css('color')
-                $(item).css({
-                    "background-color": "black",
-                    "color": "yellow",
-                    "background": "black",
-                });
-            });
+        $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
+          $("* > a:not('.cameraContent > .camera_link')").hover(function(e))
     ```
 
-  - Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background / Icon Dan lain- lain Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
+3. Garis Bawahi Tautan
+
+ -  Jika Di Perlukan Untuk Membuat Kondisi Underline Pada Link Bisa Di Tambahkan Class Namenya
 
   ```js
-      $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
-         $("* > a:not('.cameraContent > .camera_link')").hover(function(e))
+                if (!isBlank(links[i].href) || links[i].className == "hurufawal mylink capitalfont" || links[i].className == "subtitletools" || links[i].className == "subtitletoolsactive" 
+                    || links[i].className == "mylinkweb" || links[i].className == "hurufawal mylink" || links[i].className == "col-md-12 feature-txt2" ||
+                    links[i].className == "col-md-12 feature-txt" || links[i].className == "col-md-12 feature-txt" || links[i].className == "text-center") {
+                    links[i].style.textDecoration = "underline";
+                }
   ```
-
-- 
