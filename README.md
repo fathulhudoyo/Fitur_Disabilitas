@@ -49,15 +49,12 @@ Letakan element di bawah ini Di Atas Tag </ Template >
 Contoh Seperti Di Bawah Ini
 
 ```js
-
-
   </div>
   <div>
     
 <span id="loadmodaldisabilitas"></span>
   </div>
 </template>
-
 ```
 
 
@@ -91,11 +88,13 @@ mounted() {
   }
 ```
 
-## Keterangan Beberapa Fitur Disabilitas Yang Mungkin Bisa Di Custom
+## Keterangan Beberapa Fitur Disabilitas Yang Mungkin Bisa / Perlu Di Custom ( Warna, klise dan garis bawahi tautan )
+
 
 1. Untuk Fitur Warna Bisa Di Custom 
 
-    - Untuk Mengganti Warna Background 
+    -  Jika Di Perlukan Untuk Mengganti Warna Background atau Text Tulisan
+      Contoh Sample Code
     
         ```js
             $(item).css({
@@ -103,25 +102,44 @@ mounted() {
                             "color": "white", // <--- Ini Untuk mengganti color
                             "background": "black",
                         });
-
         ```
 
-    - Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sama Nama Classnya
+    -  Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
 
             ```js
-
                 $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) 
-
             ```
 
-    - Untuk Mengganti Warna Color bisa di sesuaikan sama class namenya ( jika di perlukan)
+    -  Jika Di Perlukan Untuk Mengganti Warna Color bisa di sesuaikan sama nama classnya 
 
         ```js
-
         if (!isBlank(links[i].href) || links[i].className == "col-md-12 feature-txt2" ||
         links[i].className == "col-md-12 feature-txt" || links[i].className == "col-md-12 feature-txt" || links[i].className == "text-center") {
             links[i].style.color = "#00f3f7";
         }
+        ```
+        
+2. Untuk Fitur Klise Bisa Di Custom
 
-            ```
-2. Coming Soon
+  -  Jika Di Perlukan Untuk Mengganti Warna Background atau Text Tulisan 
+    Contoh Sample Code
+
+    ```js
+                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item) {
+                var color = $(item).css('color')
+                $(item).css({
+                    "background-color": "black",
+                    "color": "yellow",
+                    "background": "black",
+                });
+            });
+    ```
+
+  - Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background / Icon Dan lain- lain Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
+
+  ```js
+      $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
+         $("* > a:not('.cameraContent > .camera_link')").hover(function(e))
+  ```
+
+- 

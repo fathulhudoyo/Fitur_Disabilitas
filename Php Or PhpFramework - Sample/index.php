@@ -7,14 +7,16 @@
         margin-bottom: 10px;
         text-align: center;
     }
+
     .greyscaleall {
         webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
 
     }
+
     .mycheckbox {
         font-size: 12px;
         color: black;
@@ -256,8 +258,32 @@
             top: 11%;
         }
     }
+
+    .rowxdata {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .contentdsb {
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 20px;
+        color: black;
+    }
 </style>
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script>
+
+<div class="rowxdata">
+    <div class="contentdsb">
+        Tester
+    </div>
+</div>
+
 <span id="loadmodaldisabilitas"></span>
 <script type="text/javascript">
     if (!window.James) {
