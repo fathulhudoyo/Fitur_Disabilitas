@@ -99,7 +99,7 @@
         position: fixed;
         top: 6%;
         left: 0;
-        z-index: 999;
+        z-index: 999999999;
         height: 1px;
         width: -180px;
         text-align: center;
