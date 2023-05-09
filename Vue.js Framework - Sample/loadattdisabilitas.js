@@ -1,9 +1,9 @@
-(function (d) {
+/*(function (d) {
   var s = d.createElement("script");
   s.setAttribute("data-account", "sxcf6MvtVf");
   s.setAttribute("src", "https://cdn.userway.org/widget.js");
   (d.body || d.head).appendChild(s);
-})(document);
+})(document);*/
 
 if (!window.James) {
   James = {};
@@ -78,19 +78,19 @@ function isBlank(str) {
 var dataspeachweb = `
             <div class="subtitletools" id="webspeach">
             <div class="flexrowdata">
-             <span><svg class='fontawesomesvg' width="1em"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+             <span><svg version="1.1" class='fontawesomesvg' width="1em"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448">
              <path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zm2 226.3c37.1 22.4 62 63.1 62 109.7s-24.9 87.3-62 109.7c-7.6 4.6-17.4 2.1-22-5.4s-2.1-17.4 5.4-22C269.4 401.5 288 370.9 288 336s-18.6-65.5-46.5-82.3c-7.6-4.6-10-14.4-5.4-22s14.4-10 22-5.4zm-91.9 30.9c6 2.5 9.9 8.3 9.9 14.8V400c0 6.5-3.9 12.3-9.9 14.8s-12.9 1.1-17.4-3.5L113.4 376H80c-8.8 0-16-7.2-16-16V312c0-8.8 7.2-16 16-16h33.4l35.3-35.3c4.6-4.6 11.5-5.9 17.4-3.5zm51 34.9c6.6-5.9 16.7-5.3 22.6 1.3C249.8 304.6 256 319.6 256 336s-6.2 31.4-16.3 42.7c-5.9 6.6-16 7.1-22.6 1.3s-7.1-16-1.3-22.6c5.1-5.7 8.1-13.1 8.1-21.3s-3.1-15.7-8.1-21.3c-5.9-6.6-5.3-16.7 1.3-22.6z"/>
              </svg></span>
-             &nbsp;&nbsp;&nbsp;<div id="twebspeach"   class="aksestexttools">Moda Suara</div>
+             &nbsp;&nbsp;<div id="twebspeach"   class="aksestexttools leftmodasuara">Moda Suara</div>
              </div>
             </div>`;
 var datamobileweb = `
             <div class="subtitletools" id="mobileapp">
             <div class="flexrowdata">
-             <span><svg class='fontawesomesvg' width="1em"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+             <span><svg version="1.1" class='fontawesomesvg' width="1em"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448">
              <path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zm2 226.3c37.1 22.4 62 63.1 62 109.7s-24.9 87.3-62 109.7c-7.6 4.6-17.4 2.1-22-5.4s-2.1-17.4 5.4-22C269.4 401.5 288 370.9 288 336s-18.6-65.5-46.5-82.3c-7.6-4.6-10-14.4-5.4-22s14.4-10 22-5.4zm-91.9 30.9c6 2.5 9.9 8.3 9.9 14.8V400c0 6.5-3.9 12.3-9.9 14.8s-12.9 1.1-17.4-3.5L113.4 376H80c-8.8 0-16-7.2-16-16V312c0-8.8 7.2-16 16-16h33.4l35.3-35.3c4.6-4.6 11.5-5.9 17.4-3.5zm51 34.9c6.6-5.9 16.7-5.3 22.6 1.3C249.8 304.6 256 319.6 256 336s-6.2 31.4-16.3 42.7c-5.9 6.6-16 7.1-22.6 1.3s-7.1-16-1.3-22.6c5.1-5.7 8.1-13.1 8.1-21.3s-3.1-15.7-8.1-21.3c-5.9-6.6-5.3-16.7 1.3-22.6z"/>
              </svg></span>
-             &nbsp;&nbsp;&nbsp;<div id="twebspeach" class="aksestexttools">Moda Suara</div>
+             &nbsp;&nbsp;<div id="twebspeach" class="aksestexttools leftmodasuara">Moda Suara</div>
              </div>
             </div>`;
 var logicspeachweb = getOS() == "Windows" ? dataspeachweb : datamobileweb;
@@ -219,8 +219,82 @@ $(".open-toolbar").click(function (event) {
 $("#checklang").on("change", function () {
   changelang(this);
 });
+
+var arrayratatulisan = [];
+
+
+
+function replacemultipletext(lang) {
+  console.log(arrayratatulisan);
+  var dataratatulisanid = "";
+  var dataratatulisanen = "";
+  if (arrayratatulisan.length == 0) {
+    dataratatulisanid = "Rata Tulisan";
+    dataratatulisanen = "Average Writing";
+  } else if (arrayratatulisan.length > 0) {
+
+    if (arrayratatulisan.length == 0) {
+      dataratatulisanid = "Rata Tulisan";
+      dataratatulisanen = "Average Writing";
+    } else
+      if (arrayratatulisan[0] == 1) {
+        dataratatulisanid = "Rata Kiri";
+        dataratatulisanen = "Align Left";
+
+
+      } else if (arrayratatulisan[0] == 2) {
+        dataratatulisanid = "Rata Tengah";
+        dataratatulisanen = "Average Middle";
+
+      } else if (arrayratatulisan[0] == 3) {
+
+        dataratatulisanid = "Rata Tengah";
+        dataratatulisanen = "Average Middle";
+
+      } else if (arrayratatulisan[0] == 4) {
+        dataratatulisanid = "Rata Kanan";
+        dataratatulisanen = "Align Right";
+
+      }
+  }
+
+  var replaceratatulisan = "";
+  if (lang == undefined || lang == "") {
+    replaceratatulisan = {
+      ratatulisan: dataratatulisanid
+    }
+  } else if (lang == 1) {
+    replaceratatulisan = {
+      ratatulisan: dataratatulisanid
+    }
+
+    console.log("indonesia");
+  } else if (lang == 2) {
+    replaceratatulisan = {
+      ratatulisan: dataratatulisanen
+    }
+    console.log("inggris");
+  }
+  return replaceratatulisan;
+}
+
+function ratatulisan(lang) {
+  var resulttext = replacemultipletext(lang);
+  var text_tulisan = "";
+  if (lang == "") {
+    text_tulisan = "";
+  } else {
+    text_tulisan = resulttext.ratatulisan;
+  }
+  $("#tratatulisan").text(text_tulisan);
+}
+var langdefault = [];
 function changelang(ele) {
   var groups = Array.from(document.querySelectorAll("#checklangmenu"));
+  langdefault.length = 0;
+  langdefault.push(2);
+
+  var resulttext = replacemultipletext(2);
   if ($(ele).prop("checked") == true) {
     var toolslangEn = {
       tdataoff: "Indonesian",
@@ -235,11 +309,15 @@ function changelang(ele) {
       treadablefont: "Readable Font",
       tlinkunderline: "Link Underline",
       twebspeach: "Web Speech",
-      tratatulisan: "Average Writing",
+      tratatulisan: resulttext.ratatulisan,
       tidreset: "Reset",
     };
     replacetext(groups, toolslangEn);
   } else if ($(ele).prop("checked") == false) {
+    langdefault.length = 0;
+    langdefault.push(1);
+
+    var resulttext = replacemultipletext(1);
     var toolslangID = {
       tdataoff: "Indonesia",
       tdataon: "Inggris",
@@ -253,7 +331,7 @@ function changelang(ele) {
       treadablefont: "Tulisan Dapat Di Baca",
       tlinkunderline: "Garis Bawahi Tautan",
       twebspeach: "Moda Suara",
-      tratatulisan: "Rata Tulisan",
+      tratatulisan: resulttext.ratatulisan,
       tidreset: "Mengatur Ulang",
     };
     replacetext(groups, toolslangID);
@@ -318,24 +396,40 @@ function replacetext(groups, arrayjs) {
   }
 }
 
-var arrayratatulisan = [];
-arrayratatulisan.length = 0;
+
+
 $("#ratatulisan").click(function (event) {
+
+  console.log("disinilang");
+
+  console.log(langdefault);
   if (arrayratatulisan.length > 0) {
-    console.log(arrayratatulisan);
+
     if (arrayratatulisan[0] == 1) {
       arrayratatulisan.length = 0;
       arrayratatulisan.push(2);
-
+      ratatulisan(langdefault[0])
       $('*:not(".btn-color-mode-switch-inner")').each(function (i, item) {
         $(item).cssImportant("text-align", "left");
         $(item).cssImportant("justify-content", "flex-start");
       });
+
+      var dataarray = {
+        param: {
+          datatext: "left",
+
+        }
+      }
+
+
+
     }
 
     if (arrayratatulisan[0] == 2) {
       arrayratatulisan.length = 0;
       arrayratatulisan.push(3);
+
+      ratatulisan(langdefault[0])
       $('*:not(".btn-color-mode-switch-inner")').each(function (i, item) {
         $(item).cssImportant("text-align", "center");
         $(item).cssImportant("justify-content", "center");
@@ -343,27 +437,28 @@ $("#ratatulisan").click(function (event) {
     } else if (arrayratatulisan[0] == 3) {
       arrayratatulisan.length = 0;
       arrayratatulisan.push(4);
-
+      ratatulisan(langdefault[0])
       $('*:not(".btn-color-mode-switch-inner")').each(function (i, item) {
         $(item).cssImportant("text-align", "right");
         $(item).cssImportant("justify-content", "flex-end");
       });
     } else if (arrayratatulisan[0] == 4) {
+
       var listdatagroup = cekclassactive(groups, "ratatulisan");
       arrayratatulisan.length = 0;
-
+      ratatulisan(langdefault[0])
       $('*:not(".btn-color-mode-switch-inner")').each(function (i, item) {
         $(item).cssImportant("text-align", "");
         $(item).cssImportant("justify-content", "");
       });
 
-   
+
     }
   } else {
     arrayratatulisan.length = 0;
     var listdatagroup = cekclassactive(groups, "ratatulisan");
     arrayratatulisan.push(1);
-
+    ratatulisan(langdefault[0])
     $('*:not(".btn-color-mode-switch-inner")').each(function (i, item) {
       $(item).cssImportant("text-align", "left");
       $(item).cssImportant("justify-content", "flex-start");
@@ -371,6 +466,12 @@ $("#ratatulisan").click(function (event) {
   }
 
 
+
+
+  $('.contenttoolbar_disabilitas *,div.titletools,.open-toolbar').each(function (i, item) {
+    $(item).cssImportant("text-align", "");
+    $(item).cssImportant("justify-content", "");
+  });
 });
 
 var zoomLevel = 1;
@@ -383,8 +484,8 @@ $("#increasetext").click(function (event) {
   zoomLevel = zoomLevel + 0.1;
   rootFontSize = rootFontSize + 2;
   $('div > *:not(".fa-search,.toolbar-disabilitas  *,.fa,.fa-angle-down")').css({
- 
-   // "font-weight": 400,
+
+    // "font-weight": 400,
     "font-size": rootFontSize + "px",
   });
 });
@@ -400,9 +501,9 @@ $("#decreasetext").click(function (event) {
     $("#increasetext").addClass("subtitletools");
     $('div > *:not(".fa-search,.toolbar-disabilitas  *,.fa,.fa-angle-down")').css({
 
-   //  "font-weight": 400,
+      //  "font-weight": 400,
       "font-size": rootFontSize + "px",
-    
+
     });
   }, 100);
 });
@@ -493,7 +594,7 @@ $("#hcontrash").click(function (event) {
     });
     $("*>a").each(function (i, item) {
       var color = $(item).css("color");
-    
+
 
       $(item).cssImportant("background-color", "black");
       $(item).cssImportant("color", "yellow");
@@ -535,7 +636,7 @@ function changecolordisabilitas(groups) {
     for (let k = 0; k < listdata[i].length; k++) {
       var classactive = "";
       var classid = "";
-      console.log(listdata[i][k].id);
+      //     console.log(listdata[i][k].id);
       $("#" + listdata[i][k].id).css({
         color: "#00f3f7",
       });
@@ -569,7 +670,7 @@ $("#ncontrash").click(function (event) {
         "background": "",
         "color": "",
       });
-    
+
     });
     $(
       '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
@@ -594,7 +695,7 @@ function hoveractive() {
 }
 function hovernoactive() {
   $("* > a").hover(function (e) {
-    console.log(e.type);
+    // console.log(e.type);
     if (e.type === "mouseenter") {
       $(this).css({
         "background-color": "",
@@ -645,7 +746,7 @@ $("#lgcontrash").click(function (event) {
         "background": "",
         "color": "",
       });
-    
+
     });
     $(
       '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
@@ -678,7 +779,7 @@ $("#linkunderline").click(function (event) {
 $("#egrayscale").on("click", function (event) {
   //('Skala Abu-abu');
   var listdatagroup = cekclassactive(groups, "egrayscale");
-  console.log("grey");
+  // console.log("grey");
   if (listdatagroup.getclass.classactiv == "active") {
     $("html").attr("class", "greyscaleall");
   } else {
@@ -709,7 +810,7 @@ function resetcss() {
     });
   });
   $("a").hover(function (e) {
-    console.log(e.type);
+    //console.log(e.type);
     if (e.type === "mouseenter") {
       $(this).css({
         "background-color": "",
