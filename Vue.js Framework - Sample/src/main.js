@@ -1,4 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+
+
+let app=createApp(App)
+
+app.config.errorHandler = function (err, vm, info) {
+  airbrake.notify({
+    error: err,
+    params: {info: info}
+  });
+}
+app.mount("#app");

@@ -297,7 +297,7 @@
   (d.body || d.head).appendChild(s);
 })(document);*/
 
-  /*
+ 
   function speachmobile(value) {
     var voicecek = localStorage.getItem("permismobile");
     if (voicecek != null && voicecek == "on") {
@@ -305,7 +305,7 @@
         responsiveVoice.speak(value, "Indonesian Female");
       }
     }
-  }*/
+  }
   /*(function (d) {
       var s = d.createElement("script");
       s.setAttribute("data-account", "sxcf6MvtVf");
@@ -405,6 +405,7 @@
       await playAudio(myaudionew);
     }
   }
+  /*
   async function speachmobile(value) {
     if (getOS() == "iOS") {
       setTimeout(async () => {
@@ -414,19 +415,18 @@
       hitapivoice(value);
     }
 
-    //  obj.handlePlayMusic(myaudionew);
-    /*
-          const englishAudioElement = document.createElement('audio');
-          englishAudioElement.src = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
-    
-          
-        englishAudioElement.play();
-      
-            clearInterval(interval);
-     
-      
-    */
-  }
+  
+
+
+
+
+
+
+
+
+
+
+  }*/
 
   function speach(value) {
     var voicecek = localStorage.getItem("permisvoice");

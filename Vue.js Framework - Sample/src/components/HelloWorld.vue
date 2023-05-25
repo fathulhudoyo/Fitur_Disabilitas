@@ -257,7 +257,8 @@ export default {
     const plugin1 = document.createElement("script");
     plugin1.setAttribute(
       "src",
-      "https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"
+      "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+
     );
 
     plugin1.async = true;
@@ -268,18 +269,17 @@ export default {
     const plugin2 = document.createElement("script");
     plugin2.setAttribute(
       "src",
-      "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      "https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"
     );
 
     plugin2.async = true;
     document.head.appendChild(plugin2);
 
 
-
     const plugin3 = document.createElement("script");
     plugin3.setAttribute(
       "src",
-      "http://localhost:8080/loadattdisabilitas.js"
+      "https://vue.animemusic.us/loadattdisabilitas.js"
     );
 
     plugin3.async = true;
