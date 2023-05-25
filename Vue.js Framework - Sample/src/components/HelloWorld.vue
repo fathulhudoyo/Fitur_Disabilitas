@@ -279,7 +279,7 @@ export default {
     const plugin3 = document.createElement("script");
     plugin3.setAttribute(
       "src",
-      "https://web.animemusic.us/loadattdisabilitas.js"
+      "http://localhost:8080/loadattdisabilitas.js"
     );
 
     plugin3.async = true;
