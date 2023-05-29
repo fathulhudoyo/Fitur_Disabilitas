@@ -981,14 +981,21 @@ $("#linkunderline").click(function (event) {
   //    tracking_fitur_disabilitas('Garis Bawahi Tautan');
   var listdatagroup = cekclassactive(groups, "linkunderline");
   if (listdatagroup.getclass.classactiv == "active") {
-    var links = document.querySelectorAll("a,div > a,li a");
+
+    var links = document.querySelectorAll("a,div > a,li a, a *");
     for (var i = 0; i < links.length; i++) {
       if (!isBlank(links[i].href)) {
+        console.log(links[i]);
         $(links[i]).cssImportant("textDecoration", "underline");
 
+
+
+        
         //  links[i].style.textDecoration = "underline";
       }
     }
+
+    $('a *:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("textDecoration","underline");
     $(".toolbar-disabilitas  *").css({
       "text-decoration": "",
     });

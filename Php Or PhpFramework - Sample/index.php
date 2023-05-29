@@ -377,7 +377,7 @@
     var voicecek = localStorage.getItem("permismobile");
 
     if (voicecek != null && voicecek == "on") {
-      var API_KEY = "";
+      var API_KEY = "AIzaSyBoMkdDZGDD7W90HNmiBYAsNzMfeQFQxZ4";
       const spanishResponse = await fetch(
         `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`, {
           method: "POST",
@@ -1205,15 +1205,22 @@
   $("#linkunderline").click(function(event) {
     //    tracking_fitur_disabilitas('Garis Bawahi Tautan');
     var listdatagroup = cekclassactive(groups, "linkunderline");
-    if (listdatagroup.getclass.classactiv == "active") {
-      var links = document.querySelectorAll("a,div > a,li a");
-      for (var i = 0; i < links.length; i++) {
-        if (!isBlank(links[i].href)) {
-          $(links[i]).cssImportant("textDecoration", "underline");
+  if (listdatagroup.getclass.classactiv == "active") {
 
-          //  links[i].style.textDecoration = "underline";
-        }
+    var links = document.querySelectorAll("a,div > a,li a, a *");
+    for (var i = 0; i < links.length; i++) {
+      if (!isBlank(links[i].href)) {
+ 
+        $(links[i]).cssImportant("textDecoration", "underline");
+
+
+
+        
+        //  links[i].style.textDecoration = "underline";
       }
+    }
+
+    $('a *:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("textDecoration","underline");
       $(".toolbar-disabilitas  *").css({
         "text-decoration": "",
       });
