@@ -377,7 +377,7 @@
     var voicecek = localStorage.getItem("permismobile");
 
     if (voicecek != null && voicecek == "on") {
-      var API_KEY = "AIzaSyBoMkdDZGDD7W90HNmiBYAsNzMfeQFQxZ4";
+      var API_KEY = "";
       const spanishResponse = await fetch(
         `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`, {
           method: "POST",
