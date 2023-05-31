@@ -358,21 +358,20 @@
   };*/
   var audio;
 
+
   async function pauseAudio() {
-    // If audio is not undefined and if is playing, pause it
-    if (audio && !audio.paused) {
-      audio.pause();
-      audio.currentTime = 0; // Rewind track to beginning (is you need this)
-    }
+  if (audio && !audio.paused) {
+    audio.pause();
+    audio.currentTime = 0; 
   }
+}
 
-  async function playAudio(src) {
-    pauseAudio(); // Pause any currently playing
-    audio = new Audio(); // Save a reference
-    audio.src = src;
-    audio.play();
-  }
-
+async function playAudio(src) {
+  pauseAudio(); 
+  audio = new Audio(); 
+  audio.src = src;
+  audio.play();
+}
   async function hitapivoice(valueText) {
     var voicecek = localStorage.getItem("permismobile");
 
