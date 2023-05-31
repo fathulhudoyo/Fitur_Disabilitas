@@ -185,13 +185,17 @@ async function hitapivoice(valueText) {
 }
 /*
 async function speachmobile(value) {
-  if (getOS() == "iOS") {
-    setTimeout(async () => {
-      await hitapivoice(value);
-    }, 250);
-  } else {
-    hitapivoice(value);
+  var voicecek = localStorage.getItem("permismobile");
+  if (voicecek != null && voicecek == "on") {
+    if (getOS() == "iOS") {
+      setTimeout(async () => {
+        await hitapivoice(value);
+      }, 250);
+    } else {
+      hitapivoice(value);
+    }
   }
+}
 }*/
   //  obj.handlePlayMusic(myaudionew);
   /*

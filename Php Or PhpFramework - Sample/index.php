@@ -406,6 +406,8 @@
     }
   }
   async function speachmobile(value) {
+    var voicecek = localStorage.getItem("permismobile");
+    if (voicecek != null && voicecek == "on") {
     if (getOS() == "iOS") {
       setTimeout(async () => {
         await hitapivoice(value);
@@ -413,19 +415,7 @@
     } else {
       hitapivoice(value);
     }
-
-  
-
-
-
-
-
-
-
-
-
-
-    
+  }
   }
 
   function speach(value) {
@@ -988,81 +978,80 @@
     };
   });
 
-  $("#hcontrash").click(function(event) {
-    //   tracking_fitur_disabilitas('Warna');
+  $("#hcontrash").click(function (event) {
+  //   tracking_fitur_disabilitas('Warna');
 
-    var listdatagroup = cekclassactive(groups, "hcontrash", "on");
-    if (listdatagroup.getclass.classactiv == "active") {
-      $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
-      $(
-        '*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container")'
-      ).each(function(i, item) {
-        var color = $(item).css("color");
-        $(item).cssImportant("background-color", "black");
+  var listdatagroup = cekclassactive(groups, "hcontrash", "on");
+  if (listdatagroup.getclass.classactiv == "active") {
+    $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
+    $(
+      '*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container")'
+    ).each(function (i, item) {
+      var color = $(item).css("color");
+      $(item).cssImportant("background-color", "black");
 
-        $(item).cssImportant("color", "#40C090");
-        $(item).cssImportant("background", "black");
-      });
+      $(item).cssImportant("color", "#40C090");
+      $(item).cssImportant("background", "black");
+    });
 
-      $(
-        '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
-      ).cssImportant("border-color", "white");
-      var links = document.querySelectorAll("a,div,li a strong");
-      for (var i = 0; i < links.length; i++) {
-        if (!isBlank(links[i].href)) {
-          links[i].style.color = "#00f3f7 !important";
-        }
+    $(
+      '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
+    ).cssImportant("border-color", "white");
+    var links = document.querySelectorAll("a,div,li a strong");
+    for (var i = 0; i < links.length; i++) {
+      if (!isBlank(links[i].href)) {
+        links[i].style.color = "#00f3f7 !important";
       }
-      $("h1,h2,h3,h4,h5").each(function(i, item) {
-        var color = $(item).css("color");
-        $(item).cssImportant("color", "white");
-
-        $(item).cssImportant("background-color", "black");
-        $(item).cssImportant("color", "#40C090");
-        $(item).cssImportant("background", "black");
-      });
-
-      $("* > div").each(function(i, item) {
-        var color = $(item).css("color");
-      });
-
-      $("*>button, * > p").each(function(i, item) {
-        var color = $(item).css("color");
-
-        $(item).cssImportant("background-color", "black");
-        $(item).cssImportant("color", "#40C090");
-        $(item).cssImportant("background", "black");
-      });
-
-      $("*>a").each(function(i, item) {
-        var color = $(item).css("color");
-
-        $(item).cssImportant("background-color", "black");
-        $(item).cssImportant("color", "yellow");
-        $(item).cssImportant("background", "black");
-      });
-      changecolordisabilitas(groups);
-      hoveractive();
-
-      $("#groupcekmenu > *, .bodytools path").each(function(i, item) {
-        $(item).cssImportant("color", "#00f3f7");
-      });
-    } else {
-      $("*").each(function(i, item) {
-        var color = $(item).css("color");
-        $(item).css({
-          "background-color": "",
-          background: "",
-          color: "",
-        });
-      });
-      $(
-        '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
-      ).cssImportant("border-color", "");
-      hovernoactive();
     }
-  });
+    $("h1,h2,h3,h4,h5").each(function (i, item) {
+      var color = $(item).css("color");
+      $(item).cssImportant("color", "white");
 
+      $(item).cssImportant("background-color", "black");
+      $(item).cssImportant("color", "#40C090");
+      $(item).cssImportant("background", "black");
+    });
+
+    $("* > div").each(function (i, item) {
+      var color = $(item).css("color");
+    });
+
+    $("*>button, * > p").each(function (i, item) {
+      var color = $(item).css("color");
+
+      $(item).cssImportant("background-color", "black");
+      $(item).cssImportant("color", "#40C090");
+      $(item).cssImportant("background", "black");
+    });
+
+    $("*>a").each(function (i, item) {
+      var color = $(item).css("color");
+
+      $(item).cssImportant("background-color", "black");
+      $(item).cssImportant("color", "yellow");
+      $(item).cssImportant("background", "black");
+    });
+    changecolordisabilitas(groups);
+    hoveractive();
+
+    $("#groupcekmenu > *, .bodytools path").each(function (i, item) {
+      $(item).cssImportant("color", "#00f3f7");
+    });
+  } else {
+    $("*").each(function (i, item) {
+      var color = $(item).css("color");
+      $(item).css({
+        "background-color": "",
+        background: "",
+        color: "",
+      });
+    });
+    $(
+      '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
+    ).cssImportant("border-color", "");
+    hovernoactive();
+  }
+});
   function changecolordisabilitas(groups) {
     var namedatainput = '[class="bodytools"]';
     var namedatainput2 = '[class="aksestexttools"]';
