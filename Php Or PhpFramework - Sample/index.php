@@ -335,15 +335,15 @@ justify-content: center;
     return this.nodeValue.split(/(?=\b\s)/).map(str => `<span>${str}</span>`)
   });
 
-
+ if (getOS() == "Windows" || getOS() == "Mac OS") {
 
   $(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
     var textvalue = $(this).text().toString();
     console.log(textvalue);
     speach(textvalue);
-    speachmobile(textvalue);
-  });
 
+  });
+ }
       
   /*
     var obj = {

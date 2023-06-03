@@ -83,6 +83,33 @@ if (getOS() == "Windows" || getOS() == "Mac OS") {
       //   speechSynthesis.speak(new SpeechSynthesisUtterance('Hello World'));
     }*/
 //});
+var listclass= "p,h3,h1,h2";
+jQuery(document).ready(function() {
+
+  $(listclass+':not(".contenttoolbar_disabilitas *")').each(function(i, item) {
+        var words = jQuery(this).text().split(' ');
+        jQuery(this).empty().html(function() {
+            for (i = 0; i < words.length; i++) {
+                if (i == 0) {
+                    jQuery(this).append('<span>' + words[i] + '</span>');
+                } else {
+                    jQuery(this).append(' <span>' + words[i] + '</span>');
+                }
+            }
+        });
+    });
+});
+
+
+if (getOS() == "Windows" || getOS() == "Mac OS") {
+
+$(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
+  var textvalue = $(this).text().toString();
+  console.log(textvalue);
+  speach(textvalue);
+
+});
+}
 function speachmobile(value) {
   var voicecek = localStorage.getItem("permismobile");
   if (voicecek != null && voicecek == "on") {
@@ -135,6 +162,7 @@ var obj = {
 };*/
 var audio;
 
+
 async function pauseAudio() {
   if (audio && !audio.paused) {
     audio.pause();
@@ -148,7 +176,6 @@ async function playAudio(src) {
   audio.src = src;
   audio.play();
 }
-
 async function hitapivoice(valueText) {
   var voicecek = localStorage.getItem("permismobile");
 
@@ -194,7 +221,6 @@ async function speachmobile(value) {
       hitapivoice(value);
     }
   }
-}
 }*/
   //  obj.handlePlayMusic(myaudionew);
   /*
@@ -988,7 +1014,7 @@ $("#linkunderline").click(function (event) {
     var links = document.querySelectorAll("a,div > a,li a, a *");
     for (var i = 0; i < links.length; i++) {
       if (!isBlank(links[i].href)) {
-        console.log(links[i]);
+
         $(links[i]).cssImportant("textDecoration", "underline");
 
 
