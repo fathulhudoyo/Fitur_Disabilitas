@@ -253,10 +253,10 @@
 
   .flexrowtext {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     height: 100%;
-
+justify-content: center;
     align-items: center;
     width: 100%;
   }
@@ -284,7 +284,16 @@
 <!--script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script-->
 <div class="flexrowtext">
   <div class="datatextinfo">
-    <div class="texttulisan">xxxxxxxxxxxxxx</div>
+  <div class="texttulisan">xxxxxxxxxxxxxx asdsad</div>
+ 
+  </div>
+  <div class="datatextinfo">
+
+    <div class="texttulisan">mantul</div>
+  </div>
+  <div class="datatextinfo">
+
+    <p class="texttulisan">mantul</p>
   </div>
 </div>
 <span id="loadmodaldisabilitas"></span>
@@ -317,6 +326,25 @@
   localStorage.removeItem("permismobile");
   localStorage.removeItem("permisvoice");
   var arraybase64 = [];
+
+  $("div,p")
+  .contents()
+  .filter(function() {
+    return this.nodeType === 3;
+  }).replaceWith(function() {
+    return this.nodeValue.split(/(?=\b\s)/).map(str => `<span>${str}</span>`)
+  });
+
+
+
+  $(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
+    var textvalue = $(this).text().toString();
+    console.log(textvalue);
+    speach(textvalue);
+    speachmobile(textvalue);
+  });
+
+      
   /*
     var obj = {
       handlePlayMusic: function(music) {
