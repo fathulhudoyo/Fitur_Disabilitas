@@ -3,8 +3,8 @@
 
 
 
- Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Widget Ini Anda Daoat Menghapus Script Ini
- Fungsi Script Ini Untuk Memisahkan Semua Kata, agar mudah untuk di teraokan sura
+ Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Widget Ini Anda Dapat Menghapus Script Ini
+
 
    ```js
   $("div,p")
@@ -27,7 +27,7 @@
   
 ```
 
-
+Fungsi Script Diatas Untuk Memisahkan Semua Kata Menggunakan Span, agar mudah untuk di terapkan suara
 
 ## Php / Php Framework
 
@@ -136,9 +136,10 @@ mounted() {
 
     -  Jika Di Perlukan Untuk Melakukan Pengecualian Pada style background Bisa Di Gunakan Seperti Ini Silahkan Di Sesuaikan Sesuai Dengan Style Codenya
 
-            ```js
-                $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item))
-            ```
+   
+        ```js
+        $('*:not(".btn-color-mode-switch-inner,.mycheckbox")').each(function(i, item));
+        ```
 
     -  Jika Di Perlukan Untuk Mengganti Warna Color bisa di sesuaikan sama nama classnya 
 
