@@ -3,7 +3,7 @@
 
 
 
- Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Plugin Ini Anda Daoat Menghapus Script Ini
+ Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Widget Ini Anda Daoat Menghapus Script Ini
  Fungsi Script Ini Untuk Memisahkan Semua Kata, agar mudah untuk di teraokan sura
 
    ```js
