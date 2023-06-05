@@ -1,6 +1,34 @@
 ## Documentation Fitur Di Sabilitas
 
 
+
+
+ Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Plugin Ini Anda Daoat Menghapus Script Ini
+ Fungsi Script Ini Untuk Memisahkan Semua Kata, agar mudah untuk di teraokan sura
+
+   ```js
+  $("div,p")
+  .contents()
+  .filter(function() {
+    return this.nodeType === 3;
+  }).replaceWith(function() {
+    return this.nodeValue.split(/(?=\b\s)/).map(str => `<span>${str}</span>`)
+  });
+
+ if (getOS() == "Windows" || getOS() == "Mac OS") {
+
+  $(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
+    var textvalue = $(this).text().toString();
+    console.log(textvalue);
+    speach(textvalue);
+
+  });
+ }
+
+    ```
+
+
+
 ## Php / Php Framework
 
 1. Copy Semua Source Code Yang Berada Di File Index.php Ke File Yang Ingin Anda Letakan
@@ -92,30 +120,6 @@ mounted() {
 
 
 
- Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Plugin Ini Anda Daoat Menghapus Script Ini
-
- Fungsi Script Ini Untuk Memisahkan Semua Kata, agar mudah untuk di teraokan sura
-
-   ```js
-  $("div,p")
-  .contents()
-  .filter(function() {
-    return this.nodeType === 3;
-  }).replaceWith(function() {
-    return this.nodeValue.split(/(?=\b\s)/).map(str => `<span>${str}</span>`)
-  });
-
- if (getOS() == "Windows" || getOS() == "Mac OS") {
-
-  $(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
-    var textvalue = $(this).text().toString();
-    console.log(textvalue);
-    speach(textvalue);
-
-  });
- }
-
-    ```
 
 1. Untuk Fitur Warna Bisa Di Custom 
 
