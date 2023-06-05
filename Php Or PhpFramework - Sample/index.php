@@ -1422,29 +1422,7 @@ async function playAudio(src) {
     return returndata;
   }
 
-  function getOS() {
-    var is_chrome = navigator.userAgent.indexOf("Chrome") > -1;
-    var is_safari = navigator.userAgent.indexOf("Safari") > -1;
-    var userAgent = window.navigator.userAgent,
-      platform =
-      window.navigator?.userAgentData?.platform || window.navigator.platform,
-      macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"],
-      windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"],
-      iosPlatforms = ["iPhone", "iPad", "iPod"],
-      os = null;
-    if (macosPlatforms.indexOf(platform) !== -1) {
-      os = "Mac OS";
-    } else if (iosPlatforms.indexOf(platform) !== -1) {
-      os = "iOS";
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      os = "Windows";
-    } else if (/Android/.test(userAgent)) {
-      os = "Android";
-    } else if (/Linux/.test(platform)) {
-      os = "Linux";
-    }
-    return os;
-  }
+
   $("#webspeach").click(function(event) {
     // tracking_fitur_disabilitas('Moda Suara');
     var listdatagroup = cekclassactive(groups, "webspeach");
