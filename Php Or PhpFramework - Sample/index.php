@@ -1434,6 +1434,8 @@ async function playAudio(src) {
       localStorage.setItem("permisvoice", "off");
     }
   });
+
+  
   $("#mobileapp").click(function(event) {
     //     tracking_fitur_disabilitas('Moda Suara Mobile Apps');
     var listdatagroup = cekclassactive(groups, "mobileapp");
