@@ -281,7 +281,7 @@ justify-content: center;
     }
   }
 </style>
-<!--script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script-->
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script>
 <div class="flexrowtext">
   <div class="datatextinfo">
   <div class="texttulisan">xxxxxxxxxxxxxx asdsad</div>
@@ -306,15 +306,7 @@ justify-content: center;
   (d.body || d.head).appendChild(s);
 })(document);*/
 
-  /*
-  function speachmobile(value) {
-    var voicecek = localStorage.getItem("permismobile");
-    if (voicecek != null && voicecek == "on") {
-      if (responsiveVoice.voiceSupport()) {
-        responsiveVoice.speak(value, "Indonesian Female");
-      }
-    }
-  }*/
+
   /*(function (d) {
       var s = d.createElement("script");
       s.setAttribute("data-account", "sxcf6MvtVf");
@@ -432,6 +424,18 @@ async function playAudio(src) {
       await playAudio(myaudionew);
     }
   }
+
+
+  function speachmobile(value) {
+    var voicecek = localStorage.getItem("permismobile");
+    if (voicecek != null && voicecek == "on") {
+      if (responsiveVoice.voiceSupport()) {
+        responsiveVoice.speak(value, "Indonesian Female");
+      }
+    }
+  }
+
+  /* ini untuk google cloud
   async function speachmobile(value) {
     var voicecek = localStorage.getItem("permismobile");
     if (voicecek != null && voicecek == "on") {
@@ -443,7 +447,7 @@ async function playAudio(src) {
       hitapivoice(value);
     }
   }
-  }
+  }*/
 
   function speach(value) {
     var voicecek = localStorage.getItem("permisvoice");
