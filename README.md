@@ -1,35 +1,7 @@
 ## Documentation Fitur Disabilitas
 
 
-
-
- Jika Tata Letak Pada Website Anda Berantakan Setelah Menggunkan Widget Ini Anda Dapat Menghapus Script Ini
-
-
-   ```js
-  $("div,p")
-  .contents()
-  .filter(function() {
-    return this.nodeType === 3;
-  }).replaceWith(function() {
-    return this.nodeValue.split(/(?=\b\s)/).map(str => `<span>${str}</span>`)
-  });
-
- if (getOS() == "Windows" || getOS() == "Mac OS") {
-
-  $(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
-    var textvalue = $(this).text().toString();
-    console.log(textvalue);
-    speach(textvalue);
-
-  });
- }
-  
-```
-
-Fungsi Script Diatas Untuk Memisahkan Semua Kata Menggunakan Span, agar mudah untuk di terapkan suara
-
-## Php / Php Framework
+## Php 
 
 1. Copy Semua Source Code Yang Berada Di File Index.php Ke File Yang Ingin Anda Letakan
 2. Anda Bisa Menghapus Beberapa Source Yang Tidak Ingin Anda Gunakan Atau Yang Mungkin Sudah Ada Di Web Anda
