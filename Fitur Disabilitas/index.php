@@ -256,7 +256,7 @@
     flex-direction: column;
 
     height: 100%;
-justify-content: center;
+    justify-content: center;
     align-items: center;
     width: 100%;
   }
@@ -284,8 +284,8 @@ justify-content: center;
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script>
 <div class="flexrowtext">
   <div class="datatextinfo">
-  <div class="texttulisan">xxxxxxxxxxxxxx asdsad</div>
- 
+    <div class="texttulisan">xxxxxxxxxxxxxx asdsad</div>
+
   </div>
   <div class="datatextinfo">
 
@@ -298,132 +298,9 @@ justify-content: center;
 </div>
 <span id="loadmodaldisabilitas"></span>
 <script type="text/javascript">
-  /*
-(function (d) {
-  var s = d.createElement("script");
-  s.setAttribute("data-account", "sxcf6MvtVf");
-  s.setAttribute("src", "https://cdn.userway.org/widget.js");
-  (d.body || d.head).appendChild(s);
-})(document);*/
-
-
-  /*(function (d) {
-      var s = d.createElement("script");
-      s.setAttribute("data-account", "sxcf6MvtVf");
-      s.setAttribute("src", "https://cdn.userway.org/widget.js");
-      (d.body || d.head).appendChild(s);
-    })(document);*/
-  //(function(d){var s = d.createElement("script");s.setAttribute("data-account", "sxcf6MvtVf");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)
-
   localStorage.removeItem("permismobile");
   localStorage.removeItem("permisvoice");
   var arraybase64 = [];
-
-  $("div,p")
-  .contents()
-  .filter(function() {
-    return this.nodeType === 3;
-  }).replaceWith(function() {
-    return this.nodeValue.split(/(?=\b\s)/).map(str => `<span>${str}</span>`)
-  });
-
- if (getOS() == "Windows" || getOS() == "Mac OS") {
-
-  $(document).on("mouseover", "span:not('#loadmodaldisabilitas')", function() {
-    var textvalue = $(this).text().toString();
-    console.log(textvalue);
-    speach(textvalue);
-
-  });
- }
-      
-  /*
-    var obj = {
-      handlePlayMusic: function(music) {
-        try {
-          this.audio.pause();
-          this.audio.currentTime = 0;
-        } catch (e) {
-          console.log(e);
-        }
-    
-        this.audio = new Audio(music);
-        this.audio.play()
-      },
-      handleStopMusic: function() {
-    
-        this.audio.pause()
-      }
-    };*/
-  /*
-  var obj = {
-    handlePlayMusic: async function (music) {
-      try {
-        this.audio.pause();
-        this.audio.currentTime = 0;
-        this.audio.load();
-      } catch (e) {
-        console.log(e);
-      }
-      this.audio = await new Audio(music);
-    //  this.audio.currentTime = 0;
-      //  var isPlaying =   this.audio.currentTime > 0 && !  this.audio.paused && !  this.audio.ended
-      //   &&   this.audio.readyState >   this.audio.HAVE_CURRENT_DATA;
-
-      await this.audio.play();
-    },
-    handleStopMusic: async function () {
-      await this.audio.pause();
-    },
-  };*/
-  var audio;
-
-
-  async function pauseAudio() {
-  if (audio && !audio.paused) {
-    audio.pause();
-    audio.currentTime = 0; 
-  }
-}
-
-async function playAudio(src) {
-  pauseAudio(); 
-  audio = new Audio(); 
-  audio.src = src;
-  audio.play();
-}
-  async function hitapivoice(valueText) {
-    var voicecek = localStorage.getItem("permismobile");
-
-    if (voicecek != null && voicecek == "on") {
-      var API_KEY = "";
-      const spanishResponse = await fetch(
-        `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            input: {
-              text: valueText,
-            },
-            voice: {
-              languageCode: "id-ID",
-              name: "id-ID-Wavenet-D",
-              ssmlGender: "FEMALE",
-            },
-            audioConfig: {
-              audioEncoding: "MP3",
-            },
-          }),
-        }
-      );
-
-      const spanishAudioData = await spanishResponse.json();
-      var myaudionew = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
-      await playAudio(myaudionew);
-    }
-  }
 
 
   function speachmobile(value) {
@@ -435,19 +312,7 @@ async function playAudio(src) {
     }
   }
 
-  /* ini untuk google cloud
-  async function speachmobile(value) {
-    var voicecek = localStorage.getItem("permismobile");
-    if (voicecek != null && voicecek == "on") {
-    if (getOS() == "iOS") {
-      setTimeout(async () => {
-        await hitapivoice(value);
-      }, 250);
-    } else {
-      hitapivoice(value);
-    }
-  }
-  }*/
+
 
   function speach(value) {
     var voicecek = localStorage.getItem("permisvoice");
@@ -500,11 +365,10 @@ async function playAudio(src) {
         const text = selection.toString();
         if (!isBlank(text) || text != undefined || text != "") {
           speachmobile(text);
-          //   speechSynthesis.speak(new SpeechSynthesisUtterance('Hello World'));
+
         }
       }
-      //  });
-      //window.getSelection().removeAllRanges();
+
     });
   });
 
@@ -1009,80 +873,81 @@ async function playAudio(src) {
     };
   });
 
-  $("#hcontrash").click(function (event) {
-  //   tracking_fitur_disabilitas('Warna');
+  $("#hcontrash").click(function(event) {
+    //   tracking_fitur_disabilitas('Warna');
 
-  var listdatagroup = cekclassactive(groups, "hcontrash", "on");
-  if (listdatagroup.getclass.classactiv == "active") {
-    $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
-    $(
-      '*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container")'
-    ).each(function (i, item) {
-      var color = $(item).css("color");
-      $(item).cssImportant("background-color", "black");
+    var listdatagroup = cekclassactive(groups, "hcontrash", "on");
+    if (listdatagroup.getclass.classactiv == "active") {
+      $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
+      $(
+        '*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container")'
+      ).each(function(i, item) {
+        var color = $(item).css("color");
+        $(item).cssImportant("background-color", "black");
 
-      $(item).cssImportant("color", "#40C090");
-      $(item).cssImportant("background", "black");
-    });
-
-    $(
-      '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
-    ).cssImportant("border-color", "white");
-    var links = document.querySelectorAll("a,div,li a strong");
-    for (var i = 0; i < links.length; i++) {
-      if (!isBlank(links[i].href)) {
-        links[i].style.color = "#00f3f7 !important";
-      }
-    }
-    $("h1,h2,h3,h4,h5").each(function (i, item) {
-      var color = $(item).css("color");
-      $(item).cssImportant("color", "white");
-
-      $(item).cssImportant("background-color", "black");
-      $(item).cssImportant("color", "#40C090");
-      $(item).cssImportant("background", "black");
-    });
-
-    $("* > div").each(function (i, item) {
-      var color = $(item).css("color");
-    });
-
-    $("*>button, * > p").each(function (i, item) {
-      var color = $(item).css("color");
-
-      $(item).cssImportant("background-color", "black");
-      $(item).cssImportant("color", "#40C090");
-      $(item).cssImportant("background", "black");
-    });
-
-    $("*>a").each(function (i, item) {
-      var color = $(item).css("color");
-
-      $(item).cssImportant("background-color", "black");
-      $(item).cssImportant("color", "yellow");
-      $(item).cssImportant("background", "black");
-    });
-    changecolordisabilitas(groups);
-    hoveractive();
-
-    $("#groupcekmenu > *, .bodytools path").each(function (i, item) {
-      $(item).cssImportant("color", "#00f3f7");
-    });
-  } else {
-    $("*").each(function (i, item) {
-      var color = $(item).css("color");
-      $(item).css({
-        "background-color": "",
-        background: "",
-        color: "",
+        $(item).cssImportant("color", "#40C090");
+        $(item).cssImportant("background", "black");
       });
-    });
-    $(
-      '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
-    ).cssImportant("border-color", "");
-    hovernoactive();
-  }
-});
+
+      $(
+        '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
+      ).cssImportant("border-color", "white");
+      var links = document.querySelectorAll("a,div,li a strong");
+      for (var i = 0; i < links.length; i++) {
+        if (!isBlank(links[i].href)) {
+          links[i].style.color = "#00f3f7 !important";
+        }
+      }
+      $("h1,h2,h3,h4,h5").each(function(i, item) {
+        var color = $(item).css("color");
+        $(item).cssImportant("color", "white");
+
+        $(item).cssImportant("background-color", "black");
+        $(item).cssImportant("color", "#40C090");
+        $(item).cssImportant("background", "black");
+      });
+
+      $("* > div").each(function(i, item) {
+        var color = $(item).css("color");
+      });
+
+      $("*>button, * > p").each(function(i, item) {
+        var color = $(item).css("color");
+
+        $(item).cssImportant("background-color", "black");
+        $(item).cssImportant("color", "#40C090");
+        $(item).cssImportant("background", "black");
+      });
+
+      $("*>a").each(function(i, item) {
+        var color = $(item).css("color");
+
+        $(item).cssImportant("background-color", "black");
+        $(item).cssImportant("color", "yellow");
+        $(item).cssImportant("background", "black");
+      });
+      changecolordisabilitas(groups);
+      hoveractive();
+
+      $("#groupcekmenu > *, .bodytools path").each(function(i, item) {
+        $(item).cssImportant("color", "#00f3f7");
+      });
+    } else {
+      $("*").each(function(i, item) {
+        var color = $(item).css("color");
+        $(item).css({
+          "background-color": "",
+          background: "",
+          color: "",
+        });
+      });
+      $(
+        '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
+      ).cssImportant("border-color", "");
+      hovernoactive();
+    }
+  });
+
   function changecolordisabilitas(groups) {
     var namedatainput = '[class="bodytools"]';
     var namedatainput2 = '[class="aksestexttools"]';
@@ -1225,22 +1090,22 @@ async function playAudio(src) {
   $("#linkunderline").click(function(event) {
     //    tracking_fitur_disabilitas('Garis Bawahi Tautan');
     var listdatagroup = cekclassactive(groups, "linkunderline");
-  if (listdatagroup.getclass.classactiv == "active") {
+    if (listdatagroup.getclass.classactiv == "active") {
 
-    var links = document.querySelectorAll("a,div > a,li a, a *");
-    for (var i = 0; i < links.length; i++) {
-      if (!isBlank(links[i].href)) {
- 
-        $(links[i]).cssImportant("textDecoration", "underline");
+      var links = document.querySelectorAll("a,div > a,li a, a *");
+      for (var i = 0; i < links.length; i++) {
+        if (!isBlank(links[i].href)) {
+
+          $(links[i]).cssImportant("textDecoration", "underline");
 
 
 
-        
-        //  links[i].style.textDecoration = "underline";
+
+          //  links[i].style.textDecoration = "underline";
+        }
       }
-    }
 
-    $('a *:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("textDecoration","underline");
+      $('a *:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("textDecoration", "underline");
       $(".toolbar-disabilitas  *").css({
         "text-decoration": "",
       });
@@ -1439,7 +1304,7 @@ async function playAudio(src) {
     }
   });
 
-  
+
   $("#mobileapp").click(function(event) {
     //     tracking_fitur_disabilitas('Moda Suara Mobile Apps');
     var listdatagroup = cekclassactive(groups, "mobileapp");
