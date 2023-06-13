@@ -3,7 +3,7 @@
 
 ## Php 
 
-1. Copy Semua Source Code Yang Berada Di File Index.php Ke File Yang Ingin Anda Letakan
+1. Copy Semua Source Code Yang Berada Di File filecopy.php Ke File Yang Ingin Anda Letakan
 2. Anda Bisa Menghapus Beberapa Source Yang Tidak Ingin Anda Gunakan Atau Yang Mungkin Sudah Ada Di Web Anda
 
 Contoh Source
@@ -12,7 +12,7 @@ Contoh Source
 
 // --> Ini  Optional  Jika Sudah Ada Tidak Pelu Di Gunakan
 
-<link href="https://ppid.jakarta.go.id/assets/home/ppidNew/css/bootstrap.min.css" rel="stylesheet">
+
 <script src="bootstrap.min.js"></script>
 <script src="jquery.min.js"></script>
 
