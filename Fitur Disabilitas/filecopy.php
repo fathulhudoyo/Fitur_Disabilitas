@@ -280,21 +280,7 @@
     }
   }
 </style>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=N0bzbTAK"></script>
-<div class="flexrowtext">
-  <div class="datatextinfo">
-    <div class="texttulisan">xxxxxxxxxxxxxx asdsad</div>
 
-  </div>
-  <div class="datatextinfo">
-
-    <div class="texttulisan">mantul</div>
-  </div>
-  <div class="datatextinfo">
-
-    <p class="texttulisan">mantul</p>
-  </div>
-</div>
 <span id="loadmodaldisabilitas"></span>
 <script type="text/javascript">
   localStorage.removeItem("permismobile");
