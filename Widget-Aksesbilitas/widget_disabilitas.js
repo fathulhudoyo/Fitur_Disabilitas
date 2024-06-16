@@ -1939,15 +1939,7 @@ function slider_popup_disabilitas() {
                 </div>
             
                     </div>
-                    <!--div class="row_column_creator">
-                    <div class="creator_widget">
-                   Di Buat Oleh : 
-                </div>
-              
-                    <a href="https://fathulhudoyo.info" class="column_cek_creator" target="_blank">
-                    Fathul Hudoyo
-                </a>
-                </div-->
+
                 </div>
             </div>
         </div>
