@@ -1,6 +1,6 @@
 ## Documentation Widget Aksesbilitas Version 1.0 (info.go.id)
 
-  Widget Ini Sudah Di Gunakan Du Beberapa Domain Dan Sub Domain Pemerintah. Widget Ini Di Buat Oleh [Fathul-Hudoyo](https://fathulhudoyo.info/) 
+  Widget Ini Sudah Di Gunakan Di Beberapa Domain Dan Sub Domain Pemerintah. Widget Ini Di Buat Oleh [Fathul-Hudoyo](https://fathulhudoyo.info/) 
   Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) Agar Mendapatkan Pembaharuan Otomatis
   
 ## Tampilan Gambar Widget Aksesbilitas Version 1.0 (info.go.id)
