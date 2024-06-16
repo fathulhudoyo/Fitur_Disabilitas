@@ -2835,15 +2835,6 @@ $('#widget_menu_disabilitas .box_group_disabilitas').each(function (i, item) {
         /*kursor*/
 
 
-        $("#action_kursor").removeClass("active_box_menu_disabilitas");
-        $('#action_kursor .box_icon_disabilitas .icon_svg_color').each(function (i, item) {
-            var name_class = item.classList.value;
-            if (name_class.includes("active_icon_svg_color")) {
-                item.classList = "icon_svg_color";
-            }
-        });
-        $("#action_kursor").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-     
 
 
         action_space_text_widget.length = 0;
