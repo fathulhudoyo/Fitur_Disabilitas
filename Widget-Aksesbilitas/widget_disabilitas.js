@@ -596,54 +596,11 @@ function groupfunctiondisabilitas() {
         audio.play();
     }
 
-    async function hitapivoice(valueText) {
-        // console.log(myaudionew);
-        var voicecek = localStorage.getItem("permismobile");
-
-        if (voicecek != null && voicecek == "on") {
-            /*  var myaudionew = "http://api.voicerss.org/?key=da6c6c5ebd4a44c0b1ff979f5bcec4ca&hl=id-id&c=MP3&src="+valueText;
-             console.log(myaudionew);
-             await playAudio(myaudionew);*/
-
-            var API_KEY = "AIzaSyAmaeR5ziYDZPNM-Eg6HJVLEeFnK8YF3Cs";
-            const spanishResponse = await fetch(
-                `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        input: {
-                            text: valueText,
-                        },
-                        voice: {
-                            languageCode: "id-ID",
-                            name: "id-ID-Wavenet-D",
-                            ssmlGender: "FEMALE",
-                        },
-                        audioConfig: {
-                            audioEncoding: "MP3",
-                        },
-                    }),
-                }
-            );
-
-            const spanishAudioData = await spanishResponse.json();
-            var myaudionew = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
-            await playAudio(myaudionew);
-        }
-    }
-
-    async function speachmobile(value) {
+    function speachmobile(value) {
         var voicecek = localStorage.getItem("permismobile");
         if (voicecek != null && voicecek == "on") {
-            if (getOS() == "iOS") {
-                setTimeout(async () => {
-                    await hitapivoice(value);
-                }, 250);
-            } else {
-                hitapivoice(value);
+            if (responsiveVoice.voiceSupport()) {
+                responsiveVoice.speak(value, "Indonesian Female");
             }
         }
     }
