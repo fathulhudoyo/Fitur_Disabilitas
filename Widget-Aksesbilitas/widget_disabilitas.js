@@ -1111,13 +1111,14 @@ function cek_fungsi_jquery() {
             jquery_cek_all();
             setTimeout(() => {
 
-                clearInterval(interval_cek_element);
+
                 //  $(window).load(function () {
                 hit_api_tracking(base_url_website, 'no_data');
                 //  });
                 load_html_dsb();
                 cek_local_function();
-            }, 900);
+                clearInterval(interval_cek_element);
+            }, 1000);
         }
     }
 }
@@ -1556,7 +1557,7 @@ function slider_popup_disabilitas() {
                                     <line class="icon_svg_sroke_color" x1="21.5" x2="21.5" y1="10.455" y2="13.545" />
                                 </svg>
                             </div>
-                           <div class="box_text_bottom_disabilitas">`+my_website_jkt+`
+                           <div class="box_text_bottom_disabilitas">`+ my_website_jkt + `
                             </div>
                             <div class="box_column_action_strip">
 
@@ -1979,7 +1980,7 @@ function slider_popup_disabilitas() {
 </div>`;
     $('#slider_dsb_element').html(slider_popup);
 
-    
+
     $("#list_strip_loading_perbesar_text").hide();
     $("#list_strip_loading_perkecil_text").hide();
     $("#list_strip_loading_action_kontras").hide();
@@ -1992,9 +1993,9 @@ function slider_popup_disabilitas() {
 
 
 
-$('#widget_menu_disabilitas .box_group_disabilitas').each(function (i, item) {
-    $(item).cssImportant("line-height", "20px");
-});
+    $('#widget_menu_disabilitas .box_group_disabilitas').each(function (i, item) {
+        $(item).cssImportant("line-height", "20px");
+    });
 
 
     // var groups_widget_dsb = Array.from(document.querySelectorAll("#widget_menu_disabilitas"));
@@ -2154,6 +2155,15 @@ $('#widget_menu_disabilitas .box_group_disabilitas').each(function (i, item) {
             action_warna_kode_2("noaktif");
             action_warna_kode_3("noaktif");
             action_warna_kode_4("noaktif");
+
+            $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+                var my_style = $(item)[0]['style']['0'];
+                if (my_style == undefined || my_style == null || my_style == "") {
+                    $(item).removeAttr("style");
+                }
+
+            });
+
             localStorage.removeItem('action_kontras');
             if (cek_action_sound_search.length > 0) {
                 setTimeout(() => {
@@ -2963,7 +2973,11 @@ $('#widget_menu_disabilitas .box_group_disabilitas').each(function (i, item) {
         $("#svg_block_decoration_link").hide();
         action_perataan_text_1_2("rata1", "noaktif");
         action_perataan_text_1_2("rata2", "noaktif");
-
+        $('* a').each(function (i, item) {
+            $(item).cssImportant("background", "");
+            $(item).cssImportant("color", "");
+            $(item).cssImportant("background-color", "");
+        });
 
 
 
@@ -3101,12 +3115,12 @@ function callfunction(value) {
 function speachmobile(value) {
     var voicecek = localStorage.getItem("permismobile");
     if (voicecek != null && voicecek == "on") {
-      if (responsiveVoice.voiceSupport()) {
-        responsiveVoice.speak(value, "Indonesian Female");
-      }
+        if (responsiveVoice.voiceSupport()) {
+            responsiveVoice.speak(value, "Indonesian Female");
+        }
     }
-  }
-  
+}
+
 
 function speach(value) {
     var voicecek = localStorage.getItem("permisvoice");
@@ -3127,11 +3141,11 @@ function speach(value) {
 
 let r = setInterval(() => {
     if (!speechSynthesis.speaking) {
-      clearInterval(r);
+        clearInterval(r);
     } else {
-      speechSynthesis.resume();
+        speechSynthesis.resume();
     }
-  }, 14000);
+}, 14000);
 
 
 async function pauseAudio() {
@@ -3295,7 +3309,7 @@ function action_perataan_text_1_2(value, action) {
         if (action == "aktif") {
 
 
-            var links = document.querySelectorAll("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *");
+            var links = document.querySelectorAll("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5");
             for (var i = 0; i < links.length; i++) {
                 if (!isBlank(links[i].href)) {
 
@@ -3344,16 +3358,13 @@ function action_perataan_text_1_2(value, action) {
         if (action == "aktif") {
 
 
-            var links = document.querySelectorAll("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *");
+            var links = document.querySelectorAll("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5");
             for (var i = 0; i < links.length; i++) {
                 if (!isBlank(links[i].href)) {
 
-
                     var attr_cek = $(links[i]).attr('style');
                     if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
-
                         $(links[i]).addClass("underline_link_2");
-
                     } else {
                         $(links[i]).addClass("underline_tanda_code");//ini tanda
                         $(links[i]).cssImportant("text-decoration", "underline");
@@ -3361,7 +3372,7 @@ function action_perataan_text_1_2(value, action) {
                         $(links[i]).cssImportant("background", "black");
                         $(links[i]).cssImportant("color", "yellow");
                         $(links[i]).cssImportant("text-decoration-color", "yellow");
-
+                        $(links[i]).cssImportant("color", "yellow");
                     }
 
 
@@ -3606,7 +3617,7 @@ function action_warna_kode_2(value) {
 
 
     } else {
-        $("*").each(function (i, item) {
+        $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
             if ($(item).hasClass('kontras_2_tanda_code')) {
                 $(item).css({
                     "background-color": "",
@@ -3618,11 +3629,27 @@ function action_warna_kode_2(value) {
             }
             $(item).removeClass("kontras_2_bg_black_yellow kontras_2_bg_black_green kontras_2_bg_href");
         });
+
+
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+            $(item).css({
+
+                "opacity": ""
+            });
+        });
+
         $('*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("border-color", "");
         $("* > svg *").each(function (i, item) {
             $(item).css({
                 "color": "",
             });
+        });
+
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+            var my_style = $(item)[0]['style']['0'];
+            if (my_style == undefined || my_style == null || my_style == "") {
+                $(item).removeAttr("style");
+            }
         });
     }
 }
@@ -3660,7 +3687,7 @@ function action_warna_kode_3(value) {
         });
 
         $(".close_layout_banner_background").css("opacity", "1");
-        
+
         $(
             '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.columncopyright,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *")'
         ).cssImportant("border-color", "white");
@@ -3683,7 +3710,7 @@ function action_warna_kode_3(value) {
 
 
     } else {
-        $("*").each(function (i, item) {
+        $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
             if ($(item).hasClass('kontras_3_tanda_code')) {
                 $(item).css({
                     "background-color": "",
@@ -3693,8 +3720,14 @@ function action_warna_kode_3(value) {
                 });
 
                 $(item).removeClass("kontras_3_tanda_code");
-            } else {
-                $(item).removeClass("kontras_3_bg_black_yellow");
+            }
+            $(item).removeClass("kontras_3_bg_black_yellow");
+        });
+
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+            var my_style = $(item)[0]['style']['0'];
+            if (my_style == undefined || my_style == null || my_style == "") {
+                $(item).removeAttr("style");
             }
         });
 
@@ -3702,6 +3735,12 @@ function action_warna_kode_3(value) {
         $("* > svg *").each(function (i, item) {
             $(item).css({
                 "color": "",
+            });
+        });
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+            $(item).css({
+
+                "opacity": ""
             });
         });
     }
@@ -3761,7 +3800,7 @@ function action_warna_kode_4(value) {
 
 
     } else {
-        $("*").each(function (i, item) {
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
             if ($(item).hasClass('kontras_4_tanda_code')) {
                 $(item).css({
                     "background-color": "",
@@ -3775,6 +3814,9 @@ function action_warna_kode_4(value) {
             $(item).removeClass("kontras_4_bg_black_white");
 
         });
+
+
+
         $('*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("border-color", "");
         $(
             `* > svg *:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
@@ -3798,6 +3840,21 @@ function action_warna_kode_4(value) {
                 "background": "",
             });
         });
+
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+            $(item).css({
+
+                "opacity": ""
+            });
+        });
+
+        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
+            var my_style = $(item)[0]['style']['0'];
+            if (my_style == undefined || my_style == null || my_style == "") {
+                $(item).removeAttr("style");
+            }
+        });
+
     }
 
 }
@@ -4178,7 +4235,7 @@ function action_kontras_2() {
 function action_kontras_3() {
     action_warna_kode_1("noaktif");
     action_warna_kode_2("noaktif");
-  
+
     action_warna_kode_3("aktif");
 
     $("#list_strip_loading_action_kontras").show();
@@ -4519,7 +4576,6 @@ function handleError(evt) {
     }
 }
 window.addEventListener("error", handleError, true);
-
 
 
 

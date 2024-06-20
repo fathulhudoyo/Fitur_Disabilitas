@@ -39,7 +39,7 @@
   <script src="widget_disabilitas.js"></script>
   <div class="flexrowtext">
     <div class="datatextinfo">
-      <div class="texttulisan">xxxxxxxxxxxxxx</div>
+      <div class="texttulisan" style="color:red;">xxxxxxxxxxxxxx</div>
     </div>
     <div class="datatextinfo">
       <div class="texttulisan">mantul</div>
