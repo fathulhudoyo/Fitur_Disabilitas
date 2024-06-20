@@ -3356,29 +3356,45 @@ function action_perataan_text_1_2(value, action) {
         }
     } else if (value == "rata2") {
         if (action == "aktif") {
+            $("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5").each(function (ix, itemx) {
+                $(itemx).each(function (i, item) {
 
-
-            var links = document.querySelectorAll("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5");
-            for (var i = 0; i < links.length; i++) {
-                if (!isBlank(links[i].href)) {
-
-                    var attr_cek = $(links[i]).attr('style');
+                    var attr_cek = $(item).attr('style');
                     if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
-                        $(links[i]).addClass("underline_link_2");
+                        $(item).addClass("underline_link_2");
                     } else {
-                        $(links[i]).addClass("underline_tanda_code");//ini tanda
-                        $(links[i]).cssImportant("text-decoration", "underline");
-                        $(links[i]).cssImportant("background-color", "black");
-                        $(links[i]).cssImportant("background", "black");
-                        $(links[i]).cssImportant("color", "yellow");
-                        $(links[i]).cssImportant("text-decoration-color", "yellow");
-                        $(links[i]).cssImportant("color", "yellow");
+                        $(item).addClass("underline_tanda_code");//ini tanda
+                        $(item).cssImportant("text-decoration", "underline");
+                        $(item).cssImportant("background-color", "black");
+                        $(item).cssImportant("background", "black");
+                        $(item).cssImportant("color", "yellow");
+                        $(item).cssImportant("text-decoration-color", "yellow");
+                        $(item).cssImportant("color", "yellow");
                     }
-
-
-                }
-            }
-
+                })
+            });
+            /*
+                        var links = document.querySelectorAll("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5");
+                        for (var i = 0; i < links.length; i++) {
+                            if (!isBlank(links[i].href)) {
+            
+                                var attr_cek = $(links[i]).attr('style');
+                                if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
+                                    $(links[i]).addClass("underline_link_2");
+                                } else {
+                                    $(links[i]).addClass("underline_tanda_code");//ini tanda
+                                    $(links[i]).cssImportant("text-decoration", "underline");
+                                    $(links[i]).cssImportant("background-color", "black");
+                                    $(links[i]).cssImportant("background", "black");
+                                    $(links[i]).cssImportant("color", "yellow");
+                                    $(links[i]).cssImportant("text-decoration-color", "yellow");
+                                    $(links[i]).cssImportant("color", "yellow");
+                                }
+            
+            
+                            }
+                        }
+            */
 
 
         } else {
@@ -3401,9 +3417,40 @@ function action_perataan_text_1_2(value, action) {
                     }
                     $(item).removeClass("underline_tanda_code underline_link_2");
                 }
-                $(item).removeClass("underline_link_2 ");
+                $(item).removeClass("underline_link_2");
 
             });
+
+
+            $("a,div > a,li a, a *,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5").each(function (ix, itemx) {
+                $(itemx).each(function (i, item) {
+                    if (action_contrash_widget.length == 2 || action_contrash_widget.length == 3) {
+                        $(item).css({
+                            "text-decoration-color": "",
+                            "text-decoration": ""
+                        });
+                    } else {
+                        $(item).css({
+                            "text-decoration-color": "",
+                            "background-color": "",
+                            "background": "",
+                            "text-decoration": "",
+                            "color": "",
+                            "text-decoration-color": ""
+                        });
+                    }
+                    var my_style = $(item)[0]['style']['0'];
+                    if (my_style == undefined || my_style == null || my_style == "") {
+                        $(item).removeAttr("style");
+                    }
+
+
+                    $(item).removeClass("underline_link_2");
+                    $(item).removeClass("underline_tanda_code underline_link_2");
+                })
+            });
+
+
 
         }
 
@@ -3501,6 +3548,7 @@ function load_active_kontras() {
 function action_warna_kode_2(value) {
 
     if (value == "aktif") {
+
         $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
         $(
             `*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
@@ -3587,19 +3635,52 @@ function action_warna_kode_2(value) {
         });
 
 
+        /*
+                $("* > a").each(function (i, item) {
+                    var cek_style = $(item).attr('style');
+                    if (typeof cek_style !== 'undefined' && cek_style !== false) {
+        
+                        $(item).addClass("kontras_2_bg_black_yellow");
+                    } else {
+                        $(item).addClass("kontras_2_tanda_code");
+                        $(item).cssImportant("background-color", "black");
+                        $(item).cssImportant("color", "yellow");
+                        $(item).cssImportant("background", "black");
+                    }
+                });*/
 
-        $("* > a").each(function (i, item) {
-            var cek_style = $(item).attr('style');
-            if (typeof cek_style !== 'undefined' && cek_style !== false) {
 
-                $(item).addClass("kontras_2_bg_black_yellow");
-            } else {
+        $("a,li a, a *,li > a,div > a,a > h1, a > h2, a > h3, a > h4, a > h5,a > *,a h1, a h2, a h3, a h4, a h5").each(function (ix, itemx) {
+            $(itemx).each(function (i, item) {
+
                 $(item).addClass("kontras_2_tanda_code");
                 $(item).cssImportant("background-color", "black");
                 $(item).cssImportant("color", "yellow");
                 $(item).cssImportant("background", "black");
-            }
+                /*
+                var attr_cek = $(item).attr('style');
+                if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
+                    $(item).addClass("kontras_2_bg_black_yellow");
+                } else {
+                    $(item).addClass("kontras_2_tanda_code");
+                    $(item).cssImportant("background-color", "black");
+                    $(item).cssImportant("color", "yellow");
+                    $(item).cssImportant("background", "black");
+                }*/
+            })
         });
+        /*
+                $("*[class]").each(function (ix, itemx) {
+                    $(itemx).each(function (i, item) {
+                 
+                     console.log(item);
+                    })
+                });
+        */
+
+
+
+
 
         if (action_garis_bawahi_tautan_widget.length > 0) {
             if (action_garis_bawahi_tautan_widget.length == 1) {
