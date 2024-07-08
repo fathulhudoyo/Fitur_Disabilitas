@@ -3,10 +3,11 @@
   Widget Ini Sudah Di Gunakan Di Beberapa Domain Dan Sub Domain Pemerintah.
 
   Personal Web [Fathul-Hudoyo](https://fathulhudoyo.info/).
-  
+
   Web Streaming Msc [Anime Msc](https://animemusic.us/).
 
-  Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) Agar Mendapatkan Pembaharuan Otomatis
+  Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) 
+  Agar Mendapatkan Pembaharuan Otomatis
   
 ## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
 
