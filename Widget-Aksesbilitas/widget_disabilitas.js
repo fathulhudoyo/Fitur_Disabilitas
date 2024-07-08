@@ -1496,12 +1496,6 @@ script_jqueryx.type = 'text/javascript';
 document.body.appendChild(script_jqueryx);
 
 
-var script_google_anal = document.createElement('script');
-script_google_anal.src = 'https://www.googletagmanager.com/gtag/js?id=UA-96355266-1';
-script_google_anal.type = 'text/javascript';
-document.body.appendChild(script_google_anal);
-
-
 var script_google_anal_v2 = document.createElement('script');
 script_google_anal_v2.src = 'https://www.googletagmanager.com/gtag/js?id=G-SJLG49CX7N';
 script_google_anal_v2.type = 'text/javascript';
