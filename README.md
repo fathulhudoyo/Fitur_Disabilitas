@@ -1,15 +1,12 @@
-## Documentation Source Code Widget Aksesbilitas Version 2.1 (info.go.id)
+## Documentation Source Code Widget Aksesbilitas Version 2.0 (info.go.id)
 
   Widget Ini Sudah Di Gunakan Di Beberapa Domain Dan Sub Domain Pemerintah.
 
-  Personal Web [Fathul-Hudoyo](https://fathulhudoyo.info/).
+  Widget Ini Di Buat Oleh [Fathul-Hudoyo](https://fathulhudoyo.info/).
 
-  Web Streaming Msc [Anime Msc](https://animemusic.us/).
-
-  Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) 
-  Agar Mendapatkan Pembaharuan Otomatis
+  Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) Agar Mendapatkan Pembaharuan Otomatis
   
-## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
+## Tampilan Gambar Widget Aksesbilitas Version 2.0 (info.go.id)
 
 <p align="center">
  <img width="45%" height="250" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.0/ScreenShot%20Widget/SS1.jpg" alt="widget_ss1">&emsp;&emsp;
