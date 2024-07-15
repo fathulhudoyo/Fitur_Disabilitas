@@ -1248,12 +1248,12 @@ fill: white;
 }
 
 
-.tooltip_data_move_mouse {
+.tooltip_data_move_mouse_new {
   display: flex;
   visibility: hidden;
   position: absolute;
   flex-direction: column;
-  z-index: 999999999999999;
+  z-index: 999999999999999999999999999;
   text-align: center !important;
   font-weight: bold;
 
@@ -1373,6 +1373,7 @@ text-align:left;
 
   .content_aksesbilitas_utama {
     width: 100vw;
+    height:  calc(`+ pageHeight_website + `px + 20vh);
     /* transition: transform 0.3s ease-in-out;*/
   }
 
@@ -1404,7 +1405,7 @@ text-align:left;
   .group_box_content_disabilitas {
 
     width: 100vw;
-    height: 90vh;
+    height:  calc(`+ pageHeight_website + `px + 10vh);
 
   }
 
@@ -1490,10 +1491,18 @@ if (!(typeof jQuery === 'function')) {
     document.body.appendChild(script_jquery);
 }
 
+
+
 var script_jqueryx = document.createElement('script');
 script_jqueryx.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
 script_jqueryx.type = 'text/javascript';
 document.body.appendChild(script_jqueryx);
+
+
+var script_google_anal = document.createElement('script');
+script_google_anal.src = 'https://www.googletagmanager.com/gtag/js?id=UA-96355266-1';
+script_google_anal.type = 'text/javascript';
+document.body.appendChild(script_google_anal);
 
 
 var script_google_anal_v2 = document.createElement('script');
@@ -1520,9 +1529,7 @@ document.body.appendChild(create_div_element);
 
 
 if (base_url_website == "ppid.slemankab.go.id") {
-
     var main_class_wrap = document.getElementById("wrapper");
-
     main_class_wrap.classList.add("main_web_ppid_jogja");
 }
 
@@ -1551,7 +1558,18 @@ document.body.appendChild(create_slider_mouse_masked_line);
 
 var interval_cek_element = 0;
 
-interval_cek_element = setInterval(cek_fungsi_jquery, 100);
+
+if (document.readyState == "complete") {
+    setTimeout(() => {
+        interval_cek_element = setInterval(cek_fungsi_jquery, 100);
+    }, 200);
+} else {
+    window.addEventListener("load", function () {
+        setTimeout(() => {
+            interval_cek_element = setInterval(cek_fungsi_jquery, 100);
+        }, 200);
+    }, false);
+}
 
 function cek_fungsi_jquery() {
     var get_id_dsb = document.getElementById("new_load_disabilitas");
@@ -1562,8 +1580,11 @@ function cek_fungsi_jquery() {
     } else {
         var find_id_dsb = document.body.contains(get_id_dsb);
         if (find_id_dsb) {
+
             jquery_cek_all();
+
             setTimeout(() => {
+
 
                 clearInterval(interval_cek_element);
                 cek_local_function();
@@ -1572,6 +1593,7 @@ function cek_fungsi_jquery() {
 
 
                 load_html_dsb();
+
             }, 1200);
         }
     }
@@ -2186,6 +2208,15 @@ if ((new RegExp('\\b' + except_url.join('\\b|\\b') + '\\b')).test(base_url_websi
 } else {
     my_website_jkt = "Moda Suara";
 }
+
+var filter_hight_jquery_v3 = "";
+var except_url_jquery_v3 = ["slemankab.go.id"];
+if ((new RegExp('\\b' + except_url.join('\\b|\\b') + '\\b')).test(base_url_website)) {
+    filter_hight_jquery_v3 = "* ,*:before, *:after";
+} else {
+    filter_hight_jquery_v3 = "*";
+}
+
 
 function slider_popup_disabilitas() {
 
@@ -2936,7 +2967,7 @@ fill="#000000" stroke="none">
     $('#slider_dsb_element').html(slider_popup);
 
 
-    var mouse_move_data = `<div class="tooltip_data_move_mouse" id="move_tooltip_data"></div>`;
+    var mouse_move_data = `<div class="tooltip_data_move_mouse_new" id="move_tooltip_data"></div>`;
     $('#slider_mouse_over').html(mouse_move_data);
 
 
@@ -3454,8 +3485,8 @@ fill="#000000" stroke="none">
 
             clearInterval(interval_animate_widget);
             jQuery.fx.off = false;
-
-            $('*,*:before, *:after').each(function (i, item) {
+            //tanda
+            $(filter_hight_jquery_v3).each(function (i, item) {
                 $(item).cssImportant("animation-duration", "");
                 $(item).cssImportant("transform", "");
                 $(item).cssImportant("transition", "");
@@ -3790,7 +3821,7 @@ fill="#000000" stroke="none">
             localStorage.removeItem("tooltip_active");
             setTimeout(async () => {
 
-                $('.tooltip_data_move_mouse').css({
+                $('.tooltip_data_move_mouse_new').css({
                     "left": "",
                     "top": ""
                 });
@@ -4064,8 +4095,8 @@ fill="#000000" stroke="none">
         $("#svg_animasi_pause").show();
         clearInterval(interval_animate_widget);
         jQuery.fx.off = false;
-
-        $('*,*:before, *:after').each(function (i, item) {
+        //tanda ,*:before, *:after
+        $(filter_hight_jquery_v3).each(function (i, item) {
             $(item).cssImportant("animation-duration", "");
             $(item).cssImportant("transform", "");
             $(item).cssImportant("transition", "");
@@ -4206,7 +4237,7 @@ fill="#000000" stroke="none">
                 item.classList = "icon_svg_color";
             }
         });
-        $('.tooltip_data_move_mouse').css({
+        $('.tooltip_data_move_mouse_new').css({
             "left": "",
             "top": ""
         });
@@ -4524,10 +4555,10 @@ fill="#000000" stroke="none">
 
     $(".reset_pengaturan_all_dsb").on("hover", function (e) {
         if (e.type == "mouseenter") {
-            console.log("over");
+            //console.log("over");
         }
         else if (e.type == "mouseleave") {
-            console.log("out");
+            //  console.log("out");
         }
     });
 }
@@ -6522,7 +6553,8 @@ function text_besar_4() {
 
 function cek_animate_new_widget() {
     jQuery.fx.off = true;
-    $('*,*:before, *:after').each(function (i, item) {
+    //tanda ,*:before, *:after
+    $(filter_hight_jquery_v3).each(function (i, item) {
         $(item).cssImportant("animation-duration", "0s");
         $(item).cssImportant("transition", "none");
         $(item).cssImportant("animation", "none");
@@ -6554,7 +6586,7 @@ function website_track(e) {
     if (cek_action_tooltip_widget != null || cek_action_widget_profil != null) {
         if (cek_action_tooltip_widget == 1 || cek_action_widget_profil == 1 || cek_action_widget_profil == 5 || cek_action_widget_profil == 6) {
             $("#move_tooltip_data").css('display', 'flex');
-            $('.tooltip_data_move_mouse').css({
+            $('.tooltip_data_move_mouse_new').css({
                 "left": e.pageX + 20,
                 "top": e.pageY - 20,
             });
@@ -6570,6 +6602,7 @@ function website_track(e) {
                     if (right_char.length >= 3 && right_char.length < 125) {
                         if (right_char != "" && right_char != null && right_char != undefined) {
                             $("#move_tooltip_data").css('visibility', 'visible');
+
                             $("#move_tooltip_data").text(right_char);
                         } else {
                             $("#move_tooltip_data").css('visibility', 'hidden');
@@ -6577,6 +6610,8 @@ function website_track(e) {
                         }
                     } else if (my_text_v2 != "" && my_text_v2 != null && my_text_v2 != undefined) {
                         $("#move_tooltip_data").css('visibility', 'visible');
+
+
                         $("#move_tooltip_data").text(my_text_v2);
                     } else {
                         $("#move_tooltip_data").css('visibility', 'hidden');
