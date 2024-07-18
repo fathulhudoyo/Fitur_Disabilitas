@@ -8,7 +8,45 @@
 
   Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) 
   Agar Mendapatkan Pembaharuan Otomatis
+
+## Daftar Instansi Pemerintah Yang Sudah Pernah Menggunakan Widget Version 2 Ini
+
+  - [info.go.id](https://info.go.id). 
+
+  - [www.jakarta.go.id](https://www.jakarta.go.id).
   
+  - [slemankab.go.id](https://slemankab.go.id).
+  
+  - [ppid.bnpt.go.id](https://ppid.bnpt.go.id).
+
+  - [ppid.jakarta.go.id](https://ppid.jakarta.go.id).
+
+  - [ppid.jabarprov.go.id](https://ppid.jabarprov.go.id).
+  
+  - [ppid.slemankab.go.id](https://ppid.slemankab.go.id).
+  
+  - [bkd.jabarprov.go.id](https://bkd.jabarprov.go.id).
+
+  - [info-dev.layanan.go.id](https://info-dev.layanan.go.id).
+  
+  - [jayapura.info.go.id](https://jayapura.info.go.id).
+  
+  - [kpu.info.go.id](https://kpu.info.go.id).
+
+  - [lombokbarat.info.go.id](https://lombokbarat.info.go.id).
+
+  - [dcktrp.jakarta.go.id](https://dcktrp.jakarta.go.id).
+  
+  - [ppid-dinkes.jakarta.go.id](https://ppid-dinkes.jakarta.go.id).
+  
+  - [km-bpsdm.jakarta.go.id](https://km-bpsdm.jakarta.go.id).
+  
+  - [bpsdm.jakarta.go.id](https://bpsdm.jakarta.go.id).
+
+ 
+
+
+
 ## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
 
 <p align="center">
