@@ -7,7 +7,7 @@
   Web Streaming Msc [Anime Msc](https://animemusic.us/).
 
   Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) 
-  Agar Mendapatkan Pembaharuan Otomatis
+  Agar Mendapatkan Pembaharuan Otomatis Dan Jika Ada Error Bisa Saya Resolve Langsung Estimasi Paling Lama 4 - 9 Hari
 
 ## Daftar Beberapa Instansi Pemerintah Yang Sudah Pernah Menggunakan Widget Version 2 Ini 
 
