@@ -9,7 +9,7 @@
   Di Sarankan Menggunakan Url [Widget-Aksesbilitas](https://web.animemusic.us/widget_disabilitas.js) ( https://web.animemusic.us/widget_disabilitas.js ) 
   Agar Mendapatkan Pembaharuan Otomatis
 
-## Daftar Instansi Pemerintah Yang Sudah Pernah Menggunakan Widget Version 2 Ini
+## Daftar Beberapa Instansi Pemerintah Yang Sudah Pernah Menggunakan Widget Version 2 Ini 
 
   - [info.go.id](https://info.go.id). 
 
@@ -42,8 +42,10 @@
   - [km-bpsdm.jakarta.go.id](https://km-bpsdm.jakarta.go.id).
   
   - [bpsdm.jakarta.go.id](https://bpsdm.jakarta.go.id).
-
- 
+  
+  - [kominfo.slemankab.go.id](https://kominfo.slemankab.go.id).
+  
+  - [bengkuluutara.info.go.id](https://bengkuluutara.info.go.id).
 
 
 
