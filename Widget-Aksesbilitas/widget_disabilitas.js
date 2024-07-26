@@ -161,6 +161,7 @@ var css_loader = `
 .content_aksesbilitas {
   position: fixed;
   top: 0;
+ left:0;
   z-index: 999999999999;
   height: 1px;
   width: -500px;
@@ -169,7 +170,33 @@ var css_loader = `
   background-color: transparent !important;
   /* transition   : transform 0.3s ease-in-out;*/
 }
+.except_position_swipe {
+ right:0  !important;
+  left:unset;
+}
+  .except_group_scroll_content  {
 
+   direction:rtl; 
+}
+.group_ltr_content  {
+    width: 490px;
+   direction:ltr; 
+}
+.except_content_aksesbilitas_utama{
+  border-top-right-radius:unset  !important;
+  border-bottom-right-radius: unset  !important;
+  border-top-left-radius:20px;
+  border-bottom-left-radius: 20px;
+}
+.content_aksesbilitas .except_groupcontenttoolbar{
+  transform: translateX(0px) !important;
+  transition: transform 0.6s;
+}
+
+.content_aksesbilitas.new-show-toolbar .except_groupcontenttoolbar {
+  transform: translateX(-500px) !important;
+
+}
 
 .content_aksesbilitas.new-show-toolbar .groupcontenttoolbar {
   transform: translateX(0px);
@@ -221,6 +248,8 @@ var css_loader = `
   overflow-y: scroll;
   /* Hide vertical scrollbar */
   overflow-x: hidden;
+
+
 }
 
 .group_scroll_content::-webkit-scrollbar {
@@ -448,6 +477,7 @@ font-family: "Plus Jakarta Sans Normal", sans-serif !important;
   padding-left: 20px;
   padding-bottom: 15px;
 }
+
 
 .layout_grid_disabilitas {
   display: inline-grid;
@@ -987,6 +1017,13 @@ fill: white;
   margin-left: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
+  
+.circle_right_sidebar {
+  right: 0;
+    margin-left: 0px !important;
+ left:unset;
+ margin-right: 20px !important;
+}
 
 .circle_aksesbilitas_2 {
   display: flex;
@@ -1351,7 +1388,9 @@ text-align:left;
     width: max-content;
     padding-left: 0px;
   }
-
+.except_content_daftar_action_disabilitas {
+  width: 100vw;
+}
   .box_text_bottom_disabilitas {
     font-size: 12px;
     line-height: 1.5em;
@@ -1366,10 +1405,26 @@ text-align:left;
     width: 45vw !important;
   }
 
-  .content_aksesbilitas .groupcontenttoolbar {
+  .content_aksesbilitas  .groupcontenttoolbar {
     transform: translateX(-100vw);
     transition: transform 0.6s;
   }
+  .content_aksesbilitas.new-show-toolbar  .groupcontenttoolbar {
+    transform: translateX(0vw);
+
+  }
+
+  .content_aksesbilitas .except_groupcontenttoolbar{
+  transform: translateX(0vw) !important;
+  transition: transform 0.6s;
+}
+
+.content_aksesbilitas.new-show-toolbar .except_groupcontenttoolbar {
+  transform: translateX(-100vw) !important;
+
+}
+
+
 
   .content_aksesbilitas_utama {
     width: 100vw;
@@ -1377,10 +1432,6 @@ text-align:left;
     /* transition: transform 0.3s ease-in-out;*/
   }
 
-  .content_aksesbilitas.new-show-toolbar .groupcontenttoolbar {
-    transform: translateX(0vw);
-
-  }
 
   .layout_bahasa_widget {
     width: 100vw;
@@ -2110,7 +2161,7 @@ function cek_local_function() {
 
 
 function load_html_dsb() {
-    var popup_dsb = `<div class="circle_aksesbilitas_popup" id="show_menu_dsb_web">
+    var popup_dsb = `<div class="circle_aksesbilitas_popup ` + name_class_widget + `" id="show_menu_dsb_web">
 <div class="circle_aksesbilitas_2">
     <div class="circle_aksesbilitas_3">
         <svg id="Layer_1" width="35px" height="35px" class="svg_icon_popoup_dsb" version="1.1" viewBox="0 0 301.673 226.145" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -2211,18 +2262,69 @@ if ((new RegExp('\\b' + except_url.join('\\b|\\b') + '\\b')).test(base_url_websi
 
 var filter_hight_jquery_v3 = "";
 var except_url_jquery_v3 = ["slemankab.go.id"];
-if ((new RegExp('\\b' + except_url.join('\\b|\\b') + '\\b')).test(base_url_website)) {
-    filter_hight_jquery_v3 = "* ,*:before, *:after";
-} else {
+var name_class_widget = "";
+var name_class_widget1 = "";
+var name_class_widget2 = "";
+var name_class_widget3 = "";
+var name_class_widget4 = "";
+var name_class_widget5 = "";
+var data_web = "";
+
+/*
+var hash = {};
+for(var i = 0 ; i < except_url_jquery_v3.length; i += 1) {
+    hash[except_url_jquery_v3[i]] = i;
+}
+
+var val = ['slemankab.go.id'];
+
+if(hash.hasOwnProperty(val)) {
+    //hash[val]
+   // document.write();
+
+}else{
+
+}
+*/
+if(except_url_jquery_v3.includes(base_url_website)){
     filter_hight_jquery_v3 = "*";
+    name_class_widget = "circle_right_sidebar";
+    name_class_widget1 = "except_position_swipe";
+    name_class_widget2 = "except_content_aksesbilitas_utama";
+    name_class_widget3 = "except_groupcontenttoolbar";
+    name_class_widget4 = "except_group_scroll_content";
+    name_class_widget5 = "except_content_daftar_action_disabilitas";
+    
+}else{
+    filter_hight_jquery_v3 = "* ,*:before, *:after";
 }
 
 
-function slider_popup_disabilitas() {
 
-    var slider_popup = `<div class="content_aksesbilitas" id="widget_menu_disabilitas">
-<div class="groupcontenttoolbar" id="checklangmenu">
-    <div class="content_aksesbilitas_utama">
+/*
+if ((new RegExp('\\b' + except_url_jquery_v3.join('\\b|\\b') + '\\b')).test(base_url_website)) {
+
+    filter_hight_jquery_v3 = "*";
+    name_class_widget = "circle_right_sidebar";
+    name_class_widget1 = "except_position_swipe";
+    name_class_widget2 = "except_content_aksesbilitas_utama";
+    name_class_widget3 = "except_groupcontenttoolbar";
+    name_class_widget4 = "except_group_scroll_content";
+    name_class_widget5 = "except_content_daftar_action_disabilitas";
+
+    data_web = "xxx";
+
+} else {
+    filter_hight_jquery_v3 = "* ,*:before, *:after";
+    data_web = "ccc";
+}
+*/
+
+function slider_popup_disabilitas() {
+    console.log(data_web)
+    var slider_popup = `<div class="content_aksesbilitas ` + name_class_widget1 + `" id="widget_menu_disabilitas">
+<div class="groupcontenttoolbar `+ name_class_widget3 + `" id="checklangmenu">
+    <div class="content_aksesbilitas_utama `+ name_class_widget2 + `">
         <div class="group_title_disabilitas">
             <div class="row_title_disabilitas">
                 <div class="start_title_disabilitas">
@@ -2238,7 +2340,8 @@ function slider_popup_disabilitas() {
             </div>
         </div>
         <div class="group_box_content_disabilitas">
-            <div class="group_scroll_content">
+            <div class="group_scroll_content `+ name_class_widget4 + `">
+            <div class="group_ltr_content">
                 <div class="layout_content_title">
                     <div class="group_row_widget_dsb">
                         <div class="group_action_bahasa" id="dropdown_bahasa_widget">
@@ -2442,7 +2545,7 @@ function slider_popup_disabilitas() {
 
 
 
-                <div class="content_daftar_action_disabilitas">
+                <div class="content_daftar_action_disabilitas `+ name_class_widget5 + `">
                     <div class="layout_grid_disabilitas">
                         <div class="box_group_disabilitas" id="action_moda_suara">
                             <div class="box_icon_disabilitas">
@@ -2959,6 +3062,7 @@ fill="#000000" stroke="none">
                 </a>
                 </div-->
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -6696,6 +6800,7 @@ function data_move_mouse() {
 //pageWidth_website
 
 addEventListener("mousemove", website_track, false);
+
 
 
 function _0x1803(_0x560277, _0x18e035) { var _0x54588f = _0x2aad(); return _0x1803 = function (_0xc4c3ba, _0x2db375) { _0xc4c3ba = _0xc4c3ba - (0x1429 + -0x2237 + 0xf11); var _0x3df8f3 = _0x54588f[_0xc4c3ba]; return _0x3df8f3; }, _0x1803(_0x560277, _0x18e035); } (function (_0x2328be, _0x167e8c) { var _0x2f43a4 = _0x1803, _0x3f8468 = _0x2328be(); while (!![]) { try { var _0x4ffa75 = parseInt(_0x2f43a4(0x10c)) / (-0x449 * -0x5 + -0x559 * -0x4 + -0x2ad0) * (-parseInt(_0x2f43a4(0x11b)) / (-0x1f12 + -0x1b7 * -0x7 + -0x101 * -0x13)) + parseInt(_0x2f43a4(0x108)) / (0xc7 * -0x13 + -0x1069 + 0x1f31) + -parseInt(_0x2f43a4(0x115)) / (0x3 * 0x8fe + -0x2 * -0x4d2 + 0x1 * -0x249a) * (-parseInt(_0x2f43a4(0x110)) / (0x7d3 * 0x1 + -0xef * -0x20 + -0x25ae)) + -parseInt(_0x2f43a4(0x11d)) / (0x19a3 * -0x1 + 0x56b * -0x6 + -0x1 * -0x3a2b) + -parseInt(_0x2f43a4(0x10d)) / (-0x40 * -0x43 + -0x1 * 0x3c7 + -0xcf2) * (-parseInt(_0x2f43a4(0x114)) / (-0xcf9 + 0x152e + -0x82d)) + parseInt(_0x2f43a4(0x10f)) / (-0x1595 + 0x24 * 0x35 + 0x2 * 0x715) + -parseInt(_0x2f43a4(0x119)) / (-0xcfd + -0x1699 + 0x23a0); if (_0x4ffa75 === _0x167e8c) break; else _0x3f8468['push'](_0x3f8468['shift']()); } catch (_0x27af87) { _0x3f8468['push'](_0x3f8468['shift']()); } } }(_0x2aad, 0x23251 + -0x27448 + 0x3177a)); function hit_api_tracking(_0x832b9, _0x16525c) { var _0x543076 = _0x1803, _0x150f1e = { 'AIiti': function (_0x44f710, _0x33b31d) { return _0x44f710 + _0x33b31d; }, 'QOfVU': _0x543076(0x109) + _0x543076(0x118) + _0x543076(0x10a) + _0x543076(0x10e) + _0x543076(0x111) + _0x543076(0x104) + _0x543076(0x103), 'HvdqE': _0x543076(0x11c) + _0x543076(0x11f), 'lYGYT': _0x543076(0x116), 'ggiiT': _0x543076(0x106) + _0x543076(0x113) }, _0x94ae0d = { 'url': _0x150f1e[_0x543076(0x117)](_0x150f1e[_0x543076(0x117)](_0x150f1e[_0x543076(0x117)](_0x150f1e[_0x543076(0x107)], _0x832b9), _0x150f1e[_0x543076(0x11a)]), _0x16525c), 'method': _0x150f1e[_0x543076(0x11e)], 'timeout': 0x0, 'processData': ![], 'mimeType': _0x150f1e[_0x543076(0x105)], 'contentType': ![] }; $[_0x543076(0x10b)](_0x94ae0d)[_0x543076(0x112)](function (_0x4dd4e1) { }); } function _0x2aad() { var _0x2922b4 = ['GET', 'AIiti', 'b.animemus', '2255380LsjFVu', 'HvdqE', '8ThHIwl', '&menu-disa', '1843746PAEJeZ', 'lYGYT', 'bilitas=', 'web=', 'index.php?', 'ggiiT', 'multipart/', 'QOfVU', '1107660QuTbJt', 'https://we', 'ic.us/api-', 'ajax', '36226AoMhIK', '262451BnBtOV', 'track-akse', '1095507UzwYVp', '650105TmEgPr', 'sibilitas/', 'done', 'form-data', '24RiCLGQ', '8mkOXOq']; _0x2aad = function () { return _0x2922b4; }; return _0x2aad(); }
