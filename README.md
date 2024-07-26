@@ -64,10 +64,10 @@
 ## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
 
 <p align="center">
- <img width="90%" height="250" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.0/ScreenShot%20Widget/SS1.jpg" alt="widget_ss1">&emsp;&emsp;
+ <img width="90%" height="425" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.0/ScreenShot%20Widget/SS1.jpg" alt="widget_ss1">&emsp;&emsp;
 
 </p> <br>
 <p align="center">
 
-  <img width="90%" height="250" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.0/ScreenShot%20Widget/SS4.jpg" alt="widget_ss4">
+  <img width="90%" height="425" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.0/ScreenShot%20Widget/SS4.jpg" alt="widget_ss4">
 </p>
