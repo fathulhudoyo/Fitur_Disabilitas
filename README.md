@@ -47,6 +47,8 @@
   
   - [bengkuluutara.info.go.id](https://bengkuluutara.info.go.id).
 
+  - [bpbumd.jakarta.go.id](https://bpbumd.jakarta.go.id).
+
 
 
 ## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
