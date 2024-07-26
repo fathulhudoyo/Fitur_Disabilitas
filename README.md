@@ -49,6 +49,15 @@
 
   - [bpbumd.jakarta.go.id](https://bpbumd.jakarta.go.id).
 
+## Contoh Pemasangan Widget
+
+
+```html
+<body>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=bzbTAKXD"></script>
+<script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"></script>
+
+```
 
 
 ## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
