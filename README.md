@@ -54,7 +54,8 @@
 
 ```html
 <body>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=bzbTAKXD"></script>
+  <!-- Notes Menyesuaikan Dengan Code Anda Yang Di Dapat Dari Web responsivevoice -->
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=bzbTAKXD"></script> 
 <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"></script>
 
 ```
