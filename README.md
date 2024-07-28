@@ -10,7 +10,9 @@
   Agar Mendapatkan Pembaharuan Otomatis Dan Jika Ada Error Bisa Saya Resolve Langsung Estimasi Paling Lama 4 - 9 Hari
 
 ## Contoh Pemasangan Widget
-Untuk Source Code Dapat Di Download Di Link [github.com/fathulhudoyo](https://github.com/fathulhudoyo/Fitur_Disabilitas) atau di Untuk Source Code Dapat Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/widget-aksesbilitas)
+Untuk Source Code Dapat Di Download Di Link [github.com/fathulhudoyo](https://github.com/fathulhudoyo/Fitur_Disabilitas) atau 
+
+Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/widget-aksesbilitas)
   
 ## Contoh Pemasangan Widget
 
