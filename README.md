@@ -44,14 +44,14 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
   - [slemankab.go.id](https://slemankab.go.id).
   
   - [ppid.bnpt.go.id](https://ppid.bnpt.go.id).
-
-  - [ppid.lombokbaratkab.go.id](https://ppid.lombokbaratkab.go.id).
   
   - [ppid.jakarta.go.id](https://ppid.jakarta.go.id).
 
   - [ppid.jabarprov.go.id](https://ppid.jabarprov.go.id).
   
   - [ppid.slemankab.go.id](https://ppid.slemankab.go.id).
+  
+  - [ppid.lombokbaratkab.go.id](https://ppid.lombokbaratkab.go.id).
   
   - [bkd.jabarprov.go.id](https://bkd.jabarprov.go.id).
 
