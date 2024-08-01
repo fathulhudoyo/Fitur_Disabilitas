@@ -45,6 +45,8 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
   
   - [ppid.bnpt.go.id](https://ppid.bnpt.go.id).
 
+  - [ppid.lombokbaratkab.go.id](https://ppid.lombokbaratkab.go.id).
+  
   - [ppid.jakarta.go.id](https://ppid.jakarta.go.id).
 
   - [ppid.jabarprov.go.id](https://ppid.jabarprov.go.id).
@@ -60,6 +62,12 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
   - [kpu.info.go.id](https://kpu.info.go.id).
 
   - [lombokbarat.info.go.id](https://lombokbarat.info.go.id).
+
+  - [dasangeres.lombokbaratkab.go.id](https://dasangeres.lombokbaratkab.go.id).
+
+  - [gerungselatan.lombokbaratkab.go.id](https://gerungselatan.lombokbaratkab.go.id).
+  
+  - [sidemele.lombokbaratkab.go.id](https://sidemele.lombokbaratkab.go.id).
 
   - [dcktrp.jakarta.go.id](https://dcktrp.jakarta.go.id).
   
