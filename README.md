@@ -54,6 +54,8 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
   - [ppid.lombokbaratkab.go.id](https://ppid.lombokbaratkab.go.id).
   
   - [bkd.jabarprov.go.id](https://bkd.jabarprov.go.id).
+  
+  - [jdih.bnpt.go.id](https://jdih.bnpt.go.id).
 
   - [info-dev.layanan.go.id](https://info-dev.layanan.go.id).
   
@@ -82,4 +84,5 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
   - [bengkuluutara.info.go.id](https://bengkuluutara.info.go.id).
 
   - [bpbumd.jakarta.go.id](https://bpbumd.jakarta.go.id).
+  
 
