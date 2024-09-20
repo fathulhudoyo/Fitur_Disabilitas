@@ -16,6 +16,11 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
   
 ## Contoh Pemasangan Widget
 
+  <!-- Matikan semua pengaturan yang ada di responsive voice seperti gambar di bawah ini -->
+<p align="center">
+ <img width="90%" height="450" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS5.jpg" alt="widget_ss1">&emsp;&emsp;
+</p> <br>
+
 
 ```html
 <body>
