@@ -21,7 +21,7 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
 ```
 
 <p align="center">
- <img width="90%" height="375" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS6.jpg" alt="widget_ss5">&emsp;&emsp;
+ <img width="90%" height="250" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS6.jpg" alt="widget_ss5">&emsp;&emsp;
 </p> <br>
 
 
