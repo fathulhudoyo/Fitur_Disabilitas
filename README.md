@@ -16,9 +16,7 @@ Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/w
 
 
 ## Catatan Error
-```html
-  <!-- Jika Ada salah satu fungsi dari widget ini tidak berfungsi mohon untuk di inpect element jika error seperti di gambar di bawah ini  -->
-```
+Jika Ada salah satu fungsi dari widget ini tidak berfungsi mohon untuk di inpect element jika error seperti di gambar di bawah ini
 
 <p align="center">
  <img width="90%" height="250" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS6.jpg" alt="widget_ss5">&emsp;&emsp;
