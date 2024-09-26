@@ -13,7 +13,27 @@
 Untuk Source Code Dapat Di Download Di Link [github.com/fathulhudoyo](https://github.com/fathulhudoyo/Fitur_Disabilitas) atau 
 
 Bisa Di Download Di Link [Git Kominfo](https://git2.layanan.go.id/fathulhudoyo/widget-aksesbilitas)
-  
+
+
+## Catatan Error
+```html
+  <!-- Jika Ada salah satu fungsi dari widget ini tidak berfungsi mohon untuk di inpect element jika error seperti di gambar di bawah ini  -->
+```
+
+<p align="center">
+ <img width="90%" height="375" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS6.jpg" alt="widget_ss5">&emsp;&emsp;
+</p> <br>
+
+
+Silahkan Di Allow Terlebih Dahulu Dari Sisi Server Seperti Di Bawah Ini
+
+```html
+<!-- 
+add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-eval'  *.githubusercontent.com *.responsivevoice.org  *.googleapis.com *.animemusic.us script-src 'self'";
+ -->
+ 
+```
+
 ## Contoh Pemasangan Widget
 ```html
   <!-- Matikan semua pengaturan yang ada di responsive voice seperti gambar di bawah ini -->
