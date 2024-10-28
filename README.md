@@ -1,4 +1,4 @@
-## Documentation Source Code Widget Aksesbilitas Version 2.1 (info.go.id)
+## Documentation Source Code Widget Aksesbilitas Version 2.1.2 (info.go.id)
 
   Widget Ini Sudah Di Gunakan Di Beberapa Domain Dan Sub Domain Pemerintah.
 
@@ -33,13 +33,13 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
 ```
 
 ## Contoh Pemasangan Widget
+
 ```html
   <!-- Matikan semua pengaturan yang ada di responsive voice seperti gambar di bawah ini -->
 ```
 <p align="center">
- <img width="90%" height="375" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS5.jpg" alt="widget_ss5">&emsp;&emsp;
+ <img width="90%" height="375" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.1/ScreenShot%20Widget/SS5.jpg" alt="widget_ss5">&emsp;&emsp;
 </p> <br>
-
 
 ```html
 <body>
@@ -50,10 +50,18 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
 ```
 
 
-## Tampilan Gambar Widget Aksesbilitas Version 2.1 (info.go.id)
+## Catatan Tambahan Jika Ingin Menggunakan Google Cloud Voice
+
+```js
+//tambahkan variable di bawah ini
+var api_key_google_cloud = "apikey";
+//tambahkan sebelum script di samping kanan <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"></script>
+```
+
+## Tampilan Gambar Widget Aksesbilitas Version 2.1.2 (info.go.id)
 
 <p align="center">
- <img width="90%" height="450" src="https://github.com/fathulhudoyo/Fitur_Disabilitas/blob/2.1/ScreenShot%20Widget/SS1.jpg" alt="widget_ss1">&emsp;&emsp;
+ <img width="90%" height="450" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.1/ScreenShot%20Widget/SS7.jpg" alt="widget_ss1">&emsp;&emsp;
 
 </p> <br>
 
@@ -62,6 +70,8 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
 ## Daftar Beberapa Instansi Pemerintah Yang Sudah Pernah Menggunakan Widget Version 2 Ini 
 
   - [info.go.id](https://info.go.id). 
+
+  - [lapor.go.id](https://lapor.go.id). 
 
   - [www.jakarta.go.id](https://www.jakarta.go.id).
   
