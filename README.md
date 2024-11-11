@@ -32,7 +32,9 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
  
 ```
 
-## Contoh Pemasangan Widget
+
+
+## Contoh Pemasangan Widget Menggunakan Responsive Voice
 
 ```html
   <!-- Matikan semua pengaturan yang ada di responsive voice seperti gambar di bawah ini -->
@@ -41,12 +43,24 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
  <img width="90%" height="375" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.1/ScreenShot%20Widget/SS5.jpg" alt="widget_ss5">&emsp;&emsp;
 </p> <br>
 
+
+
+# Cara 1
+
+
 ```html
 <body>
   <!-- Notes Menyesuaikan Dengan Code Anda Yang Di Dapat Dari Web responsivevoice -->
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=bzbTAKXD"></script> 
 <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"></script>
+```
 
+# Atau Bisa Menggunakan Cara 2
+```html
+<body>
+  <!-- Atau Bisa Seperti Di Bawah Ini -->
+<script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+<!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 ```
 
 
@@ -56,15 +70,16 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
 //tambahkan variable di bawah ini
 var api_key_google_cloud = "apikey";
 //tambahkan sebelum script di samping kanan <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"></script>
+// 
+
+
 ```
+# Atau Bisa Cara Seperti Di Bawah Ini Untuk Menggunakan Google Cloud Voice
+```html
 
-## Tampilan Gambar Widget Aksesbilitas Version 2.1.2 (info.go.id)
+<script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-google="apikey"></script>
 
-<p align="center">
- <img width="90%" height="450" src="https://raw.githubusercontent.com/fathulhudoyo/Fitur_Disabilitas/2.1/ScreenShot%20Widget/SS7.jpg" alt="widget_ss1">&emsp;&emsp;
-
-</p> <br>
-
+```
 
 
 ## Daftar Beberapa Instansi Pemerintah Yang Sudah Pernah Menggunakan Widget Version 2 Ini 
