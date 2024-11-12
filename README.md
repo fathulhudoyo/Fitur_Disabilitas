@@ -45,7 +45,7 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
 
 
 
-# Cara 1
+## Cara 1
 
 
 ```html
@@ -55,7 +55,7 @@ add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-ev
 <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"></script>
 ```
 
-# Atau Bisa Menggunakan Cara 2
+## Atau Bisa Menggunakan Cara 2
 ```html
 <body>
   <!-- Atau Bisa Seperti Di Bawah Ini -->
@@ -74,7 +74,7 @@ var api_key_google_cloud = "apikey";
 
 
 ```
-# Atau Bisa Cara Seperti Di Bawah Ini Untuk Menggunakan Google Cloud Voice
+## Atau Bisa Cara Seperti Di Bawah Ini Untuk Menggunakan Google Cloud Voice
 ```html
 
 <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-google="apikey"></script>
