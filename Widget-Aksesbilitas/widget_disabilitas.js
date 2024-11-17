@@ -5303,7 +5303,7 @@ async function speachmobile(value) {
             if (responsiveVoice.voiceSupport()) {
                 responsiveVoice.speak(value, "Indonesian Female");
             }
-        } else if (api_key_google != undefined) {
+        } else if (api_key_google != undefined && api_key_google != null && api_key_google != "") {
             const spanishResponse = await fetch(
                 `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`,
                 {
