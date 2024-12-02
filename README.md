@@ -12,7 +12,7 @@
 ## Download Source Code
 Untuk Source Code Dapat Di Download Di Link [github.com/fathulhudoyo](https://github.com/fathulhudoyo/Fitur_Disabilitas) atau 
 
-Bisa Di Download Di Link [Git Komdigi](https://git2.layanan.go.id/fathulhudoyo/widget-aksesbilitas)
+Bisa Di Download Di Link [Git KEMKOMDIGI](https://git2.layanan.go.id/fathulhudoyo/widget-aksesbilitas)
 
 
 ## Catatan Error
