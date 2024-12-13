@@ -1,5 +1,5 @@
 
-console.log('xxxxxxxxxxxx');
+
 var cek_attr_google = [document.currentScript.getAttribute('api-key-google')];
 var cek_attr_resvoice = [document.currentScript.getAttribute('api-key-resvoice')];
 //var api_key_google_cloud = "";
@@ -2467,7 +2467,7 @@ function load_html_dsb() {
             var stickyToolbarContainer = document.querySelector(
                 ".content_aksesbilitas"
             );
-            console.log('tester');
+         
             console.log(stickyToolbarContainer);
             stickyToolbarContainer.classList.toggle("new-show-toolbar");
             $('#show_menu_dsb_web').css('display', 'none');
@@ -3649,7 +3649,7 @@ fill="#000000" stroke="none">
 
 
     $("#dropdown_setting_widget").click(function (event) {
-        console.log('woyy')
+   
         event.preventDefault();
         var get_attr = $("#dropdown_setting_widget").attr('aria-expanded');
 
