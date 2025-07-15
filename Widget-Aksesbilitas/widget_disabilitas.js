@@ -1,44 +1,64 @@
-
-
-var cek_attr_google = [document.currentScript.getAttribute('api-key-google')];
-var cek_attr_resvoice = [document.currentScript.getAttribute('api-key-resvoice')];
+var cek_attr_google = [document.currentScript.getAttribute("api-key-google")];
+var cek_attr_resvoice = [
+	document.currentScript.getAttribute("api-key-resvoice"),
+];
 //var api_key_google_cloud = "";
 
-
 var api_key_google = "";
-if (typeof (api_key_google_cloud) !== "undefined") {
-    api_key_google = api_key_google_cloud;
+if (typeof api_key_google_cloud !== "undefined") {
+	api_key_google = api_key_google_cloud;
 }
-
-
 
 if (cek_attr_google.length > 0) {
-    api_key_google = cek_attr_google[0];
+	api_key_google = cek_attr_google[0];
 }
 
-var base_url_website = window.location.origin.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
+var base_url_website = window.location.origin
+	.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
+	.split("/")[0];
 var path_javascript = new URL(location.href).pathname;
 
 var body_website = document.body,
-    html_website = document.documentElement;
+	html_website = document.documentElement;
 
-var pageHeight_website = Math.max(body_website.scrollHeight, body_website.offsetHeight,
-    html_website.clientHeight, html_website.scrollHeight, html_website.offsetHeight);
+var pageHeight_website = Math.max(
+	body_website.scrollHeight,
+	body_website.offsetHeight,
+	html_website.clientHeight,
+	html_website.scrollHeight,
+	html_website.offsetHeight
+);
 
 var bg_color_icon = "";
 
-var conditional = ["ppid-vnew.animemusic.us", "lapor.spbe.sangkuriang.co.id", "lapor.go.id", "latihan.lapor.go.id", "wapresmendengar.lapor.go.id", "lapormaswapres.lapor.go.id"];
+var conditional = [
+	"ppid-vnew.animemusic.us",
+	"lapor.spbe.sangkuriang.co.id",
+	"lapor.go.id",
+	"latihan.lapor.go.id",
+	"wapresmendengar.lapor.go.id",
+	"lapormaswapres.lapor.go.id",
+];
 if (conditional.includes(base_url_website)) {
-    bg_color_icon = "#d0021b";
+	bg_color_icon = "#d0021b";
 } else {
-    bg_color_icon = "rgb(0, 72, 255)";
+	bg_color_icon = "rgb(0, 72, 255)";
 }
 
+var css_loader =
+	`
+    .hideflag {
+       display:none;
+       position: absolute;
+       z-index: 99;
+    }
 
-var css_loader = `
   #widget_menu_disabilitas svg{
 width:unset !important;
 height: unset !important;
+}
+.jarak_padding_top{
+padding-top:25px !important;
 }
 .jarak_kanan_radio {
 	display       : flex;
@@ -46,14 +66,14 @@ height: unset !important;
 	align-items   : flex-end;
 	width         : max-content;
 }
-#widget_menu_disabilitas input {
- min-height:unset;
-}
+
 .radio_widget_dsb {
     display: flex !important;
     flex-direction  : column !important;
 	background-color  : transparent !important;
-	border            : .0625em solid `+ bg_color_icon + ` !important;
+	border            : .0625em solid ` +
+	bg_color_icon +
+	` !important;
 	border-radius     : 50% !important;
 	box-shadow        : inset 0 0 0 0 white;
 	cursor            : pointer;
@@ -69,7 +89,9 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
     display: flex !important;
     flex-direction  : column !important;
     background-image:unset !important;
-	background-color  : `+ bg_color_icon + ` !important;
+	background-color  : ` +
+	bg_color_icon +
+	` !important;
 	box-shadow        : inset 0 0 0 .2375em white !important;
 	-webkit-transition: background .15s, box-shadow .1s;
 	transition        : background .15s, box-shadow .1s;
@@ -79,7 +101,9 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 .group_move_widget {
 	display         : flex;
 	flex-direction  : column;
-	border          : 2px solid `+ bg_color_icon + `;
+	border          : 2px solid ` +
+	bg_color_icon +
+	`;
 	background-color: white;
 	margin-left     : 15px;
 	margin-right    : 15px;
@@ -100,6 +124,7 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 	cursor       : pointer;
 	margin-bottom: 10px;
 	width        : 100%;
+    position: relative;
 }
 
 .jarak_radio {
@@ -115,7 +140,26 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 	align-items        : flex-start !important;
 	text-align         : left;
 }
-
+.jarak_radio2 {
+margin-left: 5px;
+    color: black;
+    font-size: 12px;
+    color: black;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    width: 100%;
+    align-items: flex-start !important;
+    text-align: left;
+    height: 20px;
+    position: absolute;
+    z-index: 999;
+    background-color: transparent;
+}
+.font_size_bhs{
+font-size          : 14px !important;
+}
 .box_content_settings {
 	width          : 25px;
 	height         : 25px;
@@ -350,7 +394,9 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 	top                       : 0;
 	z-index                   : 999999999999;
 	position                  : fixed;
-	background-color          : `+ bg_color_icon + `;
+	background-color          : ` +
+	bg_color_icon +
+	`;
 	width                     : 500px;
 	height                    : 100vh;
 	border-top-right-radius   : 20px;
@@ -392,7 +438,9 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 .group_scroll_content::-webkit-scrollbar-track {
 
 
-	box-shadow           : inset 0 0 6px `+ bg_color_icon + `;
+	box-shadow           : inset 0 0 6px ` +
+	bg_color_icon +
+	`;
 	border-radius        : 8px;
 	-webkit-border-radius: 8px;
 
@@ -400,12 +448,18 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 }
 
 .group_scroll_content::-webkit-scrollbar-thumb {
-	background-color     : `+ bg_color_icon + `;
+	background-color     : ` +
+	bg_color_icon +
+	`;
 	outline              : 1px solid slategrey;
 	-webkit-border-radius: 8px;
 	border-radius        : 8px;
-	background           : `+ bg_color_icon + `;
-	-webkit-box-shadow   : inset 0 0 6px `+ bg_color_icon + `;
+	background           : ` +
+	bg_color_icon +
+	`;
+	-webkit-box-shadow   : inset 0 0 6px ` +
+	bg_color_icon +
+	`;
 
 
 }
@@ -490,15 +544,17 @@ height  : 28px;
 }
 
 .box_content_disabilitas {
-	width           : 25px;
-	height          : 25px;
+	width           : 30px;
+	height          : 30px;
 	display         : flex;
 	text-align      : center;
 	flex-direction  : column;
 	align-items     : center;
 	justify-content : center;
-	border-radius   : 25px;
-	background-color: `+ bg_color_icon + `;
+	border-radius   : 30px;
+	background-color: ` +
+	bg_color_icon +
+	`;
 	cursor          : pointer;
 	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
 }
@@ -586,19 +642,24 @@ height  : 28px;
 	font-optical-sizing: auto;
 	font-weight        : 600;
 	font-style         : normal;
-
+margin-top: 5px;
 }
 
 .box_button_switch {
 	display       : flex;
 	flex-direction: column;
-	align-items   : flex-end;
+    justify-content: center;
 	font-weight   : bolder;
-	color         : red;
+	color         : black;
 	font-family   : "Plus Jakarta Sans Normal", sans-serif !important;
 	font-size     : 12px;
 	margin-left   : 10px;
 }
+
+.group_action_bahasa[aria-expanded=true] .box_button_switch {
+    transform: rotate(90deg);
+}
+
 
 .content_daftar_action_disabilitas {
 	display       : flex;
@@ -635,7 +696,9 @@ height  : 28px;
 	border-radius: 15px;
 	width        : 150px;
 	height       : 125px;
-	border       : 2px solid `+ bg_color_icon + `;
+	border       : 2px solid ` +
+	bg_color_icon +
+	`;
 	cursor       : pointer;
 	box-shadow   : 0 0 5px rgba(0, 0, 0, 0.4);
 }
@@ -682,7 +745,9 @@ height  : 28px;
 	height          : 5px;
 	margin-right    : 5px;
 	border-radius   : 5px;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 }
 
 .strip_loading_unprocess_v2 {
@@ -693,7 +758,9 @@ height  : 28px;
 	opacity         : 0.5;
 	margin-right    : 5px;
 	border-radius   : 5px;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 }
 
 .strip_loading_process_v3 {
@@ -703,7 +770,9 @@ height  : 28px;
 	height          : 5px;
 	margin-right    : 5px;
 	border-radius   : 5px;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 }
 
 .strip_loading_unprocess_v3 {
@@ -714,7 +783,9 @@ height  : 28px;
 	opacity         : 0.5;
 	margin-right    : 5px;
 	border-radius   : 5px;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 }
 
 .strip_loading_process_v4 {
@@ -724,7 +795,9 @@ height  : 28px;
 	height          : 5px;
 	margin-right    : 5px;
 	border-radius   : 5px;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 }
 
 .strip_loading_unprocess_v4 {
@@ -735,7 +808,9 @@ height  : 28px;
 	opacity         : 0.5;
 	margin-right    : 5px;
 	border-radius   : 5px;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 }
 
 .icon_svg_color {
@@ -776,7 +851,9 @@ height  : 28px;
 
 .icon_contrast_white {
 	fill           : white;
-	stroke         : `+ bg_color_icon + `;
+	stroke         : ` +
+	bg_color_icon +
+	`;
 	stroke-linejoin: round;
 	stroke-width   : 32px
 }
@@ -784,8 +861,12 @@ height  : 28px;
 .icon_contrast_black {
 	/*   fill: black;
                 stroke: none;*/
-	fill  : `+ bg_color_icon + `;
-	stroke: `+ bg_color_icon + `;
+	fill  : ` +
+	bg_color_icon +
+	`;
+	stroke: ` +
+	bg_color_icon +
+	`;
 
 }
 
@@ -800,11 +881,15 @@ height  : 28px;
 }
 
 .active_icon_fill_svg_color_black {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .icon_fill_svg_color_black {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 
@@ -813,49 +898,75 @@ height  : 28px;
 }
 
 .box_group_disabilitas:hover .icon_svg_grey_scale_color_2 {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .icon_svg_grey_scale_color_3 {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .icon_svg_grey_scale_color_4 {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .icon_svg_color {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .icon_svg_sroke_color {
-	fill  : `+ bg_color_icon + `;
-	stroke: `+ bg_color_icon + `;
+	fill  : ` +
+	bg_color_icon +
+	`;
+	stroke: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .box_text_bottom_disabilitas {
-	color: `+ bg_color_icon + `;
+	color: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .icon_contrast {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_box_menu_disabilitas {
-	border: 2px solid `+ bg_color_icon + `;
+	border: 2px solid ` +
+	bg_color_icon +
+	`;
 }
 
 .active_icon_svg_sroke_color {
-	fill  : `+ bg_color_icon + `;
-	stroke: `+ bg_color_icon + `;
+	fill  : ` +
+	bg_color_icon +
+	`;
+	stroke: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_box_text_bottom_disabilitas {
-	color: `+ bg_color_icon + `;
+	color: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_icon_svg_color {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 
@@ -864,15 +975,21 @@ height  : 28px;
 }
 
 .active_icon_svg_grey_scale_color_2 {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_icon_svg_grey_scale_color_3 {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_icon_svg_grey_scale_color_4 {
-	fill: `+ bg_color_icon + `;
+	fill: ` +
+	bg_color_icon +
+	`;
 }
 
 
@@ -895,19 +1012,27 @@ height  : 28px;
 }
 
 .box_group_disabilitas:hover .circle_multi {
-	stroke: `+ bg_color_icon + `;
+	stroke: ` +
+	bg_color_icon +
+	`;
 }
 
 .box_group_disabilitas:hover .circle_single {
-	stroke: `+ bg_color_icon + `;
+	stroke: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_circle_single {
-	stroke: `+ bg_color_icon + `;
+	stroke: ` +
+	bg_color_icon +
+	`;
 }
 
 .active_circle_multi {
-	stroke: `+ bg_color_icon + `;
+	stroke: ` +
+	bg_color_icon +
+	`;
 }
 
 .group_row_widget_dsb {
@@ -920,7 +1045,7 @@ height  : 28px;
 	flex-direction: column;
 	height        : max-height;
 	width         : 500px;
-
+	padding-bottom : 25px !important;
 }
 
 .layout_settings_widget {
@@ -931,7 +1056,14 @@ height  : 28px;
 	margin-bottom : 2vh;
     align-items : center;
 }
-
+.layout_bahasa_lang_widget {
+	display       : flex;
+	flex-direction: column;
+	height        : max-height;
+    width:100%;
+	margin-bottom : 2vh;
+    align-items : center;
+}
 .box_profile_aksesbilitas {
 	display         : flex;
 	flex-direction  : row;
@@ -957,11 +1089,15 @@ height  : 28px;
 }
 
 .active_box_profile_aksesbilitas {
-	background-color: `+ bg_color_icon + `
+	background-color: ` +
+	bg_color_icon +
+	`
 }
 
 .box_profile_aksesbilitas:hover {
-	background-color: `+ bg_color_icon + `
+	background-color: ` +
+	bg_color_icon +
+	`
 }
 
 .box_profile_aksesbilitas:hover .text_list_content_profile_disabilitas {
@@ -1007,11 +1143,13 @@ height  : 28px;
 	display       : none;
 	flex-direction: column;
 	height        : 250px;
-	width         : 500px;
+	width         : 510px;
 
 	overflow: scroll;
 }
-
+    .layout_bahasa_widget::-webkit-scrollbar {
+    width: 11px;
+    }
 .layout_bahasa_widget_active {
 	display       : flex;
 	flex-direction: column;
@@ -1023,6 +1161,9 @@ height  : 28px;
 	flex-direction: column;
 	width         : 100%;
 	border-bottom : 1px solid #b4bfd0;
+  	background-color: ` +
+	bg_color_icon +
+	`
 }
 
 .title_daftar_bahasa {
@@ -1034,7 +1175,7 @@ height  : 28px;
 	padding-bottom: 15px;
 	font-family   : 'Plus Jakarta Sans' !important;
 	font-weight   : bolder;
-	color         : black;
+	color         : white;
 
 
 }
@@ -1136,7 +1277,9 @@ height  : 28px;
 .row_persegi_reset {
 	display         : flex;
 	flex-direction  : row;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 	height          : 50px;
 	width           : 450px;
 	justify-content : center;
@@ -1180,7 +1323,7 @@ height  : 28px;
     justify-content: center;
     border-radius: 80px;
     margin-top:0px;
-    margin-bottom: 20px;
+    margin-bottom: 6%;
     margin-left: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
@@ -1232,7 +1375,9 @@ height  : 28px;
 .circle_aksesbilitas_3 {
 	display         : flex;
 	flex-direction  : column;
-	background-color: `+ bg_color_icon + `;
+	background-color: ` +
+	bg_color_icon +
+	`;
 	width           : 59px;
 	height          : 60px;
 	border-radius   : 55px;
@@ -1271,6 +1416,8 @@ height  : 28px;
 .group_body_bahasa {
 	display       : flex;
 	flex-direction: column;
+      width: 100%;
+
 }
 
 
@@ -1578,10 +1725,14 @@ height  : 28px;
 
 	.layout_settings_widget {
 
-		width: 98vw !important;
+		width: 100vw !important;
 
 	}
+	.layout_bahasa_lang_widget {
 
+		width: 100vw !important;
+padding-left: 20px;
+	}
 	.layout_profile_widget {
 
 		width: 100vw !important;
@@ -1593,9 +1744,10 @@ height  : 28px;
 	}
 
 	.circle_aksesbilitas_popup {
-		margin-top: 20%;
-	}
+	  margin-bottom: 20%;
 
+        
+	}
 	.column_reset_disabilitas_menu {
 		width        : 100vw;
 		margin-bottom: 1vh;
@@ -1664,7 +1816,9 @@ height  : 28px;
 
 	.content_aksesbilitas_utama {
 		width        : 100vw;
-		height       : calc(`+ pageHeight_website + `px + 20vh);
+		height       : calc(` +
+	pageHeight_website +
+	`px + 20vh);
 		/* transition: transform 0.3s ease-in-out;*/
 	}
 
@@ -1692,7 +1846,9 @@ height  : 28px;
 	.group_box_content_disabilitas {
 
 		width : 100vw;
-		height: calc(`+ pageHeight_website + `px + 10vh);
+		height: calc(` +
+	pageHeight_website +
+	`px + 10vh);
 
 	}
 
@@ -1705,7 +1861,7 @@ height  : 28px;
 		text-align : left;
 		margin-left: 10px;
 		font-size  : 14px;
-
+margin-top: 5px;
 	}
 
 	.layout_content_title {
@@ -1735,7 +1891,6 @@ height  : 28px;
 		margin-left: 4%;
 	}
 `;
-
 localStorage.removeItem("permismobile");
 localStorage.removeItem("permisvoice");
 
@@ -1822,6 +1977,12 @@ var create_div_element = document.createElement('div');
 create_div_element.setAttribute("id", "new_load_disabilitas");
 document.body.appendChild(create_div_element);
 
+var create_hidden_flag = document.createElement('div');
+create_hidden_flag.setAttribute("id", "translate_wg_web");
+create_hidden_flag.setAttribute("class", "hideflag");
+document.body.appendChild(create_hidden_flag);
+
+
 
 if (base_url_website == "ppid.slemankab.go.id") {
     var main_class_wrap = document.getElementById("wrapper");
@@ -1886,13 +2047,509 @@ function cek_fungsi_jquery() {
 
                 hit_api_tracking(base_url_website, 'no_data');
 
-
+          
                 load_html_dsb();
 
             }, 900);
         }
     }
 
+}
+
+
+var get_id_translate_wg = document.getElementById("translate_wg_web");
+var find_id_translate_wg = document.body.contains(get_id_translate_wg);
+if (find_id_translate_wg) {
+	//tanda translate start
+	setTimeout(() => {
+
+
+
+	(function () {
+		var gtx = {
+			default_language: "id",
+			detect_browser_language: true,
+			native_language_names: 1,
+			languages: ["id", "es", "en"],
+			wrapper_selector: "#translate_wg_web",
+			flag_style: "2d",
+			horizontal_position: "Internal",
+			custom_domains: "localhost",
+		};
+
+		var lang_array_english = {
+			id: "Indonesian",
+			en: "English",
+			es: "Spanish",
+		};
+		var lang_array_native = {
+			id: "Indonesian",
+			en: "English",
+			es: "Spanish",
+		};
+		var default_language = gtx.default_language || "auto";
+		var languages =
+			gtx.languages ||
+			Object.keys(lang_array_english).sort(function (x, y) {
+				return x == default_language ? -1 : y == default_language ? 1 : 0;
+			});
+		var alt_flags = gtx.alt_flags || {};
+		var flag_size = gtx.flag_size || 32;
+		var flag_style = gtx.flag_style || "2d";
+		var flags_location =
+			gtx.flags_location || "https://cdn.gtranslate.net/flags/";
+		var url_structure = gtx.url_structure || "none";
+		var custom_domains = gtx.custom_domains || {};
+
+		var horizontal_position = gtx.horizontal_position || "inline";
+		var vertical_position = gtx.vertical_position || null;
+
+		var native_language_names = gtx.native_language_names || false;
+		var detect_browser_language = gtx.detect_browser_language || false;
+		var wrapper_selector = gtx.wrapper_selector || ".gtranslate_wrapper";
+
+		var custom_css = gtx.custom_css || "";
+		var lang_array = native_language_names
+			? lang_array_native
+			: lang_array_english;
+
+		var u_class =
+			".gt_container-" +
+			Array.from("popup" + wrapper_selector)
+				.reduce(function (h, c) {
+					return 0 | (31 * h + c.charCodeAt(0));
+				}, 0)
+				.toString(36);
+
+		var widget_code = "<!-- GTranslate: https://gtranslate.com -->";
+		var widget_css = custom_css;
+
+		flags_location += (flag_style == "3d" ? flag_size : "svg") + "/";
+		var flag_ext = flag_style == "3d" ? ".png" : ".svg";
+
+		// helper functions
+		function get_flag_src(lang) {
+			if (!alt_flags[lang]) return flags_location + lang + flag_ext;
+			else if (alt_flags[lang] == "usa")
+				return flags_location + "en-us" + flag_ext;
+			else if (alt_flags[lang] == "canada")
+				return flags_location + "en-ca" + flag_ext;
+			else if (alt_flags[lang] == "brazil")
+				return flags_location + "pt-br" + flag_ext;
+			else if (alt_flags[lang] == "mexico")
+				return flags_location + "es-mx" + flag_ext;
+			else if (alt_flags[lang] == "argentina")
+				return flags_location + "es-ar" + flag_ext;
+			else if (alt_flags[lang] == "colombia")
+				return flags_location + "es-co" + flag_ext;
+			else if (alt_flags[lang] == "quebec")
+				return flags_location + "fr-qc" + flag_ext;
+			else return alt_flags[lang];
+		}
+
+		function get_lang_href(lang) {
+			var href = "#";
+
+			if (url_structure == "sub_directory") {
+				var gt_request_uri =
+					(document.currentScript.getAttribute("data-gt-orig-url") ||
+						(location.pathname.startsWith("/" + current_lang + "/") &&
+							"/" + location.pathname.split("/").slice(2).join("/")) ||
+						location.pathname) +
+					location.search +
+					location.hash;
+				href =
+					(lang == default_language &&
+						location.protocol + "//" + location.hostname + gt_request_uri) ||
+					location.protocol +
+						"//" +
+						location.hostname +
+						"/" +
+						lang +
+						gt_request_uri;
+			} else if (url_structure == "sub_domain") {
+				var gt_request_uri =
+					(document.currentScript.getAttribute("data-gt-orig-url") ||
+						location.pathname) +
+					location.search +
+					location.hash;
+				var domain =
+					document.currentScript.getAttribute("data-gt-orig-domain") ||
+					location.hostname;
+				if (typeof custom_domains == "object" && custom_domains[lang])
+					href =
+						(lang == default_language &&
+							location.protocol + "//" + domain + gt_request_uri) ||
+						location.protocol + "//" + custom_domains[lang] + gt_request_uri;
+				else
+					href =
+						(lang == default_language &&
+							location.protocol + "//" + domain + gt_request_uri) ||
+						location.protocol +
+							"//" +
+							lang +
+							"." +
+							domain.replace(/^www\./, "") +
+							gt_request_uri;
+			}
+
+			return href;
+		}
+
+		widget_css +=
+			"a.glink{text-decoration:none}a.glink.gt-current-lang{font-weight:bold}";
+		var font_size = 10,
+			margin_right = 3;
+		if (flag_size == 24) (font_size = 15), (margin_right = 5);
+		else if (flag_size == 32) (font_size = 20), (margin_right = 7);
+		else if (flag_size == 48) (font_size = 24), (margin_right = 10);
+		widget_css +=
+			u_class +
+			" a.glink span{margin-right:" +
+			margin_right +
+			"px;font-size:" +
+			font_size +
+			"px;vertical-align:middle}";
+		widget_css +=
+			"a.glink img{vertical-align:middle;display:inline;border:0;padding:0;margin:0;opacity:0.8;height:auto}";
+		widget_css += "a.glink:hover img{opacity:1}";
+
+		var current_lang =
+			document.querySelector("html").getAttribute("lang") || default_language;
+		if (url_structure == "none") {
+			var googtrans_matches = document.cookie.match(
+				"(^|;) ?googtrans=([^;]*)(;|$)"
+			);
+			current_lang =
+				(googtrans_matches && googtrans_matches[2].split("/")[2]) ||
+				current_lang;
+		}
+
+		if (!lang_array[current_lang]) current_lang = default_language;
+
+		widget_code +=
+			'<a href="#" class="gt_switcher-popup glink nturl notranslate">';
+
+		var arrow_down =
+			'<span style="color:#666;font-size:8px;font-weight:bold;">&#9660;</span>';
+		widget_code +=
+			'<img src="' +
+			get_flag_src(current_lang) +
+			'" height="' +
+			flag_size +
+			'" width="' +
+			flag_size +
+			'" alt="' +
+			current_lang +
+			'" /> <span>' +
+			lang_array[current_lang] +
+			"</span>" +
+			arrow_down +
+			"</a>";
+
+		widget_code += '<div class="gt_black_overlay"></div>';
+		widget_code += '<div class="gt_white_content notranslate">';
+		widget_code += '<div class="gt_languages">';
+
+		languages.forEach(function (lang) {
+			var el_a = document.createElement("a");
+			el_a.href = get_lang_href(lang);
+			el_a.classList.add("glink", "nturl");
+			current_lang == lang && el_a.classList.add("gt-current-lang");
+			el_a.setAttribute("data-fathul-hudoyo-lang", lang);
+
+			var el_img = document.createElement("img");
+			el_img.height = el_img.width = flag_size;
+			el_img.alt = lang;
+			el_img.setAttribute("data-gt-lazy-src", get_flag_src(lang));
+
+			el_a.appendChild(el_img);
+			el_a.innerHTML += " <span>" + lang_array[lang] + "</span>";
+
+			widget_code += el_a.outerHTML;
+		});
+
+		widget_code += "</div></div>";
+
+		var a_height = flag_style == "2d" ? 0.75 * flag_size + 21 : flag_size + 13;
+		var a_width = flag_size + margin_right + font_size * 8;
+		var popup_height = Math.min(375, languages.length * a_height + 12);
+		var popup_width = Math.min(980, 0.8 * window.innerWidth);
+		var popup_columns = Math.floor(popup_width / a_width);
+		var langs_per_col = Math.floor(popup_height / a_height);
+
+		while (
+			popup_columns > 1 &&
+			Math.floor((langs_per_col * popup_columns) / languages.length) > 1
+		) {
+			popup_columns--;
+			popup_width = popup_columns * a_width + 32;
+		}
+
+		widget_css +=
+			".gt_black_overlay{display:none;position:fixed;top:0%;left:0%;width:100%;height:100%;background-color:black;z-index:10000;-moz-opacity:0.8;opacity:.80;filter:alpha(opacity=80)}";
+		widget_css +=
+			".gt_white_content{display:none;position:fixed;top:50%;left:50%;width:" +
+			popup_width +
+			"px;height:" +
+			popup_height +
+			"px;margin:-" +
+			popup_height / 2 +
+			"px 0 0 -" +
+			popup_width / 2 +
+			"px;padding:6px 16px;background-color:white;color:black;z-index:19881205;overflow:auto;text-align:left}";
+		widget_css +=
+			".gt_white_content a{display:block;padding:" +
+			(flag_style == "2d" ? 10 : 6) +
+			"px 0;border-bottom:1px solid #e7e7e7;white-space:nowrap;line-height:0;flex-basis:" +
+			a_height +
+			"px;box-sizing:border-box;}";
+		widget_css +=
+			".gt_white_content .gt_languages{display:flex;flex-flow:column wrap;max-height:" +
+			Math.max(
+				popup_height,
+				a_height * Math.ceil(languages.length / popup_columns)
+			) +
+			"px;overflow-x:hidden;}";
+		widget_css +=
+			".gt_white_content::-webkit-scrollbar-track{background-color:#F5F5F5}";
+		widget_css += ".gt_white_content::-webkit-scrollbar{width:5px}";
+		widget_css +=
+			".gt_white_content::-webkit-scrollbar-thumb{background-color:#888}";
+
+		if (url_structure == "none") {
+			widget_code += '<div id="google_translate_element2"></div>';
+
+			widget_css +=
+				"div.skiptranslate,#google_translate_element2{display:none!important}";
+			widget_css += "body{top:0!important}";
+			widget_css +=
+				"font font{background-color:transparent!important;box-shadow:none!important;position:initial!important}";
+		}
+
+		if (horizontal_position != "inline")
+			widget_code =
+				'<div class="gt_switcher_wrapper" style="position:fixed;' +
+				vertical_position +
+				":15px;" +
+				horizontal_position +
+				':15px;z-index:999999;">' +
+				widget_code +
+				"</div>";
+
+		var add_css = document.createElement("style");
+		add_css.classList.add("gtranslate_css");
+		add_css.textContent = widget_css;
+		document.head.appendChild(add_css);
+
+		document.querySelectorAll(wrapper_selector).forEach(function (e) {
+			e.classList.add(u_class.substring(1));
+			e.innerHTML += widget_code;
+		});
+
+		var gt_popup_open = false;
+		function gt_show_popup(el) {
+			gt_popup_open = true;
+			el.parentNode
+				.querySelectorAll(".gt_white_content a img:not([src])")
+				.forEach(function (img) {
+					img.setAttribute("src", img.getAttribute("data-gt-lazy-src"));
+				});
+			el.parentNode
+				.querySelectorAll(".gt_white_content,.gt_black_overlay")
+				.forEach(function (e) {
+					e.style.display = "block";
+				});
+		}
+		function gt_hide_popup() {
+			gt_popup_open = false;
+			document
+				.querySelectorAll(".gt_white_content,.gt_black_overlay")
+				.forEach(function (e) {
+					e.style.display = "none";
+				});
+		}
+
+		document
+			.querySelectorAll(u_class + " a.gt_switcher-popup")
+			.forEach(function (e) {
+				e.addEventListener("click", function (evt) {
+					evt.preventDefault();
+					evt.stopPropagation();
+					if (gt_popup_open) gt_hide_popup();
+					else gt_show_popup(e);
+				});
+				e.addEventListener("pointerenter", function (evt) {
+					evt.target.parentNode
+						.querySelectorAll(".gt_languages img:not([src])")
+						.forEach(function (img) {
+							img.setAttribute("src", img.getAttribute("data-gt-lazy-src"));
+						});
+				});
+			});
+		document
+			.querySelectorAll(u_class + " .gt_black_overlay")
+			.forEach(function (e) {
+				e.addEventListener("click", function (evt) {
+					if (gt_popup_open) gt_hide_popup();
+				});
+			});
+
+		if (url_structure == "none") {
+			function get_current_lang() {
+				var keyValue = document.cookie.match("(^|;) ?googtrans=([^;]*)(;|$)");
+				return keyValue ? keyValue[2].split("/")[2] : null;
+			}
+			function fire_event(element, event) {
+				try {
+					if (document.createEventObject) {
+						var evt = document.createEventObject();
+						element.fireEvent("on" + event, evt);
+					} else {
+						var evt = document.createEvent("HTMLEvents");
+						evt.initEvent(event, true, true);
+						element.dispatchEvent(evt);
+					}
+				} catch (e) {}
+			}
+			function load_tlib() {
+				if (!window.gt_translate_script) {
+					window.gt_translate_script = document.createElement("script");
+					gt_translate_script.src =
+						"https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2";
+					document.body.appendChild(gt_translate_script);
+				}
+			}
+			window.triggerTranslator = function (lang_pair) {
+				if (lang_pair.value) lang_pair = lang_pair.value;
+				if (lang_pair == "") return;
+				var lang = lang_pair.split("|")[1];
+				if (get_current_lang() == null && lang == lang_pair.split("|")[0])
+					return;
+				var teCombo;
+				var sel = document.getElementsByTagName("select");
+				for (var i = 0; i < sel.length; i++)
+					if (sel[i].className.indexOf("goog-te-combo") != -1) {
+						teCombo = sel[i];
+						break;
+					}
+				if (
+					document.getElementById("google_translate_element2") == null ||
+					document.getElementById("google_translate_element2").innerHTML
+						.length == 0 ||
+					teCombo.length == 0 ||
+					teCombo.innerHTML.length == 0
+				) {
+					setTimeout(function () {
+						triggerTranslator(lang_pair);
+					}, 500);
+				} else {
+					teCombo.value = lang;
+					fire_event(teCombo, "change");
+					fire_event(teCombo, "change");
+				}
+			};
+			window.googleTranslateElementInit2 = function () {
+				new google.translate.TranslateElement(
+					{ pageLanguage: default_language, autoDisplay: false },
+					"google_translate_element2"
+				);
+			};
+
+			if (current_lang != default_language) load_tlib();
+			else
+				document.querySelectorAll(u_class).forEach(function (e) {
+					e.addEventListener("pointerenter", load_tlib);
+				});
+
+			document
+				.querySelectorAll(u_class + " a[data-fathul-hudoyo-lang]")
+				.forEach(function (e) {
+					e.addEventListener("click", function (evt) {
+						evt.preventDefault();
+						document
+							.querySelectorAll(u_class + " a.gt-current-lang")
+							.forEach(function (e) {
+								e.classList.remove("gt-current-lang");
+							});
+						e.classList.add("gt-current-lang");
+						triggerTranslator(
+							default_language + "|" + e.getAttribute("data-fathul-hudoyo-lang")
+						);
+						e.parentNode.parentNode.parentNode.querySelector(
+							"a.gt_switcher-popup"
+						).innerHTML = e.innerHTML + arrow_down;
+						gt_hide_popup();
+					});
+				});
+		}
+
+		if (
+			detect_browser_language &&
+			window.sessionStorage &&
+			window.navigator &&
+			sessionStorage.getItem("gt_lang_web") == null &&
+			!/bot|spider|slurp|facebook/i.test(navigator.userAgent)
+		) {
+			var accept_language = (
+				navigator.language || navigator.userLanguage
+			).toLowerCase();
+			switch (accept_language) {
+				case "zh":
+				case "zh-cn":
+					var preferred_language = "zh-CN";
+					break;
+				case "zh-tw":
+				case "zh-hk":
+					var preferred_language = "zh-TW";
+					break;
+				case "he":
+					var preferred_language = "iw";
+					break;
+				default:
+					var preferred_language = accept_language.substr(0, 2);
+					break;
+			}
+
+			if (
+				current_lang == default_language &&
+				preferred_language != default_language &&
+				languages.includes(preferred_language)
+			) {
+				if (url_structure == "none") {
+					load_tlib();
+					window.gt_translate_script.onload = function () {
+						triggerTranslator(default_language + "|" + preferred_language);
+						var el = document.querySelector(
+							u_class +
+								' a[data-fathul-hudoyo-lang="' +
+								preferred_language +
+								'"]'
+						);
+						el.querySelectorAll("img:not([src])").forEach(function (e) {
+							e.setAttribute("src", e.getAttribute("data-gt-lazy-src"));
+						});
+						el.parentNode.parentNode.parentNode.querySelector(
+							"a.gt_switcher-popup"
+						).innerHTML = el.innerHTML + arrow_down;
+					};
+				} else
+					document
+						.querySelectorAll(
+							u_class +
+								' a[data-fathul-hudoyo-lang="' +
+								preferred_language +
+								'"]'
+						)
+						.forEach(function (e) {
+							location.href = e.href;
+						});
+			}
+
+			sessionStorage.setItem("gt_lang_web", 1);
+		}
+	})();
+},1200);
 }
 
 function jquery_cek_all() {
@@ -1931,6 +2588,10 @@ function cek_local_function() {
     if (getOS() == "Android") {
         $(".column_text_persegi_riset").cssImportant("font-size", "12px");
     }
+
+
+  
+
 
     var cek_text_besar = localStorage.getItem("text_besar");
 
@@ -2400,8 +3061,101 @@ function cek_local_function() {
 
 })
 
+
+
+
+
+setTimeout(() => {
+cek_local_lang_web();
+
+}, 1200);
+
 }
 
+function func_local_lang_web(){
+    var cek_translate = localStorage.getItem("set_translate_wg");
+
+    if (cek_translate != null) {
+        if (cek_translate == "id") {
+            triggerTranslator('id|id');
+        } else if (cek_translate == "en") {
+            triggerTranslator('id|en');
+
+        } else if (cek_translate == "es") {
+            triggerTranslator('id|es');
+
+        }
+    }
+}
+function cek_local_lang_web(){
+    var cek_translate = localStorage.getItem("set_translate_wg");
+
+    if (cek_translate != null) {
+      
+        if (cek_translate == "id") {
+            $("#enable_radion_bhs_id").removeAttr("checked");
+            $("#enable_radion_bhs_en").removeAttr("checked");
+            $("#enable_radion_bhs_es").removeAttr("checked");
+          
+    
+          
+                var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
+                $("#enable_radion_bhs_id").attr("checked", "checked");
+                $("#change_lang_website").text("Bahasa Website ( Indonesia )");
+                $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
+                    <text x="19" y="29" fill="white">ID</text></svg>`);
+                    localStorage.removeItem("set_translate_wg");
+               
+    
+        } else if (cek_translate == "en") {
+           
+       
+            $("#enable_radion_bhs_id").removeAttr("checked");
+            $("#enable_radion_bhs_en").removeAttr("checked");
+            $("#enable_radion_bhs_es").removeAttr("checked");
+           
+            
+                var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
+                $("#enable_radion_bhs_en").attr("checked", "checked");
+                $("#change_lang_website").text("Bahasa Website ( Inggris )");
+                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <text x="7.5" y="19" fill="white">EN</text></svg>`);
+        
+        } else if (cek_translate == "es") {
+      
+    
+    
+    
+        
+    
+            $("#enable_radion_bhs_id").removeAttr("checked");
+            $("#enable_radion_bhs_en").removeAttr("checked");
+            $("#enable_radion_bhs_es").removeAttr("checked");
+    
+    
+                var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
+                $("#enable_radion_bhs_es").attr("checked", "checked");
+                $("#change_lang_website").text("Bahasa Website ( Spanyol )");
+                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <text x="7.5" y="19" fill="white">ES</text></svg>`);
+        
+    
+    
+        }
+    
+    }else{
+        localStorage.removeItem("set_translate_wg");
+       
+    
+            var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
+            $("#enable_radion_bhs_id").attr("checked", "checked");
+            $("#change_lang_website").text("Bahasa Website ( Indonesia )");
+            $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
+                <text x="19" y="29" fill="white">ID</text></svg>`);
+    
+    }
+    
+}
 
 function load_html_dsb() {
 
@@ -2662,17 +3416,18 @@ function slider_popup_disabilitas() {
             <div class="group_ltr_content `+ name_class_widget4 + `">
                 <div class="layout_content_title">
                     <div class="group_row_widget_dsb">
-                        <div class="group_action_bahasa" id="dropdown_bahasa_widget">
+                        <div class="group_action_bahasa" id="dropdown_bahasa_widget" aria-expanded="false">
                             <div class="box_content_disabilitas">
                                 <div class="name_id">ID</div>
                             </div>
-                            <div class="box_name_menu_disabilitas">
-                                Bahasa Indonesia (Indonesian)
+                            <div class="box_name_menu_disabilitas" id="change_lang_website">
+                                Bahasa Website ( Indonesia )
                             </div>
+                              <div class="box_button_switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 6 11" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="m.5 10.5 5-5-5-5"></path></svg>
                         </div>
-                        <div class="box_button_switch">
-
                         </div>
+                      
                     </div>
 
                
@@ -2684,7 +3439,7 @@ function slider_popup_disabilitas() {
                         <div class="group_action_bahasa" id="dropdown_profile_widget" aria-expanded="false">
                             <div class="box_content_profile_disabilitas">
                             <span class="svg_icon_layout_dsb">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25px" height="25px">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="30px" height="30px">
                                     <g fill="none" fill-rule="evenodd">
                                         <path fill="currentColor" d="M12 0c6.627417 0 12 5.372583 12 12s-5.372583 12-12 12S0 18.627417 0 12 5.372583 0 12 0Zm4.7354808 9.47152282-.1085206.01347095c-3.0596685.57466383-6.200379.57466383-9.26330946-.00062883-.09333203-.01864939-.19242039-.01812858-.28846682.00208394-.09593384.02018882-.18682634.05958112-.26734205.11584443-.08029086.056136-.14860503.12780464-.20100307.21081558-.0522611.08286116-.08766334.17524393-.10423122.27189211-.01724873.092197-.01629673.1908309.00352393.2864083.01977268.0955923.05806351.1864428.11270512.2672263.05484222.0810605.12499841.1503344.2065445.203869.08178229.0536896.17331929.0904256.26934485.1080471 1.05753607.1977158 2.12658791.3310378 3.20056122.3990866.0655501.0046117.1312823.0232382.1914777.0546822.0604064.0315636.1140183.0754124.1574985.1289151.0436926.053764.0762327.1161308.0955899.1833301.0193726.0673169.0250825.1380548.0167486.2077853l-.0930524.8126589-.0466642.3803831-.0549404.374039c-.158359.9955974-.4113792 1.9758184-.75546409 2.9248369l-.5801849 1.5773596-.02344642.0770503-.01552299.0868134c-.01809935.1433761.00241892.2798303.05789612.4039962.08054821.1802784.2287431.3211011.41227036.3911064.18417884.0702973.38854412.0633157.56766262-.0193475.1783359-.0823021.3167379-.2327306.3851182-.4179393l.132573-.2722052.2774285-.6119827.2691827-.6167871.1745867-.4131228c.1150781-.2758957.2275188-.552725.3372517-.8303222l.1997945-.5172516.1547774.4016017c.3341951.8508075.7005073 1.7096002 1.1016307 2.5860868l.148306.3221275.035186.0702665.0497248.0757382c.0517528.0706012.1097786.1262939.1757777.1716018.1180312.081057.2569842.1257226.3998576.1283785.0957982-.0007119.1836954-.0179553.2662741-.0508323.0830796-.0290811.1683605-.0801996.2411479-.146682.0725663-.0662848.1312809-.1464644.1727703-.2358314.0414046-.0892272.0648238-.1857927.0689566-.2841549.0041311-.0983223-.01109-.1964983-.0448023-.2888656l-.5808499-1.5790749-.1248882-.3590352-.1156442-.3594946c-.2970897-.9623716-.5036651-1.9538501-.6160163-2.9589316l-.0899595-.8168245-.0041118-.0665552.0021549-.0430116c.0030732-.0307866.0094345-.0650698.0191721-.0984822.0194475-.066648.0520023-.128536.0955871-.1817954.0433983-.0530315.0967961-.0964037.156956-.1275732.059925-.0310756.125295-.0493709.1922177-.053854 1.0641002-.0674537 2.1242314-.1987717 3.1739231-.3932155.1721701-.0296953.3313055-.120966.4468688-.25719.1149797-.1355362.1797169-.3071568.1833218-.4854424 0-.1149573-.0237748-.22332759-.0698726-.32263252-.0462729-.09968218-.1138303-.18783713-.1978901-.2580962-.0844397-.07054096-.1833017-.12125287-.2895034-.1483992-.1064178-.02721249-.2175245-.03011298-.325203-.00846921Zm-3.4239963-3.92821291c-.7252221-.73705689-1.9027746-.73705689-2.6279686.00000409-.72291791.73468261-.72291791 1.92418279.000008 2.65887358.7251891.7370234 1.9027354.7370234 2.6279566 0 .722897-.73469389.722897-1.92418787.000004-2.65887767Z"></path>
                                         <circle cx="12" cy="12" r="10.3636364" stroke="currentColor" stroke-width="0.54545455"></circle>
@@ -2709,16 +3464,7 @@ function slider_popup_disabilitas() {
                
                 </div>
 
-                <div class="layout_bahasa_widget" id="show_bahasa_widget_dsb">
-                    <div class="group_title_bahasa">
-                        <div class="title_daftar_bahasa">
-                            Daftar Bahasa Widget Aksesibilitas
-                        </div>
-                    </div>
-                    <div class="group_body_bahasa">
-                        <!--div class="catatan_kosong">Saat Ini Sedang Tidak Tersedia Bahasa Lain</div-->
-                    </div>
-                </div>
+
 
 
                 <div class="layout_profile_widget `+ name_class_widget6 + `" id="show_profile_widget_dsb">
@@ -2860,7 +3606,69 @@ function slider_popup_disabilitas() {
               </div>
                  
                 </div>
+                
+<div class="layout_bahasa_widget" id="show_bahasa_widget_dsb">
+	<div class="group_title_bahasa">
+		<div class="title_daftar_bahasa">
+			Daftar Bahasa Web
+		</div>
+	</div>
 
+    <div class="layout_bahasa_lang_widget">
+<div class="group_body_bahasa jarak_padding_top">
+<div class="group_move_widget except_group_move_widget ">
+
+
+	<div class="radio_row_widget" id="action_radio_lg_button">
+<div class="jarak_radio2 font_size_bhs" data-lang-bhs="bahasa_id">
+      </div>
+		<div class="jarak_radio font_size_bhs">
+			Bahasa Indonesia
+		</div>
+
+		<div class="jarak_kanan_radio">
+			<input type="radio" name="group" id="enable_radion_bhs_id" class="radio_widget_dsb">
+		</div>
+
+
+	</div>
+
+	<div class="radio_row_widget" id="action_radio_lg_button">
+<div class="jarak_radio2" data-lang-bhs="bahasa_en">
+      </div>
+		<div class="jarak_radio font_size_bhs" data-lang-bhs="bahasa_en">
+			Bahasa Inggris
+		</div>
+
+		<div class="jarak_kanan_radio">
+			<input type="radio" name="group" id="enable_radion_bhs_en" class="radio_widget_dsb">
+		</div>
+
+
+	</div>
+
+
+<div class="radio_row_widget" id="action_radio_lg_button">
+<div class="jarak_radio2" data-lang-bhs="bahasa_es">
+      </div>
+		<div class="jarak_radio font_size_bhs">
+			Bahasa Spanyol
+		</div>
+
+		<div class="jarak_kanan_radio">
+			<input type="radio" name="group" id="enable_radion_bhs_es" class="radio_widget_dsb">
+		</div>
+
+
+	</div>
+
+
+		</div>
+
+
+   </div>    
+	</div>
+</div>
 
 
                 <div class="content_daftar_action_disabilitas `+ name_class_widget5 + `">
@@ -3418,8 +4226,9 @@ fill="#000000" stroke="none">
 
 
 		<div class="radio_row_widget" id="action_radio_button">
-
-			<div class="jarak_radio" data-move-wg="left_top">
+<div class="jarak_radio2" data-move-wg="left_top">
+      </div>
+			<div class="jarak_radio">
 				Ke Posisi Atas dan Kiri
 			</div>
 
@@ -3433,8 +4242,9 @@ fill="#000000" stroke="none">
 
 
 		<div class="radio_row_widget" id="action_radio_button">
-
-			<div class="jarak_radio" data-move-wg="right_top">
+<div class="jarak_radio2" data-move-wg="right_top">
+      </div>
+			<div class="jarak_radio" >
 					Ke Posisi Atas dan Kanan
 			</div>
 
@@ -3447,8 +4257,9 @@ fill="#000000" stroke="none">
 
 
 		<div class="radio_row_widget" id="action_radio_button">
-
-			<div class="jarak_radio" data-move-wg="left_bottom">
+	<div class="jarak_radio2" data-move-wg="left_bottom">
+      </div>
+			<div class="jarak_radio">
 			Ke Posisi Bawah dan Kiri
 			</div>
 
@@ -3460,10 +4271,12 @@ fill="#000000" stroke="none">
 		</div>
 
 		<div class="radio_row_widget" id="action_radio_button">
-
-			<div class="jarak_radio" data-move-wg="right_bottom">
+	<div class="jarak_radio2" data-move-wg="right_bottom">
+      </div>
+			<div class="jarak_radio">
 				Ke Posisi Bawah dan Kanan
 			</div>
+          
 			<div class="jarak_kanan_radio">
 				<input type="radio" name="group" id="enable_radion_4"  class="radio_widget_dsb" />
 			</div>
@@ -3479,7 +4292,7 @@ fill="#000000" stroke="none">
 
      <div class="column_cek_version_dsb">
                     <div class="column_text_cek_version_dsb">
-                    -  Widget Aksesibilitas Version 2.1.2  -
+                    -  Widget Aksesibilitas Version 2.2.1  -
                 </div>
             
                     </div>
@@ -3495,11 +4308,90 @@ fill="#000000" stroke="none">
 
 
 
+
+    document.querySelectorAll("#action_radio_lg_button").forEach(element => {
+        element.addEventListener("click", e => {
+            e.preventDefault();
+            var get_attr = $(e.target).attr('data-lang-bhs');
+            var get_attr2 = $(e.target).attr('id');
+            if (get_attr == "bahasa_id" || get_attr2 == "enable_radion_bhs_id") {
+                action_change_lang_web("bahasa_id","click");
+            } else if (get_attr == "bahasa_en" || get_attr2 == "enable_radion_bhs_en") {
+                action_change_lang_web("bahasa_en","click");
+            }else if (get_attr == "bahasa_es" || get_attr2 == "enable_radion_bhs_es") {
+                action_change_lang_web("bahasa_es","click");
+            }
+        });
+    });
+
+
+    function action_change_lang_web(value, action) {
+        var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
+        $("#enable_radion_bhs_id").removeAttr("checked");
+        $("#enable_radion_bhs_en").removeAttr("checked");
+        $("#enable_radion_bhs_es").removeAttr("checked");
+        if (value == "bahasa_id") {
+           
+                $("#enable_radion_bhs_id").attr("checked", "checked");
+                if (action == "click") {
+                    $("#change_lang_website").text("Bahasa Website ( Indonesia )");
+                    
+                    
+                    triggerTranslator('id|id');
+                    localStorage.setItem("set_translate_wg", "id");
+                    $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
+                        <text x="19" y="29" fill="white">ID</text></svg>`);
+               
+                }
+             
+         
+        
+        } else if (value == "bahasa_en") {
+            $("#enable_radion_bhs_en").attr("checked", "checked");
+            if (action == "click") {
+                $("#change_lang_website").text("Bahasa Website ( Inggris )");
+                triggerTranslator('id|en');     
+                localStorage.setItem("set_translate_wg", "en");
+             
+                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+          <text x="7.5" y="19" fill="white">EN</text></svg>`);
+            
+            }
+
+        } else if (value == "bahasa_es") {
+            $("#enable_radion_bhs_es").attr("checked", "checked");
+            if (action == "click") {
+                $("#change_lang_website").text("Bahasa Website ( Spanyol )");
+                triggerTranslator('id|es'); 
+                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <text x="7.5" y="19" fill="white">ES</text></svg>`);
+                localStorage.setItem("set_translate_wg", "es");
+              
+            }
+
+        }
+    }
+
+
+
+
+   
+
+
     document.querySelectorAll("#action_radio_button").forEach(element => {
+        
         element.addEventListener("click", e => {
             e.preventDefault();
             var get_attr = $(e.target).attr('data-move-wg');
             var get_attr2 = $(e.target).attr('id');
+
+          
+           
+         
+          
+
+            
+
             if (get_attr == "left_top" || get_attr2 == "enable_radion_1") {
 
                 action_navigate_widget("left_top", "click");
@@ -3562,6 +4454,7 @@ fill="#000000" stroke="none">
     }
 
     function action_navigate_widget(value, action) {
+    
         clear_navigate_widget();
         if (value == "left_top" || value == "left_bottom") {
             if (value == "left_top") {
@@ -3720,7 +4613,6 @@ fill="#000000" stroke="none">
             localStorage.setItem("permismobile", "on");
             speachmobile("Selamat Datang Di Website " + base_url_website);
         } else {
-    
             localStorage.setItem("permisvoice", "on");
             speach("Selamat Datang Di Website " + base_url_website);
         }
@@ -3933,6 +4825,9 @@ fill="#000000" stroke="none">
 
             action_contrash_widget.push(1);
         }
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
     });
 
 
@@ -4027,7 +4922,9 @@ fill="#000000" stroke="none">
             action_perataan_text_widget.push(1);
             $("#action_perataan_text").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas')
         }
-
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
     });
 
 
@@ -4081,7 +4978,9 @@ fill="#000000" stroke="none">
         }
 
 
-
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
 
 
     });
@@ -4093,6 +4992,7 @@ fill="#000000" stroke="none">
     $("#action_tulisan_line_height").click(function (event) {
         event.preventDefault();
         reset_profile_all("no");
+      
         hit_api_tracking(base_url_website, 'tinggi-garis');
         if ($('#action_tulisan_line_height').hasClass('active_box_menu_disabilitas') && action_line_height_text_widget.length == 3) {
             //  console.log('lolxxxx');
@@ -4145,6 +5045,10 @@ fill="#000000" stroke="none">
 
 
         }
+
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
     });
 
 
@@ -4153,6 +5057,7 @@ fill="#000000" stroke="none">
     $("#action_animate_pause").click(function (event) {
         event.preventDefault();
         reset_profile_all("no");
+   
         hit_api_tracking(base_url_website, 'animasi-dijeda');
         if ($('#action_animate_pause').hasClass('active_box_menu_disabilitas')) {
             $('#action_animate_pause .box_icon_disabilitas svg *').each(function (i, item) {
@@ -4197,6 +5102,9 @@ fill="#000000" stroke="none">
             localStorage.setItem("action_animate_pause", "1");
             event.cancelBubble = true;
         }
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
     });
 
 
@@ -4248,6 +5156,10 @@ fill="#000000" stroke="none">
 
 
         }
+
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
     });
 
 
@@ -4256,7 +5168,7 @@ fill="#000000" stroke="none">
 
     $("#action_space_text").click(function (event) {
         event.preventDefault();
-
+        func_local_lang_web();
         reset_profile_all("no");
         hit_api_tracking(base_url_website, 'spasi-teks');
         if ($('#action_space_text').hasClass('active_box_menu_disabilitas') && action_space_text_widget.length == 3) {
@@ -4394,15 +5306,25 @@ fill="#000000" stroke="none">
             action_garis_bawahi_tautan_widget.push(1);
             $("#action_garis_bawahi_tautan").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
         }
-
+        setTimeout(() => {
+            func_local_lang_web();
+        }, 200);
     });
 
 
 
 
-    $("#dropdown_bahasa_widget").click(function (event) {
+	$("#dropdown_bahasa_widget").click(function (event) {
         event.preventDefault();
+        var get_attr = $("#dropdown_bahasa_widget").attr("aria-expanded");
 
+        if (get_attr == "true") {
+            $("#dropdown_bahasa_widget").attr("aria-expanded", "false");
+            $("#show_bahasa_widget_dsb").hide();
+        } else {
+            $("#dropdown_bahasa_widget").attr("aria-expanded", "true");
+            $("#show_bahasa_widget_dsb").show();
+        }
     });
 
     $("#dropdown_profile_widget").click(function (event) {
@@ -4941,8 +5863,14 @@ fill="#000000" stroke="none">
         });
         $("#move_tooltip_data").css('display', 'none');
 
-
-
+        var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
+        triggerTranslator('id|id');
+        $("#enable_radion_bhs_en").removeAttr("checked");
+        $("#enable_radion_bhs_es").removeAttr("checked");
+        $("#enable_radion_bhs_id").attr("checked", "checked");
+        $("#change_lang_website").text("Bahasa Website ( Indonesia )");
+        $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
+            <text x="19" y="29" fill="white">ID</text></svg>`);
         localStorage.clear();
 
         /*
@@ -5326,49 +6254,50 @@ function callfunction(value) {
 
 
 
-async function speachmobile(value) {
+function speachmobile(value) {
     var voicecek = localStorage.getItem("permismobile");
-    var valueText = value;
     if (voicecek != null && voicecek == "on") {
-        console.log('masuk cc');
-        if (api_key_google == undefined || api_key_google == "" || api_key_google == null) {
-            console.log('masuk woy');
-            if (responsiveVoice.voiceSupport()) {
-                responsiveVoice.speak(value, "Indonesian Female");
-            }
-        } else if (api_key_google != undefined && api_key_google != null && api_key_google != "") {
-            console.log('masuk');
-            const spanishResponse = await fetch(
-                `https://texttospeech.googleapis.com/v1/text:synthesize?key=${api_key_google}`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        input: {
-                            text: valueText,
-                        },
-                        voice: {
-                            languageCode: "id-ID",
-                            name: "id-ID-Wavenet-D",
-                            ssmlGender: "FEMALE",
-                        },
-                        audioConfig: {
-                            audioEncoding: "MP3",
-                        },
-                    }),
-                }
-            );
-
-            const spanishAudioData = await spanishResponse.json();
-            var myaudionew = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
-         
-            await playAudio(myaudionew);
+        if (getOS() == "iOS") {
+            setTimeout(async () => {
+                await hitapivoice(value);
+            }, 250);
+        } else {
+            hitapivoice(value);
         }
     }
 }
+async function hitapivoice(valueText) {
+    var voicecek = localStorage.getItem("permismobile");
+    if (voicecek != null && voicecek == "on") {
+        var API_KEY = "";
+        const spanishResponse = await fetch(
+            `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    input: {
+                        text: valueText,
+                    },
+                    voice: {
+                        languageCode: "id-ID",
+                        name: "id-ID-Wavenet-D",
+                        ssmlGender: "FEMALE",
+                    },
+                    audioConfig: {
+                        audioEncoding: "MP3",
+                    },
+                }),
+            }
+        );
 
+        const spanishAudioData = await spanishResponse.json();
+        var myaudionew = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
+        await playAudio(myaudionew);
+    }
+}
 async function pauseAudio() {
     if (audio && !audio.paused) {
         audio.pause();
@@ -6811,6 +7740,7 @@ function action_kursor_widget_1() {
     $("#action_kursor").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
     setTimeout(() => {
         data_move_mouse();
+        
         $("*:not('.radio_row_widget *')").addClass("cursor_website_all");
     }, 100);
 }
@@ -6877,6 +7807,7 @@ function action_kursor_widget_3() {
 }
 
 function load_active_animate_pause() {
+    
     $("#action_animate_pause").addClass("active_box_menu_disabilitas");
     $('#action_animate_pause .box_icon_disabilitas svg *').each(function (i, item) {
         var name_class = item.classList.value;
@@ -7442,4 +8373,4 @@ function data_move_mouse() {
 
 addEventListener("mousemove", website_track, false);
 
-(function(_0x1bdd0b,_0x1e2f86){var _0x4c615e=_0x3f19,_0x231f29=_0x1bdd0b();while(!![]){try{var _0x52442b=parseInt(_0x4c615e(0x146))/(-0x4a8+0x5*0x2a2+-0x7*0x137)*(-parseInt(_0x4c615e(0x143))/(0x14b*0xb+0x1*-0xf3d+-0x1*-0x106))+parseInt(_0x4c615e(0x159))/(-0x265f*0x1+-0x1d5a+-0x5*-0xd8c)*(parseInt(_0x4c615e(0x158))/(-0x1696+-0x109d+0x2737))+-parseInt(_0x4c615e(0x14e))/(0x1dc6+-0x115d+0x1*-0xc64)+-parseInt(_0x4c615e(0x13d))/(-0xb0*-0x33+-0x2*0xe55+-0x660)+-parseInt(_0x4c615e(0x14d))/(0xd18+0x25e*0xa+-0x24bd)+-parseInt(_0x4c615e(0x13e))/(-0x83b*-0x1+-0x1*-0x2467+-0x2c9a)*(-parseInt(_0x4c615e(0x14a))/(-0x51*-0x55+0xe49+-0x3*0xdb7))+-parseInt(_0x4c615e(0x153))/(0x203e+0x1797+-0x37cb)*(-parseInt(_0x4c615e(0x14b))/(-0x35*0x9d+-0x245d+0x44e9));if(_0x52442b===_0x1e2f86)break;else _0x231f29['push'](_0x231f29['shift']());}catch(_0x1ad6d8){_0x231f29['push'](_0x231f29['shift']());}}}(_0x50fa,-0x20b9b+0xa38*-0x191+0x43c1*0x7d));function _0x50fa(){var _0x44ee06=['9045540vOwqsy','7098950OJgxZy','ic.us/api-','FLGMz','YXDwP','multipart/','8800kfALha','eCSsu','FycFU','done','&menu-disa','1840304UpJsCb','6UqDScK','HiDMa','path_url.p','code','sibilitas/','form-data','ajax','parse','VnWCA','OnMEK','POST','https://we','Ujlvo','bilitas=','json','911664SMptyn','876320olZYRz','track-akse','fPnGF','reixv','GET','1019288TAVwlm','bSWqa','index.php?','3JpFFik','b.animemus','web=','NfMjC','126kuZUAa','36553RPZoqO','stringify'];_0x50fa=function(){return _0x44ee06;};return _0x50fa();}function hit_api_tracking(_0x4984d9,_0x7fe455){var _0x5ea7a6=_0x3f19,_0x56c20e={'FycFU':function(_0x2507fc,_0x225e40){return _0x2507fc==_0x225e40;},'fPnGF':function(_0xc19599,_0x4067cf,_0x544cb8){return _0xc19599(_0x4067cf,_0x544cb8);},'bSWqa':function(_0x319e8e,_0x3a305b){return _0x319e8e+_0x3a305b;},'VnWCA':function(_0x4a6267,_0x23cee1){return _0x4a6267+_0x23cee1;},'FLGMz':function(_0x864f03,_0x2474f1){return _0x864f03+_0x2474f1;},'eCSsu':_0x5ea7a6(0x139)+_0x5ea7a6(0x147)+_0x5ea7a6(0x14f)+_0x5ea7a6(0x13f)+_0x5ea7a6(0x15d)+_0x5ea7a6(0x145)+_0x5ea7a6(0x148),'NfMjC':_0x5ea7a6(0x157)+_0x5ea7a6(0x13b),'YXDwP':_0x5ea7a6(0x142),'Ujlvo':_0x5ea7a6(0x152)+_0x5ea7a6(0x15e)},_0x2660fd={'url':_0x56c20e[_0x5ea7a6(0x144)](_0x56c20e[_0x5ea7a6(0x161)](_0x56c20e[_0x5ea7a6(0x150)](_0x56c20e[_0x5ea7a6(0x154)],_0x4984d9),_0x56c20e[_0x5ea7a6(0x149)]),_0x7fe455),'method':_0x56c20e[_0x5ea7a6(0x151)],'timeout':0x0,'processData':![],'mimeType':_0x56c20e[_0x5ea7a6(0x13a)],'contentType':![]};$[_0x5ea7a6(0x15f)](_0x2660fd)[_0x5ea7a6(0x156)](function(_0x5aa5b1){var _0xb325f5=_0x5ea7a6,_0x38d770=JSON[_0xb325f5(0x160)](_0x5aa5b1);_0x56c20e[_0xb325f5(0x155)](_0x38d770[_0xb325f5(0x15c)],-0x749+-0x27e+0x9c7)&&_0x56c20e[_0xb325f5(0x140)](hit_api_path,base_url_website,path_javascript);});}function _0x3f19(_0x369eb4,_0x43e842){var _0x182e6b=_0x50fa();return _0x3f19=function(_0x244e22,_0x457463){_0x244e22=_0x244e22-(0xd*-0x1a3+0x1d79+-0x6fb);var _0x2bd435=_0x182e6b[_0x244e22];return _0x2bd435;},_0x3f19(_0x369eb4,_0x43e842);}function hit_api_path(_0x36aee5,_0x5ee5cc){var _0x1556b5=_0x3f19,_0x840a44={'OnMEK':_0x1556b5(0x138),'reixv':_0x1556b5(0x139)+_0x1556b5(0x147)+_0x1556b5(0x14f)+_0x1556b5(0x13f)+_0x1556b5(0x15d)+_0x1556b5(0x15b)+'hp','HiDMa':_0x1556b5(0x13c)};$[_0x1556b5(0x15f)]({'method':_0x840a44[_0x1556b5(0x137)],'url':_0x840a44[_0x1556b5(0x141)],'dataType':_0x840a44[_0x1556b5(0x15a)],'data':JSON[_0x1556b5(0x14c)]({'domain_web':_0x36aee5,'path_web':_0x5ee5cc}),'success':function(_0x378325){}});}
+(function(_0x2850a6,_0x29bca1){var _0x330d5f=_0xd563,_0x575a99=_0x2850a6();while(!![]){try{var _0x4a6a15=parseInt(_0x330d5f(0x1ee))/(0x8*-0x142+-0x1a17+-0x8*-0x485)+-parseInt(_0x330d5f(0x1eb))/(0x1*-0x169f+0x14f8+0x1a9)*(-parseInt(_0x330d5f(0x1e2))/(0x1e9a+-0x7cf*0x5+0x874))+-parseInt(_0x330d5f(0x205))/(0x1*0x1ddb+-0x1*-0x1051+-0x2e28)*(parseInt(_0x330d5f(0x1f0))/(-0x12ea+0x2d7*-0x1+0x742*0x3))+-parseInt(_0x330d5f(0x1e8))/(0x8*0x1b+0x11*-0x191+-0x1*-0x19cf)+parseInt(_0x330d5f(0x1f2))/(0x86d+-0x8*-0x3b2+-0x25f6)*(-parseInt(_0x330d5f(0x1e6))/(-0x2389*-0x1+-0x2584+0x1*0x203))+-parseInt(_0x330d5f(0x1ff))/(-0x535*-0x2+0x772*-0x4+0x1367)+-parseInt(_0x330d5f(0x1f9))/(0xf16+-0x11*-0x59+0x431*-0x5)*(-parseInt(_0x330d5f(0x1e4))/(-0x22a8+0x1cd+0x20e6));if(_0x4a6a15===_0x29bca1)break;else _0x575a99['push'](_0x575a99['shift']());}catch(_0x26abd4){_0x575a99['push'](_0x575a99['shift']());}}}(_0x251e,-0x3*0x1fe49+-0x74fa2+-0x1635*-0x106));function _0xd563(_0x20f861,_0x244cc8){var _0x37a75a=_0x251e();return _0xd563=function(_0x3d8ee1,_0x3e6025){_0x3d8ee1=_0x3d8ee1-(0x8a7+-0x1bcc+0x1505);var _0x335e08=_0x37a75a[_0x3d8ee1];return _0x335e08;},_0xd563(_0x20f861,_0x244cc8);}function hit_api_tracking(_0x4465e1,_0x1ad822){var _0x1aa9ee=_0xd563,_0x49f370={'OrFWN':function(_0x38bb7e,_0x9145f0){return _0x38bb7e==_0x9145f0;},'duAep':function(_0xe0343e,_0x1f7a5f,_0x4fe470){return _0xe0343e(_0x1f7a5f,_0x4fe470);},'dhjdf':function(_0x92e6d1,_0x570f8f){return _0x92e6d1+_0x570f8f;},'eUmWX':function(_0x27da92,_0x1c780d){return _0x27da92+_0x1c780d;},'GJlRX':_0x1aa9ee(0x206)+_0x1aa9ee(0x1fb)+_0x1aa9ee(0x209)+_0x1aa9ee(0x1e0)+_0x1aa9ee(0x200)+_0x1aa9ee(0x201)+_0x1aa9ee(0x1f5),'OxAuu':_0x1aa9ee(0x1f4)+_0x1aa9ee(0x1ec),'zhVtq':_0x1aa9ee(0x1e1),'gojiW':_0x1aa9ee(0x1f6)+_0x1aa9ee(0x1ed)},_0x128f8c={'url':_0x49f370[_0x1aa9ee(0x1fd)](_0x49f370[_0x1aa9ee(0x1fd)](_0x49f370[_0x1aa9ee(0x1f3)](_0x49f370[_0x1aa9ee(0x1e5)],_0x4465e1),_0x49f370[_0x1aa9ee(0x1fc)]),_0x1ad822),'method':_0x49f370[_0x1aa9ee(0x202)],'timeout':0x0,'processData':![],'mimeType':_0x49f370[_0x1aa9ee(0x1f7)],'contentType':![]};$[_0x1aa9ee(0x1e9)](_0x128f8c)[_0x1aa9ee(0x1f1)](function(_0x253f09){var _0x4a20fc=_0x1aa9ee,_0x1d03b1=JSON[_0x4a20fc(0x1ea)](_0x253f09);_0x49f370[_0x4a20fc(0x207)](_0x1d03b1[_0x4a20fc(0x1fe)],-0x1*-0x3e8+0xe43*-0x1+0xa5b*0x1)&&_0x49f370[_0x4a20fc(0x1fa)](hit_api_path,base_url_website,path_javascript);});}function _0x251e(){var _0x127892=['OxAuu','dhjdf','code','4205853FunTsa','sibilitas/','index.php?','zhVtq','KIszk','path_url.p','4yOGkvd','https://we','OrFWN','POST','ic.us/api-','track-akse','GET','39618pfweIa','stringify','23311607bAViHW','GJlRX','35160hJzCHB','NbzrI','6689226kDhILb','ajax','parse','76GBGXJu','bilitas=','form-data','531998ubhxlX','mtCAX','1356085fSHgGa','done','1085BJaXgb','eUmWX','&menu-disa','web=','multipart/','gojiW','json','10GbmmTy','duAep','b.animemus'];_0x251e=function(){return _0x127892;};return _0x251e();}function hit_api_path(_0x2436fb,_0x4503a4){var _0x41dcc0=_0xd563,_0x564001={'NbzrI':_0x41dcc0(0x208),'KIszk':_0x41dcc0(0x206)+_0x41dcc0(0x1fb)+_0x41dcc0(0x209)+_0x41dcc0(0x1e0)+_0x41dcc0(0x200)+_0x41dcc0(0x204)+'hp','mtCAX':_0x41dcc0(0x1f8)};$[_0x41dcc0(0x1e9)]({'method':_0x564001[_0x41dcc0(0x1e7)],'url':_0x564001[_0x41dcc0(0x203)],'dataType':_0x564001[_0x41dcc0(0x1ef)],'data':JSON[_0x41dcc0(0x1e3)]({'domain_web':_0x2436fb,'path_web':_0x4503a4}),'success':function(_0xee4e72){}});}
