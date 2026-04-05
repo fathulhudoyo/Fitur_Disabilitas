@@ -1,64 +1,50 @@
-var cek_attr_google = [document.currentScript.getAttribute("api-key-google")];
-var cek_attr_resvoice = [
-	document.currentScript.getAttribute("api-key-resvoice"),
-];
+
+
+var cek_attr_google = [document.currentScript.getAttribute('api-key-google')];
+var cek_attr_resvoice = [document.currentScript.getAttribute('api-key-resvoice')];
 //var api_key_google_cloud = "";
 
+
 var api_key_google = "";
-if (typeof api_key_google_cloud !== "undefined") {
-	api_key_google = api_key_google_cloud;
+if (typeof (api_key_google_cloud) !== "undefined") {
+    api_key_google = api_key_google_cloud;
 }
+
+
 
 if (cek_attr_google.length > 0) {
-	api_key_google = cek_attr_google[0];
+    api_key_google = cek_attr_google[0];
 }
 
-var base_url_website = window.location.origin
-	.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")
-	.split("/")[0];
+var base_url_website = window.location.origin.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
 var path_javascript = new URL(location.href).pathname;
 
 var body_website = document.body,
-	html_website = document.documentElement;
+    html_website = document.documentElement;
 
-var pageHeight_website = Math.max(
-	body_website.scrollHeight,
-	body_website.offsetHeight,
-	html_website.clientHeight,
-	html_website.scrollHeight,
-	html_website.offsetHeight
-);
+var pageHeight_website = Math.max(body_website.scrollHeight, body_website.offsetHeight,
+    html_website.clientHeight, html_website.scrollHeight, html_website.offsetHeight);
 
 var bg_color_icon = "";
 
-var conditional = [
-	"ppid-vnew.animemusic.us",
-	"lapor.spbe.sangkuriang.co.id",
-	"lapor.go.id",
-	"latihan.lapor.go.id",
-	"wapresmendengar.lapor.go.id",
-	"lapormaswapres.lapor.go.id",
-];
+var conditional = ["ppid-vnew.animemusic.us", "lapor.spbe.sangkuriang.co.id", "lapor.go.id", "latihan.lapor.go.id", "wapresmendengar.lapor.go.id", "lapormaswapres.lapor.go.id"];
 if (conditional.includes(base_url_website)) {
-	bg_color_icon = "#d0021b";
+    bg_color_icon = "#d0021b";
 } else {
-	bg_color_icon = "rgb(0, 72, 255)";
+    bg_color_icon = "#0048ff";
 }
 
-var css_loader =
-	`
-    .hideflag {
-       display:none;
-       position: absolute;
-       z-index: 99;
-    }
 
+var css_loader = `
+#widget_menu_disabilitas,
+#widget_menu_disabilitas *,
+.circle_aksesbilitas_popup,
+.circle_aksesbilitas_popup * {
+	font-style: unset;
+}
   #widget_menu_disabilitas svg{
 width:unset !important;
 height: unset !important;
-}
-.jarak_padding_top{
-padding-top:25px !important;
 }
 .jarak_kanan_radio {
 	display       : flex;
@@ -66,54 +52,55 @@ padding-top:25px !important;
 	align-items   : flex-end;
 	width         : max-content;
 }
-
+#widget_menu_disabilitas input {
+ min-height:unset;
+}
 .radio_widget_dsb {
     display: flex !important;
     flex-direction  : column !important;
 	background-color  : transparent !important;
-	border            : .0625em solid ` +
-	bg_color_icon +
-	` !important;
+	border            : 2px solid `+ bg_color_icon + `66 !important;
 	border-radius     : 50% !important;
-	box-shadow        : inset 0 0 0 0 white;
+	box-shadow        : none;
 	cursor            : pointer;
 	font              : inherit;
-	height            : 21px !important;
+	height            : 20px !important;
 	outline           : none;
-	width             : 21px !important;
+	width             : 20px !important;
 	-moz-appearance   : none;
 	-webkit-appearance: none;
+	transition        : all 0.25s ease;
+}
+.radio_widget_dsb:hover {
+	border-color: `+ bg_color_icon + ` !important;
 }
 
 input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
     display: flex !important;
     flex-direction  : column !important;
     background-image:unset !important;
-	background-color  : ` +
-	bg_color_icon +
-	` !important;
+	background-color  : `+ bg_color_icon + ` !important;
 	box-shadow        : inset 0 0 0 .2375em white !important;
-	-webkit-transition: background .15s, box-shadow .1s;
-	transition        : background .15s, box-shadow .1s;
+	border-color      : `+ bg_color_icon + ` !important;
+	-webkit-transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
+	transition        : all .25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
 .group_move_widget {
 	display         : flex;
 	flex-direction  : column;
-	border          : 2px solid ` +
-	bg_color_icon +
-	`;
+	border          : 1.5px solid `+ bg_color_icon + `33;
 	background-color: white;
 	margin-left     : 15px;
 	margin-right    : 15px;
 	padding-top     : 15px;
 	padding-left    : 15px;
 	padding-right   : 15px;
-	border-radius   : 15px;
+	border-radius   : 14px;
 	margin-top      : 5px;
     width: 90%;
-	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
+	box-shadow      : 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .radio_row_widget {
@@ -124,7 +111,6 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 	cursor       : pointer;
 	margin-bottom: 10px;
 	width        : 100%;
-    position: relative;
 }
 
 .jarak_radio {
@@ -140,39 +126,22 @@ input[type="radio"][checked="checked"][class="radio_widget_dsb"] {
 	align-items        : flex-start !important;
 	text-align         : left;
 }
-.jarak_radio2 {
-margin-left: 5px;
-    color: black;
-    font-size: 12px;
-    color: black;
-    font-family: "Plus Jakarta Sans", sans-serif !important;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-    width: 100%;
-    align-items: flex-start !important;
-    text-align: left;
-    height: 20px;
-    position: absolute;
-    z-index: 999;
-    background-color: transparent;
-}
-.font_size_bhs{
-font-size          : 14px !important;
-}
+
 .box_content_settings {
-	width          : 25px;
-	height         : 25px;
+	width          : 26px;
+	height         : 26px;
 	display        : flex;
 	text-align     : center;
 	flex-direction : column;
 	align-items    : center;
 	justify-content: center;
-	border-radius  : 25px;
-
-	color : black;
-	cursor: pointer;
-
+	border-radius  : 26px;
+	color          : black;
+	cursor         : pointer;
+	transition     : transform 0.3s ease;
+}
+.group_action_setting_layout:hover .box_content_settings {
+	transform: rotate(45deg);
 }
 
 
@@ -356,13 +325,13 @@ font-size          : 14px !important;
 .except_content_aksesbilitas_utama {
 	border-top-right-radius   : unset !important;
 	border-bottom-right-radius: unset !important;
-	border-top-left-radius    : 20px;
-	border-bottom-left-radius : 20px;
+	border-top-left-radius    : 24px;
+	border-bottom-left-radius : 24px;
 }
 
 .content_aksesbilitas .except_groupcontenttoolbar {
 	transform : translateX(0px) !important;
-	transition: transform 0.6s;
+	transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content_aksesbilitas.new-show-toolbar .except_groupcontenttoolbar {
@@ -377,7 +346,7 @@ font-size          : 14px !important;
 
 .content_aksesbilitas .groupcontenttoolbar {
 	transform : translateX(-500px);
-	transition: transform 0.6s;
+	transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .groupcontenttoolbar {
@@ -394,26 +363,25 @@ font-size          : 14px !important;
 	top                       : 0;
 	z-index                   : 999999999999;
 	position                  : fixed;
-	background-color          : ` +
-	bg_color_icon +
-	`;
+	background: linear-gradient(180deg, `+ bg_color_icon + ` 0%, `+ bg_color_icon + `e6 100%);
 	width                     : 500px;
 	height                    : 100vh;
-	border-top-right-radius   : 20px;
-	border-bottom-right-radius: 20px;
-	box-shadow                : 0 0 5px rgba(0, 0, 0, 0.4);
+	border-top-right-radius   : 24px;
+	border-bottom-right-radius: 24px;
+	box-shadow                : 8px 0 40px rgba(0, 0, 0, 0.18), 2px 0 10px rgba(0,0,0,0.08);
 	/* transition             : transform 0.3s ease-in-out;*/
 }
 
 .group_box_content_disabilitas {
-	border-top-right-radius: 20px;
-	border-top-left-radius : 20px;
+	border-top-right-radius: 24px;
+	border-top-left-radius : 24px;
 	width                  : 500px;
 	position               : absolute;
 	overflow               : hidden;
 	bottom                 : 0;
 	height                 : 92vh;
-	background-color       : #f0f1f5;
+	background-color       : #f4f6fa;
+	background-image       : linear-gradient(180deg, #f8f9fc 0%, #eef1f7 100%);
 }
 
 .group_scroll_content {
@@ -427,20 +395,17 @@ font-size          : 14px !important;
 }
 
 .group_scroll_content::-webkit-scrollbar {
-	width  : 5px;
+	width  : 4px;
 	display: inherit;
 }
 
 .group_scroll_content:hover::-webkit-scrollbar {
-	width: 5px;
+	width: 6px;
 }
 
 .group_scroll_content::-webkit-scrollbar-track {
 
-
-	box-shadow           : inset 0 0 6px ` +
-	bg_color_icon +
-	`;
+	background           : transparent;
 	border-radius        : 8px;
 	-webkit-border-radius: 8px;
 
@@ -448,20 +413,17 @@ font-size          : 14px !important;
 }
 
 .group_scroll_content::-webkit-scrollbar-thumb {
-	background-color     : ` +
-	bg_color_icon +
-	`;
-	outline              : 1px solid slategrey;
+	background-color     : `+ bg_color_icon + `88;
+	outline              : none;
 	-webkit-border-radius: 8px;
 	border-radius        : 8px;
-	background           : ` +
-	bg_color_icon +
-	`;
-	-webkit-box-shadow   : inset 0 0 6px ` +
-	bg_color_icon +
-	`;
+	background           : `+ bg_color_icon + `88;
+	-webkit-box-shadow   : none;
+	transition           : background 0.2s ease;
+}
 
-
+.group_scroll_content::-webkit-scrollbar-thumb:hover {
+	background: `+ bg_color_icon + `;
 }
 
 .group_title_disabilitas {
@@ -479,8 +441,10 @@ font-size          : 14px !important;
 	font-size          : 18px;
 	font-family        : "Plus Jakarta Sans", sans-serif !important;
 	font-optical-sizing: auto;
-	font-weight        : 700;
+	font-weight        : 800;
 	font-style         : normal;
+	letter-spacing     : -0.3px;
+	text-shadow        : 0 1px 3px rgba(0,0,0,0.15);
 }
 
 .row_title_disabilitas {
@@ -510,8 +474,8 @@ font-size          : 14px !important;
 }
 
 .box_circle_disabilitas {
-	width           : 30px;
-	height          : 30px;
+	width           : 32px;
+	height          : 32px;
 	display         : flex;
 	text-align      : center;
 	padding-right   : 1%;
@@ -519,9 +483,15 @@ font-size          : 14px !important;
 	flex-direction  : column;
 	align-items     : center;
 	justify-content : center;
-	border-radius   : 30px;
-	background-color: rgba(0, 0, 0, .36);
+	border-radius   : 32px;
+	background-color: rgba(255, 255, 255, .18);
+	backdrop-filter : blur(4px);
 	cursor          : pointer;
+	transition      : all 0.25s ease;
+}
+.box_circle_disabilitas:hover {
+	background-color: rgba(255, 255, 255, .32);
+	transform       : rotate(90deg);
 }
 
 .icon_x_svg_color {
@@ -544,19 +514,17 @@ height  : 28px;
 }
 
 .box_content_disabilitas {
-	width           : 30px;
-	height          : 30px;
+	width           : 26px;
+	height          : 26px;
 	display         : flex;
 	text-align      : center;
 	flex-direction  : column;
 	align-items     : center;
 	justify-content : center;
-	border-radius   : 30px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	border-radius   : 26px;
+	background      : linear-gradient(135deg, `+ bg_color_icon + `, `+ bg_color_icon + `cc);
 	cursor          : pointer;
-	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
+	box-shadow      : 0 2px 6px `+ bg_color_icon + `33;
 }
 
 .box_content_profile_disabilitas {
@@ -579,11 +547,12 @@ height  : 28px;
 	flex-direction     : column;
 	margin-left        : 10px;
 	font-size          : 12px;
-	color              : black;
+	color              : #1a1a2e;
 	font-family        : "Plus Jakarta Sans Normal", sans-serif !important;
 	font-optical-sizing: auto;
-	font-weight        : 600;
+	font-weight        : 700;
 	font-style         : normal;
+	transition         : color 0.25s ease;
 }
 
 .active_text_list_content_profile_disabilitas {
@@ -591,32 +560,32 @@ height  : 28px;
 }
 
 .icon_list_content_profile_disabilitas {
-	width           : 30px;
-	height          : 30px;
+	width           : 32px;
+	height          : 32px;
 	display         : flex;
 	text-align      : center;
 	flex-direction  : column;
 	align-items     : center;
 	justify-content : center;
-	border-radius   : 30px;
-	background-color: rgba(216, 216, 216, .4);
-	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
+	border-radius   : 32px;
+	background-color: rgba(0, 0, 0, .05);
+	box-shadow      : none;
 	cursor          : pointer;
 	overflow        : hidden;
+	transition      : all 0.25s ease;
 }
 
 .active_icon_list_content_profile_disabilitas {
-
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 .layout_content_title {
 	display       : flex;
 	flex-direction: column;
-	border-bottom : 1px solid #b4bfd0;
-	padding-top   : 15px;
+	border-bottom : 1px solid rgba(0,0,0,0.06);
+	padding-top   : 14px;
 	padding-left  : 20px;
-	padding-bottom: 15px;
+	padding-bottom: 14px;
 }
 
 .group_action_bahasa {
@@ -636,30 +605,24 @@ height  : 28px;
 	display            : flex;
 	flex-direction     : column;
 	margin-left        : 10px;
-	font-size          : 14px;
-	color              : black;
+	font-size          : 13.5px;
+	color              : #1a1a2e;
 	font-family        : "Plus Jakarta Sans Normal", sans-serif !important;
 	font-optical-sizing: auto;
-	font-weight        : 600;
+	font-weight        : 700;
 	font-style         : normal;
-margin-top: 5px;
 }
 
 .box_button_switch {
 	display       : flex;
 	flex-direction: column;
-    justify-content: center;
+	align-items   : flex-end;
 	font-weight   : bolder;
-	color         : black;
+	color         : red;
 	font-family   : "Plus Jakarta Sans Normal", sans-serif !important;
 	font-size     : 12px;
 	margin-left   : 10px;
 }
-
-.group_action_bahasa[aria-expanded=true] .box_button_switch {
-    transform: rotate(90deg);
-}
-
 
 .content_daftar_action_disabilitas {
 	display       : flex;
@@ -676,31 +639,33 @@ margin-top: 5px;
 	grid-template-columns: auto auto auto;
 	align-items          : center;
 	justify-content      : center;
-	gap                  : 18px 10px;
+	gap                  : 14px 10px;
+	padding-bottom       : 10px;
 }
 
 
 
 .box_group_disabilitas {
-	border-radius   : 15px;
+	border-radius   : 16px;
 	width           : 150px;
 	height          : 125px;
-	border          : 1px solid transparent;
+	border          : 1.5px solid rgba(0,0,0,0.04);
 	cursor          : pointer;
 	overflow        : hidden;
-	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
+	box-shadow      : 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 	background-color: white;
+	transition      : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .box_group_disabilitas:hover {
-	border-radius: 15px;
+	border-radius: 16px;
 	width        : 150px;
 	height       : 125px;
-	border       : 2px solid ` +
-	bg_color_icon +
-	`;
+	border       : 1.5px solid `+ bg_color_icon + `44;
 	cursor       : pointer;
-	box-shadow   : 0 0 5px rgba(0, 0, 0, 0.4);
+	box-shadow   : 0 8px 25px `+ bg_color_icon + `22, 0 4px 12px rgba(0, 0, 0, 0.08);
+	transform    : translateY(-3px);
+	background   : linear-gradient(180deg, white 60%, `+ bg_color_icon + `08 100%);
 }
 
 .box_icon_disabilitas {
@@ -709,16 +674,23 @@ margin-top: 5px;
 	align-items    : center;
 	justify-content: center;
 	height         : 80px;
+	transition     : transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.box_group_disabilitas:hover .box_icon_disabilitas {
+	transform: scale(1.08);
 }
 
 .box_text_bottom_disabilitas {
 	text-align         : center;
-	font-size          : 12px;
-	color              : black;
+	font-size          : 11.5px;
+	color              : #1a1a2e;
 	font-family        : "Plus Jakarta Sans", sans-serif !important;
 	font-optical-sizing: auto;
-	font-weight        : 600;
+	font-weight        : 700;
 	font-style         : normal;
+	letter-spacing     : -0.1px;
+	transition         : color 0.25s ease;
 }
 
 .box_column_action_strip {
@@ -742,75 +714,69 @@ margin-top: 5px;
 	display         : flex;
 	flex-direction  : column;
 	width           : 30%;
-	height          : 5px;
-	margin-right    : 5px;
-	border-radius   : 5px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	height          : 4px;
+	margin-right    : 4px;
+	border-radius   : 4px;
+	background      : linear-gradient(90deg, `+ bg_color_icon + `, `+ bg_color_icon + `cc);
+	transition      : all 0.3s ease;
 }
 
 .strip_loading_unprocess_v2 {
 	display         : flex;
 	flex-direction  : column;
 	width           : 30%;
-	height          : 5px;
-	opacity         : 0.5;
-	margin-right    : 5px;
-	border-radius   : 5px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	height          : 4px;
+	opacity         : 0.25;
+	margin-right    : 4px;
+	border-radius   : 4px;
+	background-color: `+ bg_color_icon + `;
+	transition      : all 0.3s ease;
 }
 
 .strip_loading_process_v3 {
 	display         : flex;
 	flex-direction  : column;
 	width           : 25%;
-	height          : 5px;
-	margin-right    : 5px;
-	border-radius   : 5px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	height          : 4px;
+	margin-right    : 4px;
+	border-radius   : 4px;
+	background      : linear-gradient(90deg, `+ bg_color_icon + `, `+ bg_color_icon + `cc);
+	transition      : all 0.3s ease;
 }
 
 .strip_loading_unprocess_v3 {
 	display         : flex;
 	flex-direction  : column;
 	width           : 25%;
-	height          : 5px;
-	opacity         : 0.5;
-	margin-right    : 5px;
-	border-radius   : 5px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	height          : 4px;
+	opacity         : 0.25;
+	margin-right    : 4px;
+	border-radius   : 4px;
+	background-color: `+ bg_color_icon + `;
+	transition      : all 0.3s ease;
 }
 
 .strip_loading_process_v4 {
 	display         : flex;
 	flex-direction  : column;
 	width           : 15%;
-	height          : 5px;
-	margin-right    : 5px;
-	border-radius   : 5px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	height          : 4px;
+	margin-right    : 4px;
+	border-radius   : 4px;
+	background      : linear-gradient(90deg, `+ bg_color_icon + `, `+ bg_color_icon + `cc);
+	transition      : all 0.3s ease;
 }
 
 .strip_loading_unprocess_v4 {
 	display         : flex;
 	flex-direction  : column;
 	width           : 15%;
-	height          : 5px;
-	opacity         : 0.5;
-	margin-right    : 5px;
-	border-radius   : 5px;
-	background-color: ` +
-	bg_color_icon +
-	`;
+	height          : 4px;
+	opacity         : 0.25;
+	margin-right    : 4px;
+	border-radius   : 4px;
+	background-color: `+ bg_color_icon + `;
+	transition      : all 0.3s ease;
 }
 
 .icon_svg_color {
@@ -851,9 +817,7 @@ margin-top: 5px;
 
 .icon_contrast_white {
 	fill           : white;
-	stroke         : ` +
-	bg_color_icon +
-	`;
+	stroke         : `+ bg_color_icon + `;
 	stroke-linejoin: round;
 	stroke-width   : 32px
 }
@@ -861,12 +825,8 @@ margin-top: 5px;
 .icon_contrast_black {
 	/*   fill: black;
                 stroke: none;*/
-	fill  : ` +
-	bg_color_icon +
-	`;
-	stroke: ` +
-	bg_color_icon +
-	`;
+	fill  : `+ bg_color_icon + `;
+	stroke: `+ bg_color_icon + `;
 
 }
 
@@ -881,15 +841,11 @@ margin-top: 5px;
 }
 
 .active_icon_fill_svg_color_black {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .icon_fill_svg_color_black {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 
@@ -898,75 +854,51 @@ margin-top: 5px;
 }
 
 .box_group_disabilitas:hover .icon_svg_grey_scale_color_2 {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .icon_svg_grey_scale_color_3 {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .icon_svg_grey_scale_color_4 {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .icon_svg_color {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .icon_svg_sroke_color {
-	fill  : ` +
-	bg_color_icon +
-	`;
-	stroke: ` +
-	bg_color_icon +
-	`;
+	fill  : `+ bg_color_icon + `;
+	stroke: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .box_text_bottom_disabilitas {
-	color: ` +
-	bg_color_icon +
-	`;
+	color: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .icon_contrast {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .active_box_menu_disabilitas {
-	border: 2px solid ` +
-	bg_color_icon +
-	`;
+	border    : 1.5px solid `+ bg_color_icon + `;
+	background: linear-gradient(180deg, white 40%, `+ bg_color_icon + `0f 100%);
+	box-shadow: 0 4px 16px `+ bg_color_icon + `30, 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .active_icon_svg_sroke_color {
-	fill  : ` +
-	bg_color_icon +
-	`;
-	stroke: ` +
-	bg_color_icon +
-	`;
+	fill  : `+ bg_color_icon + `;
+	stroke: `+ bg_color_icon + `;
 }
 
 .active_box_text_bottom_disabilitas {
-	color: ` +
-	bg_color_icon +
-	`;
+	color: `+ bg_color_icon + `;
 }
 
 .active_icon_svg_color {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 
@@ -975,21 +907,15 @@ margin-top: 5px;
 }
 
 .active_icon_svg_grey_scale_color_2 {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .active_icon_svg_grey_scale_color_3 {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 .active_icon_svg_grey_scale_color_4 {
-	fill: ` +
-	bg_color_icon +
-	`;
+	fill: `+ bg_color_icon + `;
 }
 
 
@@ -1012,27 +938,19 @@ margin-top: 5px;
 }
 
 .box_group_disabilitas:hover .circle_multi {
-	stroke: ` +
-	bg_color_icon +
-	`;
+	stroke: `+ bg_color_icon + `;
 }
 
 .box_group_disabilitas:hover .circle_single {
-	stroke: ` +
-	bg_color_icon +
-	`;
+	stroke: `+ bg_color_icon + `;
 }
 
 .active_circle_single {
-	stroke: ` +
-	bg_color_icon +
-	`;
+	stroke: `+ bg_color_icon + `;
 }
 
 .active_circle_multi {
-	stroke: ` +
-	bg_color_icon +
-	`;
+	stroke: `+ bg_color_icon + `;
 }
 
 .group_row_widget_dsb {
@@ -1045,7 +963,7 @@ margin-top: 5px;
 	flex-direction: column;
 	height        : max-height;
 	width         : 500px;
-	padding-bottom : 25px !important;
+
 }
 
 .layout_settings_widget {
@@ -1056,28 +974,21 @@ margin-top: 5px;
 	margin-bottom : 2vh;
     align-items : center;
 }
-.layout_bahasa_lang_widget {
-	display       : flex;
-	flex-direction: column;
-	height        : max-height;
-    width:100%;
-	margin-bottom : 2vh;
-    align-items : center;
-}
+
 .box_profile_aksesbilitas {
 	display         : flex;
 	flex-direction  : row;
-	border-radius   : 15px;
+	border-radius   : 14px;
 	width           : 215px;
 	height          : 55px;
-	border          : 1px solid transparent;
+	border          : 1.5px solid rgba(0,0,0,0.04);
 	cursor          : pointer;
 	overflow        : hidden;
-	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
+	box-shadow      : 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0,0,0,0.04);
 	background-color: white;
-
-	align-items : center;
-	padding-left: 1vw;
+	align-items     : center;
+	padding-left    : 1vw;
+	transition      : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .color_svg_content_profile_disabilitas {
@@ -1089,15 +1000,16 @@ margin-top: 5px;
 }
 
 .active_box_profile_aksesbilitas {
-	background-color: ` +
-	bg_color_icon +
-	`
+	background: linear-gradient(135deg, `+ bg_color_icon + ` 0%, `+ bg_color_icon + `dd 100%);
+	box-shadow: 0 4px 16px `+ bg_color_icon + `33, 0 2px 4px rgba(0,0,0,0.08);
+	border-color: transparent;
 }
 
 .box_profile_aksesbilitas:hover {
-	background-color: ` +
-	bg_color_icon +
-	`
+	background: linear-gradient(135deg, `+ bg_color_icon + ` 0%, `+ bg_color_icon + `dd 100%);
+	box-shadow: 0 6px 20px `+ bg_color_icon + `33, 0 2px 6px rgba(0,0,0,0.08);
+	transform : translateY(-2px);
+	border-color: transparent;
 }
 
 .box_profile_aksesbilitas:hover .text_list_content_profile_disabilitas {
@@ -1132,7 +1044,7 @@ margin-top: 5px;
 .row_widget_profil_dsb {
 	margin-top           : 3%;
 	display              : inline-grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 1fr 1fr;
 	align-items          : center;
 	justify-content      : center;
 	gap                  : 18px 20px;
@@ -1142,14 +1054,13 @@ margin-top: 5px;
 .layout_bahasa_widget {
 	display       : none;
 	flex-direction: column;
-	height        : 250px;
-	width         : 510px;
-
-	overflow: scroll;
+	height        : auto;
+	width         : 100%;
+	overflow      : hidden;
+	background    : white;
+	border-bottom : 1px solid rgba(0,0,0,0.06);
 }
-    .layout_bahasa_widget::-webkit-scrollbar {
-    width: 11px;
-    }
+
 .layout_bahasa_widget_active {
 	display       : flex;
 	flex-direction: column;
@@ -1160,29 +1071,106 @@ margin-top: 5px;
 	display       : flex;
 	flex-direction: column;
 	width         : 100%;
-	border-bottom : 1px solid #b4bfd0;
-  	background-color: ` +
-	bg_color_icon +
-	`
+	border-bottom : 1px solid rgba(0,0,0,0.06);
 }
 
 .title_daftar_bahasa {
 	display       : flex;
 	flex-direction: column;
 	text-align    : center;
-	font-size     : 18px;
+	font-size     : 17px;
 	padding-top   : 15px;
 	padding-bottom: 15px;
 	font-family   : 'Plus Jakarta Sans' !important;
-	font-weight   : bolder;
-	color         : white;
-
-
+	font-weight   : 800;
+	color         : #1a1a2e;
+	letter-spacing: -0.2px;
 }
 
 .hidden_svg {
 	display: none;
 }
+
+.list_bahasa_item {
+	display         : flex;
+	flex-direction  : row;
+	align-items     : center;
+	padding         : 8px 14px;
+	cursor          : pointer;
+	transition      : all 0.2s ease;
+	border-bottom   : 1px solid rgba(0,0,0,0.04);
+	gap             : 8px;
+}
+.list_bahasa_item:hover {
+	background-color: `+ bg_color_icon + `0a;
+}
+.list_bahasa_item:last-child {
+	border-bottom: none;
+}
+.list_bahasa_flag {
+	width          : 22px;
+	height         : 22px;
+	border-radius  : 22px;
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+	font-size      : 10px;
+	font-weight    : 700;
+	background     : `+ bg_color_icon + `12;
+	flex-shrink    : 0;
+	letter-spacing : 0.5px;
+}
+.list_bahasa_text {
+	display            : flex;
+	flex-direction     : column;
+	font-family        : "Plus Jakarta Sans Normal", sans-serif !important;
+	font-weight        : 600;
+	font-size          : 11px;
+	color              : #1a1a2e;
+	line-height        : 1.3;
+}
+.list_bahasa_text_sub {
+	font-size  : 9px;
+	color      : #8c8c9e;
+	font-weight: 400;
+	margin-top : 0px;
+}
+.active_bahasa_item {
+	background-color: `+ bg_color_icon + `10;
+	border-left     : 2px solid `+ bg_color_icon + `;
+}
+.active_bahasa_item .list_bahasa_flag {
+	background: `+ bg_color_icon + `;
+	color     : white;
+}
+.active_bahasa_item .list_bahasa_text {
+	color      : `+ bg_color_icon + `;
+	font-weight: 700;
+}
+.bahasa_check_icon {
+	margin-left: auto;
+	fill       : `+ bg_color_icon + `;
+	display    : none;
+}
+.active_bahasa_item .bahasa_check_icon {
+	display: flex;
+}
+#google_translate_element_dsb {
+	position  : fixed !important;
+	left      : 0 !important;
+	top       : 0 !important;
+	width     : 0 !important;
+	height    : 0 !important;
+	overflow  : visible !important;
+	opacity   : 0 !important;
+	z-index   : -9999 !important;
+}
+.goog-te-banner-frame {
+	display: none !important;
+}
+body { top: 0 !important; }
+.skiptranslate iframe { display: none !important; }
+#goog-gt-tt { display: none !important; }
 
 .group_action_setting_layout[aria-expanded=true] .icon_column_layaout_disabilitas {
 	transform: rotate(90deg);
@@ -1192,7 +1180,7 @@ margin-top: 5px;
 	display       : flex;
 	flex-direction: column;
     width:100%;
-	border-bottom : 1px solid #b4bfd0;
+	border-bottom : 1px solid rgba(0,0,0,0.06);
 	padding-bottom: 1vh;
 	margin-bottom : 6vh;
 	direction     : ltr !important;
@@ -1267,26 +1255,33 @@ margin-top: 5px;
 	flex-direction: column;
 	width         : 90%;
 	font-family   : 'Plus Jakarta Sans' !important;
-	font-weight   : bolder;
-	font-size     : 14px;
-	color         : black;
+	font-weight   : 600;
+	font-size     : 12px;
+	color         : #8c8c9e;
 	text-align    : center;
+	letter-spacing: 0.3px;
 }
 
 
 .row_persegi_reset {
 	display         : flex;
 	flex-direction  : row;
-	background-color: ` +
-	bg_color_icon +
-	`;
-	height          : 50px;
-	width           : 450px;
+	background      : linear-gradient(135deg, `+ bg_color_icon + ` 0%, `+ bg_color_icon + `cc 100%);
+	height          : 52px;
+	width           : 440px;
 	justify-content : center;
 	align-items     : center;
-	border-radius   : 20px;
-	box-shadow      : 0 0 5px rgba(0, 0, 0, 0.4);
+	border-radius   : 14px;
+	box-shadow      : 0 4px 16px `+ bg_color_icon + `33, 0 2px 6px rgba(0, 0, 0, 0.08);
 	cursor          : pointer;
+	transition      : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.row_persegi_reset:hover {
+	transform : translateY(-2px);
+	box-shadow: 0 6px 24px `+ bg_color_icon + `44, 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+.row_persegi_reset:active {
+	transform: translateY(0px);
 }
 
 .icon_persegi_riset {
@@ -1302,9 +1297,10 @@ margin-top: 5px;
 	flex-direction: column;
 	width         : 90%;
 	font-family   : 'Plus Jakarta Sans' !important;
-	font-weight   : bolder;
-	font-size     : 16px;
+	font-weight   : 700;
+	font-size     : 14px;
 	color         : white;
+	letter-spacing: -0.1px;
 }
 
 
@@ -1315,17 +1311,24 @@ margin-top: 5px;
 	z-index         : 999999999999;
 	position        : fixed;
 	left            : 0;
-	background-color: `+ bg_color_icon + `;
-    width: 80px;
-    height: 80px;
+	background: linear-gradient(135deg, `+ bg_color_icon + ` 0%, `+ bg_color_icon + `dd 50%, `+ bg_color_icon + `bb 100%);
+    width: 72px;
+    height: 72px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    border-radius: 80px;
+    border-radius: 72px;
     margin-top:0px;
-    margin-bottom: 6%;
-    margin-left: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 24px;
+    margin-left: 24px;
+    box-shadow: 0 4px 20px `+ bg_color_icon + `66, 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: widget_pulse_ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes widget_pulse_ring {
+    0%, 100% { box-shadow: 0 4px 20px `+ bg_color_icon + `66, 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0px `+ bg_color_icon + `40; }
+    50% { box-shadow: 0 4px 20px `+ bg_color_icon + `66, 0 2px 8px rgba(0,0,0,0.15), 0 0 0 12px `+ bg_color_icon + `00; }
 }
 
 .circle_right_top_sidebar {
@@ -1367,41 +1370,44 @@ margin-top: 5px;
 	background-color: white;
 	align-items     : center;
 	justify-content : center;
-	width           : 66px;
-	height          : 67px;
-	border-radius   : 67px;
+	width           : 58px;
+	height          : 58px;
+	border-radius   : 58px;
+	transition      : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .circle_aksesbilitas_3 {
 	display         : flex;
 	flex-direction  : column;
-	background-color: ` +
-	bg_color_icon +
-	`;
-	width           : 59px;
-	height          : 60px;
-	border-radius   : 55px;
+	background: linear-gradient(135deg, `+ bg_color_icon + `, `+ bg_color_icon + `cc);
+	width           : 50px;
+	height          : 50px;
+	border-radius   : 50px;
 	align-items     : center;
 	justify-content : center;
+	transition      : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
 .circle_aksesbilitas_popup:hover {
-	width        : 85px;
-	height       : 85px;
-	border-radius: 85px;
+	width        : 78px;
+	height       : 78px;
+	border-radius: 78px;
+	box-shadow   : 0 6px 28px `+ bg_color_icon + `88, 0 4px 12px rgba(0,0,0,0.2);
+	animation    : none;
+	transform    : scale(1.05);
 }
 
 .circle_aksesbilitas_popup:hover .circle_aksesbilitas_2 {
-	width        : 71px;
-	height       : 72px;
-	border-radius: 72px;
+	width        : 64px;
+	height       : 64px;
+	border-radius: 64px;
 }
 
 .circle_aksesbilitas_popup:hover .circle_aksesbilitas_3 {
-	width        : 64px;
-	height       : 65px;
-	border-radius: 60px;
+	width        : 56px;
+	height       : 56px;
+	border-radius: 56px;
 }
 
 .svg_icon_popoup_dsb {
@@ -1416,8 +1422,6 @@ margin-top: 5px;
 .group_body_bahasa {
 	display       : flex;
 	flex-direction: column;
-      width: 100%;
-
 }
 
 
@@ -1679,10 +1683,10 @@ margin-top: 5px;
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 15px;
+    border-radius: 14px;
     margin-top: 5px;
     width: 90%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0,0,0,0.04);
 }
 .except_group_action_setting_layout{
    margin-left: 1%  !important;
@@ -1725,14 +1729,10 @@ margin-top: 5px;
 
 	.layout_settings_widget {
 
-		width: 100vw !important;
+		width: 98vw !important;
 
 	}
-	.layout_bahasa_lang_widget {
 
-		width: 100vw !important;
-padding-left: 20px;
-	}
 	.layout_profile_widget {
 
 		width: 100vw !important;
@@ -1744,24 +1744,25 @@ padding-left: 20px;
 	}
 
 	.circle_aksesbilitas_popup {
-	  margin-bottom: 20%;
-
-        
+		margin-top: 20%;
+		width     : 64px;
+		height    : 64px;
 	}
+
 	.column_reset_disabilitas_menu {
 		width        : 100vw;
 		margin-bottom: 1vh;
 	}
 
 	.row_persegi_reset {
-		width        : 90vw;
+		width        : 88vw;
 		padding-left : 5%;
 		padding-right: 5%;
-
+		border-radius: 14px;
 	}
 
 	.column_text_persegi_riset {
-		font-size: 12px;
+		font-size: 13px;
 		width    : 100%;
 	}
 
@@ -1815,16 +1816,19 @@ padding-left: 20px;
 
 
 	.content_aksesbilitas_utama {
-		width        : 100vw;
-		height       : calc(` +
-	pageHeight_website +
-	`px + 20vh);
+		width                     : 100vw;
+		height                    : calc(`+ pageHeight_website + `px + 20vh);
+		border-top-right-radius   : 0 !important;
+		border-bottom-right-radius: 0 !important;
+		border-top-left-radius    : 0 !important;
+		border-bottom-left-radius : 0 !important;
 		/* transition: transform 0.3s ease-in-out;*/
 	}
 
 
 	.layout_bahasa_widget {
 		width: 100vw;
+		height: auto;
 	}
 
 
@@ -1837,19 +1841,16 @@ padding-left: 20px;
 
 	.layout_grid_disabilitas {
 		display              : inline-grid;
-		grid-template-columns: auto auto;
+		grid-template-columns: 1fr 1fr;
 		align-items          : center;
 		justify-content      : center;
-		gap                  : 18px 10px;
+		gap                  : 12px 10px;
 	}
 
 	.group_box_content_disabilitas {
-
-		width : 100vw;
-		height: calc(` +
-	pageHeight_website +
-	`px + 10vh);
-
+		width        : 100vw;
+		height       : calc(`+ pageHeight_website + `px + 10vh);
+		border-radius: 0 !important;
 	}
 
 	.group_scroll_content {
@@ -1861,7 +1862,7 @@ padding-left: 20px;
 		text-align : left;
 		margin-left: 10px;
 		font-size  : 14px;
-margin-top: 5px;
+
 	}
 
 	.layout_content_title {
@@ -1891,6 +1892,7 @@ margin-top: 5px;
 		margin-left: 4%;
 	}
 `;
+
 localStorage.removeItem("permismobile");
 localStorage.removeItem("permisvoice");
 
@@ -1961,6 +1963,273 @@ script_google_anal_v2.type = 'text/javascript';
 document.body.appendChild(script_google_anal_v2);
 
 
+var widget_current_lang = localStorage.getItem("widget_lang") || 'id';
+var _widgetTranslateObserver = null;
+var _widgetTranslateObserverDebounce = null;
+var _widgetTranslateCache = {};
+var _widgetTranslatePendingNodes = {};
+var _widgetTranslateQueue = [];
+var _widgetTranslateInFlight = 0;
+var _widgetTrackedTextNodes = [];
+var _widgetTranslateSession = 0;
+var _widgetTranslateMaxConcurrent = 3;
+
+function _widgetNormalizeText(value) {
+    return (value || '').replace(/\s+/g, ' ').trim();
+}
+
+function _widgetGetTextEdges(value) {
+    var source = value || '';
+    var leading = (source.match(/^\s*/) || [''])[0];
+    var trailing = (source.match(/\s*$/) || [''])[0];
+    return {
+        leading: leading,
+        trailing: trailing
+    };
+}
+
+function _widgetShouldSkipTranslateElement(el) {
+    if (!el || !el.tagName) return true;
+    if (el.closest('#widget_menu_disabilitas, .circle_aksesbilitas_popup, #google_translate_element_dsb, .skiptranslate, .goog-te-banner-frame, [translate="no"], .notranslate')) {
+        return true;
+    }
+    if (el.isContentEditable) return true;
+    return /^(SCRIPT|STYLE|NOSCRIPT|IFRAME|SVG|PATH|TEXTAREA|INPUT|SELECT|OPTION|META|LINK|HEAD)$/i.test(el.tagName);
+}
+
+function _widgetShouldTranslateTextNode(node) {
+    if (!node || node.nodeType !== 3 || !node.parentElement) return false;
+    if (_widgetShouldSkipTranslateElement(node.parentElement)) return false;
+    var normalized = _widgetNormalizeText(node.nodeValue);
+    if (!normalized || normalized.length < 2) return false;
+    if (!/[A-Za-z]/.test(normalized)) return false;
+    return true;
+}
+
+function _widgetRememberTextNode(node) {
+    if (!node.__widgetOriginalTextCaptured) {
+        node.__widgetOriginalTextCaptured = true;
+        node.__widgetOriginalText = node.nodeValue;
+        _widgetTrackedTextNodes.push(node);
+    }
+    return node.__widgetOriginalText || node.nodeValue;
+}
+
+function _widgetIsNodeInsideRoot(node, root) {
+    if (!root || !node) return true;
+    if (root.nodeType === 3) return node === root;
+    if (!root.contains || !node.parentNode) return false;
+    return root === node.parentNode || root.contains(node.parentNode);
+}
+
+function _widgetRestoreOriginalText(root) {
+    for (var i = _widgetTrackedTextNodes.length - 1; i >= 0; i--) {
+        var node = _widgetTrackedTextNodes[i];
+        if (!node || !node.isConnected) {
+            _widgetTrackedTextNodes.splice(i, 1);
+            continue;
+        }
+        if (!_widgetIsNodeInsideRoot(node, root)) continue;
+        if (node.__widgetOriginalTextCaptured) {
+            node.nodeValue = node.__widgetOriginalText;
+        }
+    }
+}
+
+function _widgetDecodeHtmlEntities(value) {
+    var textarea = document.createElement('textarea');
+    textarea.innerHTML = value || '';
+    return textarea.value;
+}
+
+function _widgetGetTranslateContact() {
+    var host = '';
+    try {
+        host = (window.location && window.location.hostname ? window.location.hostname : '').toLowerCase();
+    } catch(e) {}
+
+    host = host.replace(/[^a-z0-9.-]/g, '');
+    if (!host || host.indexOf('.') === -1) {
+        host = 'example.com';
+    }
+
+    return 'widget-translate@' + host;
+}
+
+async function _widgetRequestTranslation(text) {
+    if (_widgetTranslateCache[text] !== undefined) return _widgetTranslateCache[text];
+
+    var translatedText = text;
+    try {
+        var response = await fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=id|en&de=' + encodeURIComponent(_widgetGetTranslateContact()), {
+            method: 'GET'
+        });
+        if (response.ok) {
+            var data = await response.json();
+            if (data && data.responseData && typeof data.responseData.translatedText === 'string' && data.responseData.translatedText) {
+                translatedText = _widgetDecodeHtmlEntities(data.responseData.translatedText);
+            }
+        }
+    } catch(e) {}
+
+    _widgetTranslateCache[text] = translatedText;
+    return translatedText;
+}
+
+function _widgetApplyTranslatedValue(node, translatedText) {
+    if (!node || !node.isConnected || !node.__widgetOriginalTextCaptured) return;
+    var edges = _widgetGetTextEdges(node.__widgetOriginalText);
+    node.nodeValue = edges.leading + translatedText + edges.trailing;
+}
+
+function _widgetFlushTranslateQueue() {
+    while (_widgetTranslateInFlight < _widgetTranslateMaxConcurrent && _widgetTranslateQueue.length > 0) {
+        var queueText = _widgetTranslateQueue.shift();
+        var sessionId = _widgetTranslateSession;
+
+        if (_widgetTranslateCache[queueText] !== undefined) {
+            var cachedNodes = _widgetTranslatePendingNodes[queueText] || [];
+            delete _widgetTranslatePendingNodes[queueText];
+            if (widget_current_lang === 'en' && sessionId === _widgetTranslateSession) {
+                for (var ci = 0; ci < cachedNodes.length; ci++) {
+                    if (_widgetShouldTranslateTextNode(cachedNodes[ci])) {
+                        _widgetApplyTranslatedValue(cachedNodes[ci], _widgetTranslateCache[queueText]);
+                    }
+                }
+            }
+            continue;
+        }
+
+        _widgetTranslateInFlight++;
+        (function(textToTranslate, activeSessionId) {
+            _widgetRequestTranslation(textToTranslate).then(function(translatedText) {
+                var pendingNodes = _widgetTranslatePendingNodes[textToTranslate] || [];
+                delete _widgetTranslatePendingNodes[textToTranslate];
+
+                if (widget_current_lang !== 'en' || activeSessionId !== _widgetTranslateSession) {
+                    return;
+                }
+
+                for (var pi = 0; pi < pendingNodes.length; pi++) {
+                    if (_widgetShouldTranslateTextNode(pendingNodes[pi])) {
+                        _widgetApplyTranslatedValue(pendingNodes[pi], translatedText);
+                    }
+                }
+            }).finally(function() {
+                _widgetTranslateInFlight--;
+                _widgetFlushTranslateQueue();
+            });
+        })(queueText, sessionId);
+    }
+}
+
+function _widgetQueueTranslateNode(node) {
+    if (!_widgetShouldTranslateTextNode(node)) return;
+
+    var originalText = _widgetRememberTextNode(node);
+    var normalizedText = _widgetNormalizeText(originalText);
+    if (!normalizedText) return;
+
+    if (_widgetTranslateCache[normalizedText] !== undefined) {
+        _widgetApplyTranslatedValue(node, _widgetTranslateCache[normalizedText]);
+        return;
+    }
+
+    if (!_widgetTranslatePendingNodes[normalizedText]) {
+        _widgetTranslatePendingNodes[normalizedText] = [];
+        _widgetTranslateQueue.push(normalizedText);
+    }
+    _widgetTranslatePendingNodes[normalizedText].push(node);
+    _widgetFlushTranslateQueue();
+}
+
+function _widgetTranslateRoot(root) {
+    if (!root) return;
+
+    if (root.nodeType === 3) {
+        _widgetQueueTranslateNode(root);
+        return;
+    }
+
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    var currentNode;
+    while ((currentNode = walker.nextNode())) {
+        _widgetQueueTranslateNode(currentNode);
+    }
+}
+
+function _ensureWidgetTranslateObserver() {
+    if (_widgetTranslateObserver || !window.MutationObserver || !document.body) return;
+
+    _widgetTranslateObserver = new MutationObserver(function(mutations) {
+        if (widget_current_lang !== 'en') return;
+
+        var hasAddedNodes = false;
+        for (var i = 0; i < mutations.length; i++) {
+            if (mutations[i].addedNodes && mutations[i].addedNodes.length > 0) {
+                hasAddedNodes = true;
+                break;
+            }
+        }
+        if (!hasAddedNodes) return;
+
+        if (_widgetTranslateObserverDebounce) {
+            clearTimeout(_widgetTranslateObserverDebounce);
+        }
+        _widgetTranslateObserverDebounce = setTimeout(function() {
+            _widgetTranslateRoot(document.body);
+        }, 250);
+    });
+
+    try {
+        _widgetTranslateObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    } catch(e) {}
+}
+
+function triggerGoogleTranslate(langCode) {
+    localStorage.setItem("widget_lang", langCode);
+    widget_current_lang = langCode;
+    _widgetTranslateSession++;
+    _ensureWidgetTranslateObserver();
+
+    if (langCode === 'id') {
+        _widgetTranslatePendingNodes = {};
+        _widgetTranslateQueue = [];
+        _widgetRestoreOriginalText(document.body);
+        return;
+    }
+
+    _widgetTranslateRoot(document.body);
+}
+
+function _scheduleWidgetTranslateBootstrap(langCode) {
+    if (!langCode || langCode === 'id') return;
+
+    var delays = [150, 800, 1800, 3200];
+    for (var i = 0; i < delays.length; i++) {
+        (function(delay) {
+            setTimeout(function() {
+                if (localStorage.getItem("widget_lang") === langCode) {
+                    triggerGoogleTranslate(langCode);
+                }
+            }, delay);
+        })(delays[i]);
+    }
+
+    if (document.readyState !== "complete") {
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                if (localStorage.getItem("widget_lang") === langCode) {
+                    triggerGoogleTranslate(langCode);
+                }
+            }, 500);
+        }, { once: true });
+    }
+}
+
 
 var style = document.createElement('style');
 
@@ -1976,12 +2245,6 @@ if (style.styleSheet) {
 var create_div_element = document.createElement('div');
 create_div_element.setAttribute("id", "new_load_disabilitas");
 document.body.appendChild(create_div_element);
-
-var create_hidden_flag = document.createElement('div');
-create_hidden_flag.setAttribute("id", "translate_wg_web");
-create_hidden_flag.setAttribute("class", "hideflag");
-document.body.appendChild(create_hidden_flag);
-
 
 
 if (base_url_website == "ppid.slemankab.go.id") {
@@ -2047,509 +2310,13 @@ function cek_fungsi_jquery() {
 
                 hit_api_tracking(base_url_website, 'no_data');
 
-          
+
                 load_html_dsb();
 
             }, 900);
         }
     }
 
-}
-
-
-var get_id_translate_wg = document.getElementById("translate_wg_web");
-var find_id_translate_wg = document.body.contains(get_id_translate_wg);
-if (find_id_translate_wg) {
-	//tanda translate start
-	setTimeout(() => {
-
-
-
-	(function () {
-		var gtx = {
-			default_language: "id",
-			detect_browser_language: true,
-			native_language_names: 1,
-			languages: ["id", "es", "en"],
-			wrapper_selector: "#translate_wg_web",
-			flag_style: "2d",
-			horizontal_position: "Internal",
-			custom_domains: "localhost",
-		};
-
-		var lang_array_english = {
-			id: "Indonesian",
-			en: "English",
-			es: "Spanish",
-		};
-		var lang_array_native = {
-			id: "Indonesian",
-			en: "English",
-			es: "Spanish",
-		};
-		var default_language = gtx.default_language || "auto";
-		var languages =
-			gtx.languages ||
-			Object.keys(lang_array_english).sort(function (x, y) {
-				return x == default_language ? -1 : y == default_language ? 1 : 0;
-			});
-		var alt_flags = gtx.alt_flags || {};
-		var flag_size = gtx.flag_size || 32;
-		var flag_style = gtx.flag_style || "2d";
-		var flags_location =
-			gtx.flags_location || "https://cdn.gtranslate.net/flags/";
-		var url_structure = gtx.url_structure || "none";
-		var custom_domains = gtx.custom_domains || {};
-
-		var horizontal_position = gtx.horizontal_position || "inline";
-		var vertical_position = gtx.vertical_position || null;
-
-		var native_language_names = gtx.native_language_names || false;
-		var detect_browser_language = gtx.detect_browser_language || false;
-		var wrapper_selector = gtx.wrapper_selector || ".gtranslate_wrapper";
-
-		var custom_css = gtx.custom_css || "";
-		var lang_array = native_language_names
-			? lang_array_native
-			: lang_array_english;
-
-		var u_class =
-			".gt_container-" +
-			Array.from("popup" + wrapper_selector)
-				.reduce(function (h, c) {
-					return 0 | (31 * h + c.charCodeAt(0));
-				}, 0)
-				.toString(36);
-
-		var widget_code = "<!-- GTranslate: https://gtranslate.com -->";
-		var widget_css = custom_css;
-
-		flags_location += (flag_style == "3d" ? flag_size : "svg") + "/";
-		var flag_ext = flag_style == "3d" ? ".png" : ".svg";
-
-		// helper functions
-		function get_flag_src(lang) {
-			if (!alt_flags[lang]) return flags_location + lang + flag_ext;
-			else if (alt_flags[lang] == "usa")
-				return flags_location + "en-us" + flag_ext;
-			else if (alt_flags[lang] == "canada")
-				return flags_location + "en-ca" + flag_ext;
-			else if (alt_flags[lang] == "brazil")
-				return flags_location + "pt-br" + flag_ext;
-			else if (alt_flags[lang] == "mexico")
-				return flags_location + "es-mx" + flag_ext;
-			else if (alt_flags[lang] == "argentina")
-				return flags_location + "es-ar" + flag_ext;
-			else if (alt_flags[lang] == "colombia")
-				return flags_location + "es-co" + flag_ext;
-			else if (alt_flags[lang] == "quebec")
-				return flags_location + "fr-qc" + flag_ext;
-			else return alt_flags[lang];
-		}
-
-		function get_lang_href(lang) {
-			var href = "#";
-
-			if (url_structure == "sub_directory") {
-				var gt_request_uri =
-					(document.currentScript.getAttribute("data-gt-orig-url") ||
-						(location.pathname.startsWith("/" + current_lang + "/") &&
-							"/" + location.pathname.split("/").slice(2).join("/")) ||
-						location.pathname) +
-					location.search +
-					location.hash;
-				href =
-					(lang == default_language &&
-						location.protocol + "//" + location.hostname + gt_request_uri) ||
-					location.protocol +
-						"//" +
-						location.hostname +
-						"/" +
-						lang +
-						gt_request_uri;
-			} else if (url_structure == "sub_domain") {
-				var gt_request_uri =
-					(document.currentScript.getAttribute("data-gt-orig-url") ||
-						location.pathname) +
-					location.search +
-					location.hash;
-				var domain =
-					document.currentScript.getAttribute("data-gt-orig-domain") ||
-					location.hostname;
-				if (typeof custom_domains == "object" && custom_domains[lang])
-					href =
-						(lang == default_language &&
-							location.protocol + "//" + domain + gt_request_uri) ||
-						location.protocol + "//" + custom_domains[lang] + gt_request_uri;
-				else
-					href =
-						(lang == default_language &&
-							location.protocol + "//" + domain + gt_request_uri) ||
-						location.protocol +
-							"//" +
-							lang +
-							"." +
-							domain.replace(/^www\./, "") +
-							gt_request_uri;
-			}
-
-			return href;
-		}
-
-		widget_css +=
-			"a.glink{text-decoration:none}a.glink.gt-current-lang{font-weight:bold}";
-		var font_size = 10,
-			margin_right = 3;
-		if (flag_size == 24) (font_size = 15), (margin_right = 5);
-		else if (flag_size == 32) (font_size = 20), (margin_right = 7);
-		else if (flag_size == 48) (font_size = 24), (margin_right = 10);
-		widget_css +=
-			u_class +
-			" a.glink span{margin-right:" +
-			margin_right +
-			"px;font-size:" +
-			font_size +
-			"px;vertical-align:middle}";
-		widget_css +=
-			"a.glink img{vertical-align:middle;display:inline;border:0;padding:0;margin:0;opacity:0.8;height:auto}";
-		widget_css += "a.glink:hover img{opacity:1}";
-
-		var current_lang =
-			document.querySelector("html").getAttribute("lang") || default_language;
-		if (url_structure == "none") {
-			var googtrans_matches = document.cookie.match(
-				"(^|;) ?googtrans=([^;]*)(;|$)"
-			);
-			current_lang =
-				(googtrans_matches && googtrans_matches[2].split("/")[2]) ||
-				current_lang;
-		}
-
-		if (!lang_array[current_lang]) current_lang = default_language;
-
-		widget_code +=
-			'<a href="#" class="gt_switcher-popup glink nturl notranslate">';
-
-		var arrow_down =
-			'<span style="color:#666;font-size:8px;font-weight:bold;">&#9660;</span>';
-		widget_code +=
-			'<img src="' +
-			get_flag_src(current_lang) +
-			'" height="' +
-			flag_size +
-			'" width="' +
-			flag_size +
-			'" alt="' +
-			current_lang +
-			'" /> <span>' +
-			lang_array[current_lang] +
-			"</span>" +
-			arrow_down +
-			"</a>";
-
-		widget_code += '<div class="gt_black_overlay"></div>';
-		widget_code += '<div class="gt_white_content notranslate">';
-		widget_code += '<div class="gt_languages">';
-
-		languages.forEach(function (lang) {
-			var el_a = document.createElement("a");
-			el_a.href = get_lang_href(lang);
-			el_a.classList.add("glink", "nturl");
-			current_lang == lang && el_a.classList.add("gt-current-lang");
-			el_a.setAttribute("data-fathul-hudoyo-lang", lang);
-
-			var el_img = document.createElement("img");
-			el_img.height = el_img.width = flag_size;
-			el_img.alt = lang;
-			el_img.setAttribute("data-gt-lazy-src", get_flag_src(lang));
-
-			el_a.appendChild(el_img);
-			el_a.innerHTML += " <span>" + lang_array[lang] + "</span>";
-
-			widget_code += el_a.outerHTML;
-		});
-
-		widget_code += "</div></div>";
-
-		var a_height = flag_style == "2d" ? 0.75 * flag_size + 21 : flag_size + 13;
-		var a_width = flag_size + margin_right + font_size * 8;
-		var popup_height = Math.min(375, languages.length * a_height + 12);
-		var popup_width = Math.min(980, 0.8 * window.innerWidth);
-		var popup_columns = Math.floor(popup_width / a_width);
-		var langs_per_col = Math.floor(popup_height / a_height);
-
-		while (
-			popup_columns > 1 &&
-			Math.floor((langs_per_col * popup_columns) / languages.length) > 1
-		) {
-			popup_columns--;
-			popup_width = popup_columns * a_width + 32;
-		}
-
-		widget_css +=
-			".gt_black_overlay{display:none;position:fixed;top:0%;left:0%;width:100%;height:100%;background-color:black;z-index:10000;-moz-opacity:0.8;opacity:.80;filter:alpha(opacity=80)}";
-		widget_css +=
-			".gt_white_content{display:none;position:fixed;top:50%;left:50%;width:" +
-			popup_width +
-			"px;height:" +
-			popup_height +
-			"px;margin:-" +
-			popup_height / 2 +
-			"px 0 0 -" +
-			popup_width / 2 +
-			"px;padding:6px 16px;background-color:white;color:black;z-index:19881205;overflow:auto;text-align:left}";
-		widget_css +=
-			".gt_white_content a{display:block;padding:" +
-			(flag_style == "2d" ? 10 : 6) +
-			"px 0;border-bottom:1px solid #e7e7e7;white-space:nowrap;line-height:0;flex-basis:" +
-			a_height +
-			"px;box-sizing:border-box;}";
-		widget_css +=
-			".gt_white_content .gt_languages{display:flex;flex-flow:column wrap;max-height:" +
-			Math.max(
-				popup_height,
-				a_height * Math.ceil(languages.length / popup_columns)
-			) +
-			"px;overflow-x:hidden;}";
-		widget_css +=
-			".gt_white_content::-webkit-scrollbar-track{background-color:#F5F5F5}";
-		widget_css += ".gt_white_content::-webkit-scrollbar{width:5px}";
-		widget_css +=
-			".gt_white_content::-webkit-scrollbar-thumb{background-color:#888}";
-
-		if (url_structure == "none") {
-			widget_code += '<div id="google_translate_element2"></div>';
-
-			widget_css +=
-				"div.skiptranslate,#google_translate_element2{display:none!important}";
-			widget_css += "body{top:0!important}";
-			widget_css +=
-				"font font{background-color:transparent!important;box-shadow:none!important;position:initial!important}";
-		}
-
-		if (horizontal_position != "inline")
-			widget_code =
-				'<div class="gt_switcher_wrapper" style="position:fixed;' +
-				vertical_position +
-				":15px;" +
-				horizontal_position +
-				':15px;z-index:999999;">' +
-				widget_code +
-				"</div>";
-
-		var add_css = document.createElement("style");
-		add_css.classList.add("gtranslate_css");
-		add_css.textContent = widget_css;
-		document.head.appendChild(add_css);
-
-		document.querySelectorAll(wrapper_selector).forEach(function (e) {
-			e.classList.add(u_class.substring(1));
-			e.innerHTML += widget_code;
-		});
-
-		var gt_popup_open = false;
-		function gt_show_popup(el) {
-			gt_popup_open = true;
-			el.parentNode
-				.querySelectorAll(".gt_white_content a img:not([src])")
-				.forEach(function (img) {
-					img.setAttribute("src", img.getAttribute("data-gt-lazy-src"));
-				});
-			el.parentNode
-				.querySelectorAll(".gt_white_content,.gt_black_overlay")
-				.forEach(function (e) {
-					e.style.display = "block";
-				});
-		}
-		function gt_hide_popup() {
-			gt_popup_open = false;
-			document
-				.querySelectorAll(".gt_white_content,.gt_black_overlay")
-				.forEach(function (e) {
-					e.style.display = "none";
-				});
-		}
-
-		document
-			.querySelectorAll(u_class + " a.gt_switcher-popup")
-			.forEach(function (e) {
-				e.addEventListener("click", function (evt) {
-					evt.preventDefault();
-					evt.stopPropagation();
-					if (gt_popup_open) gt_hide_popup();
-					else gt_show_popup(e);
-				});
-				e.addEventListener("pointerenter", function (evt) {
-					evt.target.parentNode
-						.querySelectorAll(".gt_languages img:not([src])")
-						.forEach(function (img) {
-							img.setAttribute("src", img.getAttribute("data-gt-lazy-src"));
-						});
-				});
-			});
-		document
-			.querySelectorAll(u_class + " .gt_black_overlay")
-			.forEach(function (e) {
-				e.addEventListener("click", function (evt) {
-					if (gt_popup_open) gt_hide_popup();
-				});
-			});
-
-		if (url_structure == "none") {
-			function get_current_lang() {
-				var keyValue = document.cookie.match("(^|;) ?googtrans=([^;]*)(;|$)");
-				return keyValue ? keyValue[2].split("/")[2] : null;
-			}
-			function fire_event(element, event) {
-				try {
-					if (document.createEventObject) {
-						var evt = document.createEventObject();
-						element.fireEvent("on" + event, evt);
-					} else {
-						var evt = document.createEvent("HTMLEvents");
-						evt.initEvent(event, true, true);
-						element.dispatchEvent(evt);
-					}
-				} catch (e) {}
-			}
-			function load_tlib() {
-				if (!window.gt_translate_script) {
-					window.gt_translate_script = document.createElement("script");
-					gt_translate_script.src =
-						"https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2";
-					document.body.appendChild(gt_translate_script);
-				}
-			}
-			window.triggerTranslator = function (lang_pair) {
-				if (lang_pair.value) lang_pair = lang_pair.value;
-				if (lang_pair == "") return;
-				var lang = lang_pair.split("|")[1];
-				if (get_current_lang() == null && lang == lang_pair.split("|")[0])
-					return;
-				var teCombo;
-				var sel = document.getElementsByTagName("select");
-				for (var i = 0; i < sel.length; i++)
-					if (sel[i].className.indexOf("goog-te-combo") != -1) {
-						teCombo = sel[i];
-						break;
-					}
-				if (
-					document.getElementById("google_translate_element2") == null ||
-					document.getElementById("google_translate_element2").innerHTML
-						.length == 0 ||
-					teCombo.length == 0 ||
-					teCombo.innerHTML.length == 0
-				) {
-					setTimeout(function () {
-						triggerTranslator(lang_pair);
-					}, 500);
-				} else {
-					teCombo.value = lang;
-					fire_event(teCombo, "change");
-					fire_event(teCombo, "change");
-				}
-			};
-			window.googleTranslateElementInit2 = function () {
-				new google.translate.TranslateElement(
-					{ pageLanguage: default_language, autoDisplay: false },
-					"google_translate_element2"
-				);
-			};
-
-			if (current_lang != default_language) load_tlib();
-			else
-				document.querySelectorAll(u_class).forEach(function (e) {
-					e.addEventListener("pointerenter", load_tlib);
-				});
-
-			document
-				.querySelectorAll(u_class + " a[data-fathul-hudoyo-lang]")
-				.forEach(function (e) {
-					e.addEventListener("click", function (evt) {
-						evt.preventDefault();
-						document
-							.querySelectorAll(u_class + " a.gt-current-lang")
-							.forEach(function (e) {
-								e.classList.remove("gt-current-lang");
-							});
-						e.classList.add("gt-current-lang");
-						triggerTranslator(
-							default_language + "|" + e.getAttribute("data-fathul-hudoyo-lang")
-						);
-						e.parentNode.parentNode.parentNode.querySelector(
-							"a.gt_switcher-popup"
-						).innerHTML = e.innerHTML + arrow_down;
-						gt_hide_popup();
-					});
-				});
-		}
-
-		if (
-			detect_browser_language &&
-			window.sessionStorage &&
-			window.navigator &&
-			sessionStorage.getItem("gt_lang_web") == null &&
-			!/bot|spider|slurp|facebook/i.test(navigator.userAgent)
-		) {
-			var accept_language = (
-				navigator.language || navigator.userLanguage
-			).toLowerCase();
-			switch (accept_language) {
-				case "zh":
-				case "zh-cn":
-					var preferred_language = "zh-CN";
-					break;
-				case "zh-tw":
-				case "zh-hk":
-					var preferred_language = "zh-TW";
-					break;
-				case "he":
-					var preferred_language = "iw";
-					break;
-				default:
-					var preferred_language = accept_language.substr(0, 2);
-					break;
-			}
-
-			if (
-				current_lang == default_language &&
-				preferred_language != default_language &&
-				languages.includes(preferred_language)
-			) {
-				if (url_structure == "none") {
-					load_tlib();
-					window.gt_translate_script.onload = function () {
-						triggerTranslator(default_language + "|" + preferred_language);
-						var el = document.querySelector(
-							u_class +
-								' a[data-fathul-hudoyo-lang="' +
-								preferred_language +
-								'"]'
-						);
-						el.querySelectorAll("img:not([src])").forEach(function (e) {
-							e.setAttribute("src", e.getAttribute("data-gt-lazy-src"));
-						});
-						el.parentNode.parentNode.parentNode.querySelector(
-							"a.gt_switcher-popup"
-						).innerHTML = el.innerHTML + arrow_down;
-					};
-				} else
-					document
-						.querySelectorAll(
-							u_class +
-								' a[data-fathul-hudoyo-lang="' +
-								preferred_language +
-								'"]'
-						)
-						.forEach(function (e) {
-							location.href = e.href;
-						});
-			}
-
-			sessionStorage.setItem("gt_lang_web", 1);
-		}
-	})();
-},1200);
 }
 
 function jquery_cek_all() {
@@ -2588,10 +2355,6 @@ function cek_local_function() {
     if (getOS() == "Android") {
         $(".column_text_persegi_riset").cssImportant("font-size", "12px");
     }
-
-
-  
-
 
     var cek_text_besar = localStorage.getItem("text_besar");
 
@@ -3061,105 +2824,12 @@ function cek_local_function() {
 
 })
 
-
-
-
-
-setTimeout(() => {
-cek_local_lang_web();
-
-}, 1200);
-
 }
 
-function func_local_lang_web(){
-    var cek_translate = localStorage.getItem("set_translate_wg");
-
-    if (cek_translate != null) {
-        if (cek_translate == "id") {
-            triggerTranslator('id|id');
-        } else if (cek_translate == "en") {
-            triggerTranslator('id|en');
-
-        } else if (cek_translate == "es") {
-            triggerTranslator('id|es');
-
-        }
-    }
-}
-function cek_local_lang_web(){
-    var cek_translate = localStorage.getItem("set_translate_wg");
-
-    if (cek_translate != null) {
-      
-        if (cek_translate == "id") {
-            $("#enable_radion_bhs_id").removeAttr("checked");
-            $("#enable_radion_bhs_en").removeAttr("checked");
-            $("#enable_radion_bhs_es").removeAttr("checked");
-          
-    
-          
-                var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
-                $("#enable_radion_bhs_id").attr("checked", "checked");
-                $("#change_lang_website").text("Bahasa Website ( Indonesia )");
-                $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
-                    <text x="19" y="29" fill="white">ID</text></svg>`);
-                    localStorage.removeItem("set_translate_wg");
-               
-    
-        } else if (cek_translate == "en") {
-           
-       
-            $("#enable_radion_bhs_id").removeAttr("checked");
-            $("#enable_radion_bhs_en").removeAttr("checked");
-            $("#enable_radion_bhs_es").removeAttr("checked");
-           
-            
-                var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
-                $("#enable_radion_bhs_en").attr("checked", "checked");
-                $("#change_lang_website").text("Bahasa Website ( Inggris )");
-                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-                    <text x="7.5" y="19" fill="white">EN</text></svg>`);
-        
-        } else if (cek_translate == "es") {
-      
-    
-    
-    
-        
-    
-            $("#enable_radion_bhs_id").removeAttr("checked");
-            $("#enable_radion_bhs_en").removeAttr("checked");
-            $("#enable_radion_bhs_es").removeAttr("checked");
-    
-    
-                var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
-                $("#enable_radion_bhs_es").attr("checked", "checked");
-                $("#change_lang_website").text("Bahasa Website ( Spanyol )");
-                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-                    <text x="7.5" y="19" fill="white">ES</text></svg>`);
-        
-    
-    
-        }
-    
-    }else{
-        localStorage.removeItem("set_translate_wg");
-       
-    
-            var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
-            $("#enable_radion_bhs_id").attr("checked", "checked");
-            $("#change_lang_website").text("Bahasa Website ( Indonesia )");
-            $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
-                <text x="19" y="29" fill="white">ID</text></svg>`);
-    
-    }
-    
-}
 
 function load_html_dsb() {
 
-    var popup_dsb = `<div class="circle_aksesbilitas_popup ` + name_class_widget + `" id="show_menu_dsb_web">
+    var popup_dsb = `<div class="circle_aksesbilitas_popup notranslate ` + name_class_widget + `" id="show_menu_dsb_web" translate="no">
 <div class="circle_aksesbilitas_2">
     <div class="circle_aksesbilitas_3">
         <svg id="Layer_1" width="35px" height="35px" class="svg_icon_popoup_dsb" version="1.1" viewBox="0 0 301.673 226.145" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -3183,6 +2853,10 @@ function load_html_dsb() {
         
 
         $('#new_load_disabilitas').html(popup_dsb);
+
+
+    
+
         document.onkeydown = function (e) {
             if (e.ctrlKey &&
                 (e.keyCode === 85)) {
@@ -3394,7 +3068,7 @@ function slider_popup_disabilitas() {
    jQuery( document ).ready(function( $ ) {
  //   console.log('masuk 2');
     //console.log(data_web)
-    var slider_popup = `<div class="content_aksesbilitas ` + name_class_widget1 + `" id="widget_menu_disabilitas">
+    var slider_popup = `<div class="content_aksesbilitas notranslate ` + name_class_widget1 + `" id="widget_menu_disabilitas" translate="no">
 <div class="groupcontenttoolbar `+ name_class_widget3 + `" id="checklangmenu">
     <div class="content_aksesbilitas_utama `+ name_class_widget2 + `">
         <div class="group_title_disabilitas">
@@ -3418,28 +3092,52 @@ function slider_popup_disabilitas() {
                     <div class="group_row_widget_dsb">
                         <div class="group_action_bahasa" id="dropdown_bahasa_widget" aria-expanded="false">
                             <div class="box_content_disabilitas">
-                                <div class="name_id">ID</div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                             </div>
-                            <div class="box_name_menu_disabilitas" id="change_lang_website">
-                                Bahasa Website ( Indonesia )
+                            <div class="row_data_widget">
+                                <div class="text_column_layaout_disabilitas" id="text_name_bahasa_widget">
+                                    Bahasa Indonesia
+                                </div>
+                                <div class="icon_column_layaout_disabilitas">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 6 11" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="m.5 10.5 5-5-5-5"></path></svg>
+                                </div>
                             </div>
-                              <div class="box_button_switch">
-<svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 6 11" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="m.5 10.5 5-5-5-5"></path></svg>
                         </div>
+                        <div class="box_button_switch">
+
                         </div>
-                      
                     </div>
 
                
                 </div>
 
+                <div class="layout_bahasa_widget" id="show_bahasa_widget_dsb">
+                    <div class="group_body_bahasa">
+                        <div class="list_bahasa_item active_bahasa_item" id="bahasa_item_id" data-lang="id">
+                            <div class="list_bahasa_flag">ID</div>
+                            <div class="list_bahasa_text">
+                                Bahasa Indonesia
+                                <span class="list_bahasa_text_sub">Indonesian</span>
+                            </div>
+                            <svg class="bahasa_check_icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                        <div class="list_bahasa_item" id="bahasa_item_en" data-lang="en">
+                            <div class="list_bahasa_flag">EN</div>
+                            <div class="list_bahasa_text">
+                                English
+                                <span class="list_bahasa_text_sub">Inggris</span>
+                            </div>
+                            <svg class="bahasa_check_icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                    </div>
+                </div>
 
                    <div class="layout_content_title">
                     <div class="group_row_widget_dsb">
                         <div class="group_action_bahasa" id="dropdown_profile_widget" aria-expanded="false">
                             <div class="box_content_profile_disabilitas">
                             <span class="svg_icon_layout_dsb">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="30px" height="30px">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25px" height="25px">
                                     <g fill="none" fill-rule="evenodd">
                                         <path fill="currentColor" d="M12 0c6.627417 0 12 5.372583 12 12s-5.372583 12-12 12S0 18.627417 0 12 5.372583 0 12 0Zm4.7354808 9.47152282-.1085206.01347095c-3.0596685.57466383-6.200379.57466383-9.26330946-.00062883-.09333203-.01864939-.19242039-.01812858-.28846682.00208394-.09593384.02018882-.18682634.05958112-.26734205.11584443-.08029086.056136-.14860503.12780464-.20100307.21081558-.0522611.08286116-.08766334.17524393-.10423122.27189211-.01724873.092197-.01629673.1908309.00352393.2864083.01977268.0955923.05806351.1864428.11270512.2672263.05484222.0810605.12499841.1503344.2065445.203869.08178229.0536896.17331929.0904256.26934485.1080471 1.05753607.1977158 2.12658791.3310378 3.20056122.3990866.0655501.0046117.1312823.0232382.1914777.0546822.0604064.0315636.1140183.0754124.1574985.1289151.0436926.053764.0762327.1161308.0955899.1833301.0193726.0673169.0250825.1380548.0167486.2077853l-.0930524.8126589-.0466642.3803831-.0549404.374039c-.158359.9955974-.4113792 1.9758184-.75546409 2.9248369l-.5801849 1.5773596-.02344642.0770503-.01552299.0868134c-.01809935.1433761.00241892.2798303.05789612.4039962.08054821.1802784.2287431.3211011.41227036.3911064.18417884.0702973.38854412.0633157.56766262-.0193475.1783359-.0823021.3167379-.2327306.3851182-.4179393l.132573-.2722052.2774285-.6119827.2691827-.6167871.1745867-.4131228c.1150781-.2758957.2275188-.552725.3372517-.8303222l.1997945-.5172516.1547774.4016017c.3341951.8508075.7005073 1.7096002 1.1016307 2.5860868l.148306.3221275.035186.0702665.0497248.0757382c.0517528.0706012.1097786.1262939.1757777.1716018.1180312.081057.2569842.1257226.3998576.1283785.0957982-.0007119.1836954-.0179553.2662741-.0508323.0830796-.0290811.1683605-.0801996.2411479-.146682.0725663-.0662848.1312809-.1464644.1727703-.2358314.0414046-.0892272.0648238-.1857927.0689566-.2841549.0041311-.0983223-.01109-.1964983-.0448023-.2888656l-.5808499-1.5790749-.1248882-.3590352-.1156442-.3594946c-.2970897-.9623716-.5036651-1.9538501-.6160163-2.9589316l-.0899595-.8168245-.0041118-.0665552.0021549-.0430116c.0030732-.0307866.0094345-.0650698.0191721-.0984822.0194475-.066648.0520023-.128536.0955871-.1817954.0433983-.0530315.0967961-.0964037.156956-.1275732.059925-.0310756.125295-.0493709.1922177-.053854 1.0641002-.0674537 2.1242314-.1987717 3.1739231-.3932155.1721701-.0296953.3313055-.120966.4468688-.25719.1149797-.1355362.1797169-.3071568.1833218-.4854424 0-.1149573-.0237748-.22332759-.0698726-.32263252-.0462729-.09968218-.1138303-.18783713-.1978901-.2580962-.0844397-.07054096-.1833017-.12125287-.2895034-.1483992-.1064178-.02721249-.2175245-.03011298-.325203-.00846921Zm-3.4239963-3.92821291c-.7252221-.73705689-1.9027746-.73705689-2.6279686.00000409-.72291791.73468261-.72291791 1.92418279.000008 2.65887358.7251891.7370234 1.9027354.7370234 2.6279566 0 .722897-.73469389.722897-1.92418787.000004-2.65887767Z"></path>
                                         <circle cx="12" cy="12" r="10.3636364" stroke="currentColor" stroke-width="0.54545455"></circle>
@@ -3463,9 +3161,6 @@ function slider_popup_disabilitas() {
 
                
                 </div>
-
-
-
 
                 <div class="layout_profile_widget `+ name_class_widget6 + `" id="show_profile_widget_dsb">
               <div class="row_widget_profil_dsb">
@@ -3606,69 +3301,7 @@ function slider_popup_disabilitas() {
               </div>
                  
                 </div>
-                
-<div class="layout_bahasa_widget" id="show_bahasa_widget_dsb">
-	<div class="group_title_bahasa">
-		<div class="title_daftar_bahasa">
-			Daftar Bahasa Web
-		</div>
-	</div>
 
-    <div class="layout_bahasa_lang_widget">
-<div class="group_body_bahasa jarak_padding_top">
-<div class="group_move_widget except_group_move_widget ">
-
-
-	<div class="radio_row_widget" id="action_radio_lg_button">
-<div class="jarak_radio2 font_size_bhs" data-lang-bhs="bahasa_id">
-      </div>
-		<div class="jarak_radio font_size_bhs">
-			Bahasa Indonesia
-		</div>
-
-		<div class="jarak_kanan_radio">
-			<input type="radio" name="group" id="enable_radion_bhs_id" class="radio_widget_dsb">
-		</div>
-
-
-	</div>
-
-	<div class="radio_row_widget" id="action_radio_lg_button">
-<div class="jarak_radio2" data-lang-bhs="bahasa_en">
-      </div>
-		<div class="jarak_radio font_size_bhs" data-lang-bhs="bahasa_en">
-			Bahasa Inggris
-		</div>
-
-		<div class="jarak_kanan_radio">
-			<input type="radio" name="group" id="enable_radion_bhs_en" class="radio_widget_dsb">
-		</div>
-
-
-	</div>
-
-
-<div class="radio_row_widget" id="action_radio_lg_button">
-<div class="jarak_radio2" data-lang-bhs="bahasa_es">
-      </div>
-		<div class="jarak_radio font_size_bhs">
-			Bahasa Spanyol
-		</div>
-
-		<div class="jarak_kanan_radio">
-			<input type="radio" name="group" id="enable_radion_bhs_es" class="radio_widget_dsb">
-		</div>
-
-
-	</div>
-
-
-		</div>
-
-
-   </div>    
-	</div>
-</div>
 
 
                 <div class="content_daftar_action_disabilitas `+ name_class_widget5 + `">
@@ -4226,9 +3859,8 @@ fill="#000000" stroke="none">
 
 
 		<div class="radio_row_widget" id="action_radio_button">
-<div class="jarak_radio2" data-move-wg="left_top">
-      </div>
-			<div class="jarak_radio">
+
+			<div class="jarak_radio" data-move-wg="left_top">
 				Ke Posisi Atas dan Kiri
 			</div>
 
@@ -4242,9 +3874,8 @@ fill="#000000" stroke="none">
 
 
 		<div class="radio_row_widget" id="action_radio_button">
-<div class="jarak_radio2" data-move-wg="right_top">
-      </div>
-			<div class="jarak_radio" >
+
+			<div class="jarak_radio" data-move-wg="right_top">
 					Ke Posisi Atas dan Kanan
 			</div>
 
@@ -4257,9 +3888,8 @@ fill="#000000" stroke="none">
 
 
 		<div class="radio_row_widget" id="action_radio_button">
-	<div class="jarak_radio2" data-move-wg="left_bottom">
-      </div>
-			<div class="jarak_radio">
+
+			<div class="jarak_radio" data-move-wg="left_bottom">
 			Ke Posisi Bawah dan Kiri
 			</div>
 
@@ -4271,12 +3901,10 @@ fill="#000000" stroke="none">
 		</div>
 
 		<div class="radio_row_widget" id="action_radio_button">
-	<div class="jarak_radio2" data-move-wg="right_bottom">
-      </div>
-			<div class="jarak_radio">
+
+			<div class="jarak_radio" data-move-wg="right_bottom">
 				Ke Posisi Bawah dan Kanan
 			</div>
-          
 			<div class="jarak_kanan_radio">
 				<input type="radio" name="group" id="enable_radion_4"  class="radio_widget_dsb" />
 			</div>
@@ -4292,7 +3920,7 @@ fill="#000000" stroke="none">
 
      <div class="column_cek_version_dsb">
                     <div class="column_text_cek_version_dsb">
-                    -  Widget Aksesibilitas Version 2.2.1  -
+                    -  Widget Aksesibilitas Version 2.2.2  -
                 </div>
             
                     </div>
@@ -4308,90 +3936,11 @@ fill="#000000" stroke="none">
 
 
 
-
-    document.querySelectorAll("#action_radio_lg_button").forEach(element => {
-        element.addEventListener("click", e => {
-            e.preventDefault();
-            var get_attr = $(e.target).attr('data-lang-bhs');
-            var get_attr2 = $(e.target).attr('id');
-            if (get_attr == "bahasa_id" || get_attr2 == "enable_radion_bhs_id") {
-                action_change_lang_web("bahasa_id","click");
-            } else if (get_attr == "bahasa_en" || get_attr2 == "enable_radion_bhs_en") {
-                action_change_lang_web("bahasa_en","click");
-            }else if (get_attr == "bahasa_es" || get_attr2 == "enable_radion_bhs_es") {
-                action_change_lang_web("bahasa_es","click");
-            }
-        });
-    });
-
-
-    function action_change_lang_web(value, action) {
-        var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
-        $("#enable_radion_bhs_id").removeAttr("checked");
-        $("#enable_radion_bhs_en").removeAttr("checked");
-        $("#enable_radion_bhs_es").removeAttr("checked");
-        if (value == "bahasa_id") {
-           
-                $("#enable_radion_bhs_id").attr("checked", "checked");
-                if (action == "click") {
-                    $("#change_lang_website").text("Bahasa Website ( Indonesia )");
-                    
-                    
-                    triggerTranslator('id|id');
-                    localStorage.setItem("set_translate_wg", "id");
-                    $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
-                        <text x="19" y="29" fill="white">ID</text></svg>`);
-               
-                }
-             
-         
-        
-        } else if (value == "bahasa_en") {
-            $("#enable_radion_bhs_en").attr("checked", "checked");
-            if (action == "click") {
-                $("#change_lang_website").text("Bahasa Website ( Inggris )");
-                triggerTranslator('id|en');     
-                localStorage.setItem("set_translate_wg", "en");
-             
-                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-          <text x="7.5" y="19" fill="white">EN</text></svg>`);
-            
-            }
-
-        } else if (value == "bahasa_es") {
-            $("#enable_radion_bhs_es").attr("checked", "checked");
-            if (action == "click") {
-                $("#change_lang_website").text("Bahasa Website ( Spanyol )");
-                triggerTranslator('id|es'); 
-                $(find_id_logo).html(`<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-                    <text x="7.5" y="19" fill="white">ES</text></svg>`);
-                localStorage.setItem("set_translate_wg", "es");
-              
-            }
-
-        }
-    }
-
-
-
-
-   
-
-
     document.querySelectorAll("#action_radio_button").forEach(element => {
-        
         element.addEventListener("click", e => {
             e.preventDefault();
             var get_attr = $(e.target).attr('data-move-wg');
             var get_attr2 = $(e.target).attr('id');
-
-          
-           
-         
-          
-
-            
-
             if (get_attr == "left_top" || get_attr2 == "enable_radion_1") {
 
                 action_navigate_widget("left_top", "click");
@@ -4454,7 +4003,6 @@ fill="#000000" stroke="none">
     }
 
     function action_navigate_widget(value, action) {
-    
         clear_navigate_widget();
         if (value == "left_top" || value == "left_bottom") {
             if (value == "left_top") {
@@ -4583,7 +4131,16 @@ fill="#000000" stroke="none">
         $(item).cssImportant("line-height", "20px");
     });
 
-
+    var $el = {};
+    var _elIds = ['action_moda_suara','action_perbesar_text','action_perkecil_text','action_grey_scale',
+        'action_kontras','action_hidden_image','action_perataan_text','action_tulisan_dapat_di_baca',
+        'action_tulisan_line_height','action_animate_pause','action_kursor','action_space_text',
+        'action_garis_bawahi_tautan','action_tooltip','reset_pengaturan_all_dsb',
+        'action_gangguan_motorik','action_netra_total','action_buta_warna','action_disleksia',
+        'action_gangguan_pengelihatan','action_kognitif_pembelajaran','action_kejang_dan_epilepsi','action_adhd'];
+    for (var _ei = 0; _ei < _elIds.length; _ei++) {
+        $el[_elIds[_ei]] = $('#' + _elIds[_ei]);
+    }
 
     $("#action_moda_suara").click(function (event) {
         event.preventDefault();
@@ -4613,6 +4170,7 @@ fill="#000000" stroke="none">
             localStorage.setItem("permismobile", "on");
             speachmobile("Selamat Datang Di Website " + base_url_website);
         } else {
+    
             localStorage.setItem("permisvoice", "on");
             speach("Selamat Datang Di Website " + base_url_website);
         }
@@ -4702,9 +4260,7 @@ fill="#000000" stroke="none">
 
             $("#text_tulisan_grey_scale").text('Kejenuhan');
             $("#list_strip_loading_action_grey_scale").hide();
-            strip_loading_v3("#list_strip_loading_action_grey_scale", "#strip_loading_1", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_grey_scale", "#strip_loading_2", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_grey_scale", "#strip_loading_3", "noaktif");
+            strip_batch_reset(3, "#list_strip_loading_action_grey_scale", 3);
             $('html').css({
                 'filter': ""
             });
@@ -4757,10 +4313,7 @@ fill="#000000" stroke="none">
                 }
             });
 
-            strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_1", "noaktif");
-            strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_2", "noaktif");
-            strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_3", "noaktif");
-            strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_4", "noaktif");
+            strip_batch_reset(4, "#list_strip_loading_action_kontras", 4);
             $("#svg_kontras_multi").show();
             $("#svg_kontras_warna,#svg_kontras_klise,#svg_kontras_light,#svg_balikan_warna").hide();
             $("#text_name_kontras").text('Kontras+');
@@ -4769,13 +4322,13 @@ fill="#000000" stroke="none">
             action_warna_kode_3("noaktif");
             action_warna_kode_4("noaktif");
 
-            $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-                var my_style = $(item)[0]['style']['0'];
-                if (my_style == undefined || my_style == null || my_style == "") {
-                    $(item).removeAttr("style");
+            var _styledEls = document.querySelectorAll('[style]:not(#widget_menu_disabilitas):not(#widget_menu_disabilitas *)');
+            for (var _si = 0; _si < _styledEls.length; _si++) {
+                var _sty = _styledEls[_si].style[0];
+                if (_sty == undefined || _sty == null || _sty == "") {
+                    _styledEls[_si].removeAttribute("style");
                 }
-
-            });
+            }
 
             localStorage.removeItem('action_kontras');
             if (cek_action_sound_search.length > 0) {
@@ -4825,9 +4378,6 @@ fill="#000000" stroke="none">
 
             action_contrash_widget.push(1);
         }
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
     });
 
 
@@ -4847,9 +4397,8 @@ fill="#000000" stroke="none">
             });
             $("#action_hidden_image").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
 
-            $('* > img:not("#widget_menu_disabilitas *")').each(function (i, item) {
-                $(item).cssImportant("visibility", "");
-            });
+            var _imgs = document.querySelectorAll('img:not(#widget_menu_disabilitas img)');
+            for (var _ii = 0; _ii < _imgs.length; _ii++) _imgs[_ii].style.removeProperty('visibility');
             localStorage.removeItem('action_hidden_image');
         } else {
             localStorage.setItem('action_hidden_image', '1');
@@ -4879,10 +4428,7 @@ fill="#000000" stroke="none">
                 }
             });
             $("#action_perataan_text").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-            strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_1", "noaktif")
-            strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_2", "noaktif")
-            strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_3", "noaktif")
-            strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_4", "noaktif")
+            strip_batch_reset(4, "#list_strip_loading_perataan_text", 4);
             $("#text_rata_tulisan").text('Rata Tulisan');
             setTimeout(() => {
                 callfunction('Rata Tulisan');
@@ -4922,9 +4468,7 @@ fill="#000000" stroke="none">
             action_perataan_text_widget.push(1);
             $("#action_perataan_text").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas')
         }
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
+
     });
 
 
@@ -4950,8 +4494,7 @@ fill="#000000" stroke="none">
 
             $("#list_strip_loading_action_tulisan_dapat_dibaca").hide();
             $("#action_tulisan_dapat_di_baca").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-            strip_loading_v2("#list_strip_loading_action_tulisan_dapat_dibaca", "#strip_loading_1", "noaktif");
-            strip_loading_v2("#list_strip_loading_action_tulisan_dapat_dibaca", "#strip_loading_2", "noaktif");
+            strip_batch_reset(2, "#list_strip_loading_action_tulisan_dapat_dibaca", 2);
             $("#svg_font_di_perbesar").hide();
             $("#svg_dy_seleksia").show();
 
@@ -4978,9 +4521,7 @@ fill="#000000" stroke="none">
         }
 
 
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
+
 
 
     });
@@ -4992,7 +4533,6 @@ fill="#000000" stroke="none">
     $("#action_tulisan_line_height").click(function (event) {
         event.preventDefault();
         reset_profile_all("no");
-      
         hit_api_tracking(base_url_website, 'tinggi-garis');
         if ($('#action_tulisan_line_height').hasClass('active_box_menu_disabilitas') && action_line_height_text_widget.length == 3) {
             //  console.log('lolxxxx');
@@ -5006,12 +4546,13 @@ fill="#000000" stroke="none">
             });
             $("#list_strip_loading_action_tulisan_line_height").hide();
             $("#action_tulisan_line_height").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-            strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_1", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_2", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_3", "noaktif");
-            $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *")').each(function (i, item) {
-                $(item).cssImportant("line-height", "");
-            });
+            strip_batch_reset(3, "#list_strip_loading_action_tulisan_line_height", 3);
+            var _lhReset = document.querySelectorAll('[style]');
+            for (var _lri = 0; _lri < _lhReset.length; _lri++) {
+                if (!_lhReset[_lri].closest('#widget_menu_disabilitas') && !_lhReset[_lri].closest('.circle_aksesbilitas_popup')) {
+                    _lhReset[_lri].style.lineHeight = '';
+                }
+            }
 
 
             $("#text_id_tinggi_garis").text("Tinggi Garis");
@@ -5045,10 +4586,6 @@ fill="#000000" stroke="none">
 
 
         }
-
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
     });
 
 
@@ -5057,7 +4594,6 @@ fill="#000000" stroke="none">
     $("#action_animate_pause").click(function (event) {
         event.preventDefault();
         reset_profile_all("no");
-   
         hit_api_tracking(base_url_website, 'animasi-dijeda');
         if ($('#action_animate_pause').hasClass('active_box_menu_disabilitas')) {
             $('#action_animate_pause .box_icon_disabilitas svg *').each(function (i, item) {
@@ -5078,18 +4614,19 @@ fill="#000000" stroke="none">
 
             clearInterval(interval_animate_widget);
             jQuery.fx.off = false;
-            //tanda
-            $(filter_hight_jquery_v3).each(function (i, item) {
-                $(item).cssImportant("animation-duration", "");
-                $(item).cssImportant("transform", "");
-                $(item).cssImportant("transition", "");
-                $(item).cssImportant("animation", "");
-                $(item).cssImportant("animation-play-state", "");
-                $(item).cssImportant("-webkit-animation-play-state", "");
-                $(item).cssImportant("-moz-animation-play-state", "");
-                $(item).cssImportant("-o-animation-play-state", "");
-                $(item).clearQueue();
-            });
+            var _animEls = document.querySelectorAll('[style]');
+            for (var _ai = 0; _ai < _animEls.length; _ai++) {
+                var _as = _animEls[_ai].style;
+                _as.removeProperty('animation-duration');
+                _as.removeProperty('transform');
+                _as.removeProperty('transition');
+                _as.removeProperty('animation');
+                _as.removeProperty('animation-play-state');
+                _as.removeProperty('-webkit-animation-play-state');
+                _as.removeProperty('-moz-animation-play-state');
+                _as.removeProperty('-o-animation-play-state');
+                $(_animEls[_ai]).clearQueue();
+            }
             event.cancelBubble = false;
             $("#text_id_animasi").text("Animasi Dijeda");
 
@@ -5102,9 +4639,6 @@ fill="#000000" stroke="none">
             localStorage.setItem("action_animate_pause", "1");
             event.cancelBubble = true;
         }
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
     });
 
 
@@ -5127,15 +4661,13 @@ fill="#000000" stroke="none">
                 }
             })
             $("#action_kursor").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-            $("*").removeClass("cursor_website_all");
+            $(".cursor_website_all").removeClass("cursor_website_all");
             localStorage.removeItem("action_kursor_change");
 
 
             $("#list_strip_loading_action_kursor").hide();
             $("#text_id_kursor").text("Kursor");
-            strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_1", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_2", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_3", "noaktif");
+            strip_batch_reset(3, "#list_strip_loading_action_kursor", 3);
             $("#svg_kursor_web").show();
             $("#svg_kursor_masker,#svg_kursor_masker_v2,#slider_mouse_masked,#slider_mouse_masked_line").hide();
         } else {
@@ -5156,10 +4688,6 @@ fill="#000000" stroke="none">
 
 
         }
-
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
     });
 
 
@@ -5168,7 +4696,7 @@ fill="#000000" stroke="none">
 
     $("#action_space_text").click(function (event) {
         event.preventDefault();
-        func_local_lang_web();
+
         reset_profile_all("no");
         hit_api_tracking(base_url_website, 'spasi-teks');
         if ($('#action_space_text').hasClass('active_box_menu_disabilitas') && action_space_text_widget.length == 3) {
@@ -5182,13 +4710,14 @@ fill="#000000" stroke="none">
             });
             $("#list_strip_loading_action_space_text").hide();
             $("#action_space_text").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-            strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_1", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_2", "noaktif");
-            strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_3", "noaktif");
+            strip_batch_reset(3, "#list_strip_loading_action_space_text", 3);
 
-            $('div > *:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas")').css({
-                "letter-spacing": "",
-            });
+            var _lsEls = document.querySelectorAll('[style]');
+            for (var _lsi = 0; _lsi < _lsEls.length; _lsi++) {
+                if (!_lsEls[_lsi].closest('#widget_menu_disabilitas') && !_lsEls[_lsi].closest('.circle_aksesbilitas_popup')) {
+                    _lsEls[_lsi].style.letterSpacing = '';
+                }
+            }
             $("#id_space_text").text("Spasi Teks");
 
             setTimeout(() => {
@@ -5276,9 +4805,7 @@ fill="#000000" stroke="none">
 
             $("#list_strip_loading_action_garis_bawahi_tautan").hide();
             $("#action_garis_bawahi_tautan").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-            strip_loading_v2("#list_strip_loading_action_garis_bawahi_tautan", "#strip_loading_1", "noaktif");
-            strip_loading_v2("#list_strip_loading_action_garis_bawahi_tautan", "#strip_loading_2", "noaktif");
-            strip_loading_v2("#list_strip_loading_action_garis_bawahi_tautan", "#strip_loading_3", "noaktif");
+            strip_batch_reset(2, "#list_strip_loading_action_garis_bawahi_tautan", 3);
 
             $("#svg_decoration_link").show();
             $("#svg_block_decoration_link").hide();
@@ -5306,25 +4833,57 @@ fill="#000000" stroke="none">
             action_garis_bawahi_tautan_widget.push(1);
             $("#action_garis_bawahi_tautan").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
         }
-        setTimeout(() => {
-            func_local_lang_web();
-        }, 200);
+
     });
 
 
 
 
-	$("#dropdown_bahasa_widget").click(function (event) {
-        event.preventDefault();
-        var get_attr = $("#dropdown_bahasa_widget").attr("aria-expanded");
+    var _savedLang = localStorage.getItem("widget_lang");
+    _ensureWidgetTranslateObserver();
+    if (_savedLang && _savedLang === 'en') {
+        $(".list_bahasa_item").removeClass("active_bahasa_item");
+        $("#bahasa_item_en").addClass("active_bahasa_item");
+        $("#text_name_bahasa_widget").text("English");
+        widget_current_lang = 'en';
+        _scheduleWidgetTranslateBootstrap('en');
+    }
 
-        if (get_attr == "true") {
-            $("#dropdown_bahasa_widget").attr("aria-expanded", "false");
+    $("#dropdown_bahasa_widget").click(function (event) {
+        event.preventDefault();
+        var get_attr = $("#dropdown_bahasa_widget").attr('aria-expanded');
+        if (get_attr == 'true') {
+            $("#dropdown_bahasa_widget").attr('aria-expanded', 'false');
             $("#show_bahasa_widget_dsb").hide();
         } else {
-            $("#dropdown_bahasa_widget").attr("aria-expanded", "true");
-            $("#show_bahasa_widget_dsb").show();
+            $("#dropdown_bahasa_widget").attr('aria-expanded', 'true');
+            $("#show_bahasa_widget_dsb").css('display', 'flex');
         }
+    });
+
+    $(".list_bahasa_item").click(function (event) {
+        event.preventDefault();
+        var lang = $(this).attr('data-lang');
+        $(".list_bahasa_item").removeClass("active_bahasa_item");
+        $(this).addClass("active_bahasa_item");
+
+        localStorage.setItem("widget_lang", lang);
+
+        if (lang === 'id') {
+            $("#text_name_bahasa_widget").text("Bahasa Indonesia");
+        } else if (lang === 'en') {
+            $("#text_name_bahasa_widget").text("English");
+        }
+
+        $("#dropdown_bahasa_widget").attr('aria-expanded', 'false');
+        $("#show_bahasa_widget_dsb").hide();
+
+        triggerGoogleTranslate(lang);
+        setTimeout(function () {
+            if (localStorage.getItem("widget_lang") === lang) {
+                triggerGoogleTranslate(lang);
+            }
+        }, 1200);
     });
 
     $("#dropdown_profile_widget").click(function (event) {
@@ -5356,53 +4915,22 @@ fill="#000000" stroke="none">
     };
 
 
-    $("#action_gangguan_motorik").click(function (event) {
-        hit_api_tracking(base_url_website, 'gangguan-motorik');
-        action_find_id_profile_aksesbilitas("#action_gangguan_motorik");
-    });
-
-
-    $("#action_netra_total").click(function (event) {
-        hit_api_tracking(base_url_website, 'netra-total');
-        action_find_id_profile_aksesbilitas("#action_netra_total");
-
-    });
-
-    $("#action_buta_warna").click(function (event) {
-        hit_api_tracking(base_url_website, 'buta-warna');
-        action_find_id_profile_aksesbilitas("#action_buta_warna");
-
-    });
-
-    $("#action_disleksia").click(function (event) {
-        hit_api_tracking(base_url_website, 'diseleksia');
-        action_find_id_profile_aksesbilitas("#action_disleksia");
-
-    });
-
-
-    $("#action_gangguan_pengelihatan").click(function (event) {
-        hit_api_tracking(base_url_website, 'gangguan-pengelihatan');
-        action_find_id_profile_aksesbilitas("#action_gangguan_pengelihatan");
-
-    });
-
-    $("#action_kognitif_pembelajaran").click(function (event) {
-        hit_api_tracking(base_url_website, 'kognitif-pembelajaran');
-        action_find_id_profile_aksesbilitas("#action_kognitif_pembelajaran");
-
-    });
-
-    $("#action_kejang_dan_epilepsi").click(function (event) {
-        hit_api_tracking(base_url_website, 'kejang-dan-epilepsi');
-        action_find_id_profile_aksesbilitas("#action_kejang_dan_epilepsi");
-
-    });
-
-    $("#action_adhd").click(function (event) {
-        hit_api_tracking(base_url_website, 'adhd');
-        action_find_id_profile_aksesbilitas("#action_adhd");
-
+    var _profileTrackMap = {
+        'action_gangguan_motorik': 'gangguan-motorik',
+        'action_netra_total': 'netra-total',
+        'action_buta_warna': 'buta-warna',
+        'action_disleksia': 'diseleksia',
+        'action_gangguan_pengelihatan': 'gangguan-pengelihatan',
+        'action_kognitif_pembelajaran': 'kognitif-pembelajaran',
+        'action_kejang_dan_epilepsi': 'kejang-dan-epilepsi',
+        'action_adhd': 'adhd'
+    };
+    $("#show_profile_widget_dsb").on("click", ".box_profile_aksesbilitas", function (event) {
+        var _id = this.id;
+        if (_profileTrackMap[_id]) {
+            hit_api_tracking(base_url_website, _profileTrackMap[_id]);
+            action_find_id_profile_aksesbilitas("#" + _id);
+        }
     });
 
 
@@ -5474,15 +5002,14 @@ fill="#000000" stroke="none">
         localStorage.removeItem("position_widget");
         hit_api_tracking(base_url_website, 'reset-pengaturan-disabilitas');
 
-        $("*").each(function (i, item) {
-            $(item).css({
-                "opacity": "",
-                "border-color": ""
-            });
-        });
+        var _resetEls = document.querySelectorAll('[style]');
+        for (var _ri = 0; _ri < _resetEls.length; _ri++) {
+            _resetEls[_ri].style.opacity = '';
+            _resetEls[_ri].style.borderColor = '';
+        }
 
         $(
-            '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")'
+            '[style]:not(.fa-search):not(.titletools):not(svg):not(.btn-color-mode-switch-inner):not(.Vue-Toastification__container)'
         ).cssImportant("border-color", "");
 
         $("#action_moda_suara").removeClass("active_box_menu_disabilitas");
@@ -5510,17 +5037,12 @@ fill="#000000" stroke="none">
             }
         });
         $("#action_perbesar_text").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_1", "noaktif")
-        strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "noaktif")
-        strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_3", "noaktif")
-        strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_4", "noaktif")
+        strip_batch_reset(4, "#list_strip_loading_perbesar_text", 4);
 
-        $('*:not("#widget_menu_disabilitas *")').css({
-            "font-size": "",
-        });
-
-
-
+        var _fsEls1 = document.querySelectorAll('[style]');
+        for (var _fi1 = 0; _fi1 < _fsEls1.length; _fi1++) {
+            if (!_fsEls1[_fi1].closest('#widget_menu_disabilitas')) _fsEls1[_fi1].style.fontSize = '';
+        }
 
 
         /*grey scale*/
@@ -5545,9 +5067,7 @@ fill="#000000" stroke="none">
 
         $("#text_tulisan_grey_scale").text('Kejenuhan');
         $("#list_strip_loading_action_grey_scale").hide();
-        strip_loading_v3("#list_strip_loading_action_grey_scale", "#strip_loading_1", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_grey_scale", "#strip_loading_2", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_grey_scale", "#strip_loading_3", "noaktif");
+        strip_batch_reset(3, "#list_strip_loading_action_grey_scale", 3);
         $('html').css({
             'filter': ""
         });
@@ -5574,10 +5094,7 @@ fill="#000000" stroke="none">
         });
 
 
-        strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_1", "noaktif");
-        strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_2", "noaktif");
-        strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_3", "noaktif");
-        strip_loading_v4("#list_strip_loading_action_kontras", "#strip_loading_4", "noaktif");
+        strip_batch_reset(4, "#list_strip_loading_action_kontras", 4);
         $("#svg_kontras_multi").show();
         $("#svg_kontras_warna,#svg_kontras_klise,#svg_kontras_light,#svg_balikan_warna").hide();
         $("#text_name_kontras").text(' Kontras+');
@@ -5601,10 +5118,7 @@ fill="#000000" stroke="none">
             }
         });
         $("#action_perataan_text").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_1", "noaktif")
-        strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_2", "noaktif")
-        strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_3", "noaktif")
-        strip_loading_v4("#list_strip_loading_perataan_text", "#strip_loading_4", "noaktif")
+        strip_batch_reset(4, "#list_strip_loading_perataan_text", 4);
         $("#text_rata_tulisan").text('Rata Tulisan');
         $("#svg_left_text_icon").show();
         $("#svg_center_text_icon,#svg_right_text_icon,#svg_right_left_text_icon").hide();
@@ -5631,9 +5145,8 @@ fill="#000000" stroke="none">
         });
         $("#action_hidden_image").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
 
-        $('* > img:not("#widget_menu_disabilitas *")').each(function (i, item) {
-            $(item).cssImportant("visibility", "");
-        });
+        var _rimgs = document.querySelectorAll('img:not(#widget_menu_disabilitas img)');
+        for (var _ri = 0; _ri < _rimgs.length; _ri++) _rimgs[_ri].style.removeProperty('visibility');
 
 
         /* reset text besar*/
@@ -5657,8 +5170,7 @@ fill="#000000" stroke="none">
 
         $("#list_strip_loading_action_tulisan_dapat_dibaca").hide();
         $("#action_tulisan_dapat_di_baca").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v2("#list_strip_loading_action_tulisan_dapat_dibaca", "#strip_loading_1", "noaktif");
-        strip_loading_v2("#list_strip_loading_action_tulisan_dapat_dibaca", "#strip_loading_2", "noaktif");
+        strip_batch_reset(2, "#list_strip_loading_action_tulisan_dapat_dibaca", 2);
 
 
         $("#text_tulisan_dapat_di_baca").text("Ramah Disleksia");
@@ -5683,12 +5195,13 @@ fill="#000000" stroke="none">
         });
 
         $("#action_tulisan_line_height").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_1", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_2", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_3", "noaktif");
-        $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *")').each(function (i, item) {
-            $(item).cssImportant("line-height", "");
-        });
+        strip_batch_reset(3, "#list_strip_loading_action_tulisan_line_height", 3);
+        var _lhEls = document.querySelectorAll('[style]');
+        for (var _li = 0; _li < _lhEls.length; _li++) {
+            if (!_lhEls[_li].closest('#widget_menu_disabilitas') && !_lhEls[_li].closest('.circle_aksesbilitas_popup')) {
+                _lhEls[_li].style.lineHeight = '';
+            }
+        }
         $("#text_id_tinggi_garis").text("Tinggi Garis");
 
 
@@ -5715,18 +5228,19 @@ fill="#000000" stroke="none">
         $("#svg_animasi_pause").show();
         clearInterval(interval_animate_widget);
         jQuery.fx.off = false;
-        //tanda ,*:before, *:after
-        $(filter_hight_jquery_v3).each(function (i, item) {
-            $(item).cssImportant("animation-duration", "");
-            $(item).cssImportant("transform", "");
-            $(item).cssImportant("transition", "");
-            $(item).cssImportant("animation", "");
-            $(item).cssImportant("animation-play-state", "");
-            $(item).cssImportant("-webkit-animation-play-state", "");
-            $(item).cssImportant("-moz-animation-play-state", "");
-            $(item).cssImportant("-o-animation-play-state", "");
-            $(item).clearQueue();
-        });
+        var _rAnimEls = document.querySelectorAll('[style]');
+        for (var _rai = 0; _rai < _rAnimEls.length; _rai++) {
+            var _ras = _rAnimEls[_rai].style;
+            _ras.removeProperty('animation-duration');
+            _ras.removeProperty('transform');
+            _ras.removeProperty('transition');
+            _ras.removeProperty('animation');
+            _ras.removeProperty('animation-play-state');
+            _ras.removeProperty('-webkit-animation-play-state');
+            _ras.removeProperty('-moz-animation-play-state');
+            _ras.removeProperty('-o-animation-play-state');
+            $(_rAnimEls[_rai]).clearQueue();
+        }
 
         $("#text_id_animasi").text("Animasi Dijeda");
 
@@ -5743,14 +5257,12 @@ fill="#000000" stroke="none">
             }
         })
         $("#action_kursor").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        $("*").removeClass("cursor_website_all");
+        $(".cursor_website_all").removeClass("cursor_website_all");
 
 
         $("#list_strip_loading_action_kursor").hide();
 
-        strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_1", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_2", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_3", "noaktif");
+        strip_batch_reset(3, "#list_strip_loading_action_kursor", 3);
         $("#svg_kursor_web").show();
         $("#svg_kursor_masker").hide();
         $("#svg_kursor_masker_v2").hide();
@@ -5772,9 +5284,7 @@ fill="#000000" stroke="none">
         })
         $("#action_kursor").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
         $("#list_strip_loading_action_kursor").hide();
-        strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_1", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_2", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_kursor", "#strip_loading_3", "noaktif");
+        strip_batch_reset(3, "#list_strip_loading_action_kursor", 3);
         setTimeout(() => {
             data_move_mouse();
             $("#text_id_kursor").text("Kursor");
@@ -5793,13 +5303,10 @@ fill="#000000" stroke="none">
         });
         $("#list_strip_loading_action_space_text").hide();
         $("#action_space_text").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_1", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_2", "noaktif");
-        strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_3", "noaktif");
+        strip_batch_reset(3, "#list_strip_loading_action_space_text", 3);
 
-        $('div > *:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas")').css({
-            "letter-spacing": "",
-        });
+        var _lsEls = _getWebElements(null);
+        for (var _lsi = 0; _lsi < _lsEls.length; _lsi++) _lsEls[_lsi].style.letterSpacing = '';
         $("#id_space_text").text("Spasi Teks");
 
 
@@ -5816,15 +5323,12 @@ fill="#000000" stroke="none">
         });
 
         $("#action_perkecil_text").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_1", "noaktif")
-        strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "noaktif")
-        strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_3", "noaktif")
-        strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_4", "noaktif")
+        strip_batch_reset(4, "#list_strip_loading_perkecil_text", 4);
 
-        $('*:not("#widget_menu_disabilitas *")').css({
-            "font-size": "",
-        });
-
+        var _fsEls2 = document.querySelectorAll('[style]');
+        for (var _fi2 = 0; _fi2 < _fsEls2.length; _fi2++) {
+            if (!_fsEls2[_fi2].closest('#widget_menu_disabilitas')) _fsEls2[_fi2].style.fontSize = '';
+        }
 
 
         /*garis bawahi tautan*/
@@ -5839,9 +5343,7 @@ fill="#000000" stroke="none">
 
         $("#list_strip_loading_action_garis_bawahi_tautan").hide();
         $("#action_garis_bawahi_tautan").find(".box_text_bottom_disabilitas").removeClass('active_box_text_bottom_disabilitas');
-        strip_loading_v2("#list_strip_loading_action_garis_bawahi_tautan", "#strip_loading_1", "noaktif");
-        strip_loading_v2("#list_strip_loading_action_garis_bawahi_tautan", "#strip_loading_2", "noaktif");
-        strip_loading_v2("#list_strip_loading_action_garis_bawahi_tautan", "#strip_loading_3", "noaktif");
+        strip_batch_reset(2, "#list_strip_loading_action_garis_bawahi_tautan", 3);
 
         $("#svg_decoration_link").show();
         $("#svg_block_decoration_link").hide();
@@ -5863,30 +5365,20 @@ fill="#000000" stroke="none">
         });
         $("#move_tooltip_data").css('display', 'none');
 
-        var find_id_logo = document.querySelector("#dropdown_bahasa_widget .box_content_disabilitas .name_id");
-        triggerTranslator('id|id');
-        $("#enable_radion_bhs_en").removeAttr("checked");
-        $("#enable_radion_bhs_es").removeAttr("checked");
-        $("#enable_radion_bhs_id").attr("checked", "checked");
-        $("#change_lang_website").text("Bahasa Website ( Indonesia )");
-        $(find_id_logo).html(`<svg height="50" width="50" xmlns="http://www.w3.org/2000/svg">
-            <text x="19" y="29" fill="white">ID</text></svg>`);
-        localStorage.clear();
 
-        /*
-                localStorage.removeItem("tooltip_active");
-                localStorage.removeItem("text_besar");
-                localStorage.removeItem("text_kecil");
-                localStorage.removeItem("grey_scale_active");
-                localStorage.removeItem("action_kontras");
-                localStorage.removeItem("action_hidden_image");
-                localStorage.removeItem("perataan_text");
-                localStorage.removeItem("action_tulisan_dpt_dibaca");
-                localStorage.removeItem("action_line_height");
-                localStorage.removeItem("action_animate_pause");
-                localStorage.removeItem("action_kursor_change");
-                localStorage.removeItem("action_space_text");
-                localStorage.removeItem("action_link_all");*/
+
+        /* reset bahasa ke default */
+        if (widget_current_lang !== 'id') {
+            triggerGoogleTranslate('id');
+        }
+        widget_current_lang = 'id';
+        $(".list_bahasa_item").removeClass("active_bahasa_item");
+        $("#bahasa_item_id").addClass("active_bahasa_item");
+        $("#text_name_bahasa_widget").text("Bahasa Indonesia");
+        $("#dropdown_bahasa_widget").attr('aria-expanded', 'false');
+        $("#show_bahasa_widget_dsb").hide();
+
+        localStorage.clear();
 
         if (getOS() == "Android") {
             $(".column_text_persegi_riset").cssImportant("font-size", "12px");
@@ -5895,6 +5387,9 @@ fill="#000000" stroke="none">
 
         $("#text_name_profile_widget").text('Profil Aksesbilitas');
     }
+
+
+
 
 
 
@@ -6017,55 +5512,38 @@ fill="#000000" stroke="none">
     }
 
     function no_active_button_link(id) {
-        if ($(id).hasClass('active_box_profile_aksesbilitas')) {
-            $(id).removeClass("active_box_profile_aksesbilitas");
-            $(id + ' *').each(function (i, item) {
-                var name_class = item.classList.value;
-
-                if (name_class.includes("active_color_svg_content_profile_disabilitas")) {
-                    item.classList = "color_svg_content_profile_disabilitas";
-                }
-
-                if (name_class.includes("active_text_list_content_profile_disabilitas")) {
-                    item.classList = "text_list_content_profile_disabilitas";
-                }
-
-                if (name_class.includes("active_fill_icon_dsb")) {
-                    item.classList = "fill_icon_dsb";
-                }
-
-
-                if (name_class.includes("active_icon_list_content_profile_disabilitas")) {
-                    item.classList = "icon_list_content_profile_disabilitas";
-                }
-            });
+        var _el = document.querySelector(id);
+        if (_el && _el.classList.contains('active_box_profile_aksesbilitas')) {
+            _el.classList.remove("active_box_profile_aksesbilitas");
+            var _c1 = _el.querySelectorAll('.active_color_svg_content_profile_disabilitas');
+            for (var _i = 0; _i < _c1.length; _i++) _c1[_i].className = "color_svg_content_profile_disabilitas";
+            var _c2 = _el.querySelectorAll('.active_text_list_content_profile_disabilitas');
+            for (var _i = 0; _i < _c2.length; _i++) _c2[_i].className = "text_list_content_profile_disabilitas";
+            var _c3 = _el.querySelectorAll('.active_fill_icon_dsb');
+            for (var _i = 0; _i < _c3.length; _i++) _c3[_i].className = "fill_icon_dsb";
+            var _c4 = _el.querySelectorAll('.active_icon_list_content_profile_disabilitas');
+            for (var _i = 0; _i < _c4.length; _i++) _c4[_i].className = "icon_list_content_profile_disabilitas";
         }
     }
 
 
 
 
+    var _allProfileIds = [
+        "action_gangguan_motorik","action_netra_total","action_buta_warna","action_disleksia",
+        "action_gangguan_pengelihatan","action_kognitif_pembelajaran","action_kejang_dan_epilepsi","action_adhd"
+    ];
+
     function reset_profile_all(action_reset) {
-
-        var all_id_profile = [
-            "action_gangguan_motorik",
-            "action_netra_total",
-            "action_buta_warna",
-            "action_disleksia",
-            "action_gangguan_pengelihatan",
-            "action_kognitif_pembelajaran",
-            "action_kejang_dan_epilepsi",
-            "action_adhd"
-        ]
-
-        for (let i = 0; i < all_id_profile.length; i++) {
-            var id_more = "#" + all_id_profile[i];
-            no_active_button_link(id_more);
+        for (var _pi = 0; _pi < _allProfileIds.length; _pi++) {
+            var _$el = document.getElementById(_allProfileIds[_pi]);
+            if (_$el && _$el.classList.contains('active_box_profile_aksesbilitas')) {
+                no_active_button_link("#" + _allProfileIds[_pi]);
+            }
         }
         if (action_reset == "all") {
             reset_all_perngaturan_widget();
         }
-
         localStorage.removeItem("action_widget_profil");
     }
 
@@ -6191,8 +5669,10 @@ fill="#000000" stroke="none">
 
 });
     
+if (base_url_website == "dprd.cilegon.go.id") {
+    $("#move_tooltip_data").css('display', 'none');
 }
-
+}
 
 
 
@@ -6254,50 +5734,49 @@ function callfunction(value) {
 
 
 
-function speachmobile(value) {
+async function speachmobile(value) {
     var voicecek = localStorage.getItem("permismobile");
+    var valueText = value;
     if (voicecek != null && voicecek == "on") {
-        if (getOS() == "iOS") {
-            setTimeout(async () => {
-                await hitapivoice(value);
-            }, 250);
-        } else {
-            hitapivoice(value);
+        console.log('masuk cc');
+        if (api_key_google == undefined || api_key_google == "" || api_key_google == null) {
+            console.log('masuk woy');
+            if (responsiveVoice.voiceSupport()) {
+                responsiveVoice.speak(value, "Indonesian Female");
+            }
+        } else if (api_key_google != undefined && api_key_google != null && api_key_google != "") {
+            console.log('masuk');
+            const spanishResponse = await fetch(
+                `https://texttospeech.googleapis.com/v1/text:synthesize?key=${api_key_google}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        input: {
+                            text: valueText,
+                        },
+                        voice: {
+                            languageCode: "id-ID",
+                            name: "id-ID-Wavenet-D",
+                            ssmlGender: "FEMALE",
+                        },
+                        audioConfig: {
+                            audioEncoding: "MP3",
+                        },
+                    }),
+                }
+            );
+
+            const spanishAudioData = await spanishResponse.json();
+            var myaudionew = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
+         
+            await playAudio(myaudionew);
         }
     }
 }
-async function hitapivoice(valueText) {
-    var voicecek = localStorage.getItem("permismobile");
-    if (voicecek != null && voicecek == "on") {
-        var API_KEY = "";
-        const spanishResponse = await fetch(
-            `https://texttospeech.googleapis.com/v1/text:synthesize?key=${API_KEY}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    input: {
-                        text: valueText,
-                    },
-                    voice: {
-                        languageCode: "id-ID",
-                        name: "id-ID-Wavenet-D",
-                        ssmlGender: "FEMALE",
-                    },
-                    audioConfig: {
-                        audioEncoding: "MP3",
-                    },
-                }),
-            }
-        );
 
-        const spanishAudioData = await spanishResponse.json();
-        var myaudionew = `data:audio/mp3;base64,${spanishAudioData.audioContent}`;
-        await playAudio(myaudionew);
-    }
-}
 async function pauseAudio() {
     if (audio && !audio.paused) {
         audio.pause();
@@ -6396,39 +5875,47 @@ function getOS() {
 
 
 
+function strip_batch_reset(version, id_group, stripCount) {
+    var $grp = $(id_group);
+    $grp.hide();
+    var proc = 'strip_loading_process_v' + version;
+    var unproc = 'strip_loading_unprocess_v' + version;
+    for (var _sb = 1; _sb <= stripCount; _sb++) {
+        $grp.children('#strip_loading_' + _sb).removeClass(proc).addClass(unproc);
+    }
+}
+
 function strip_loading_v2(id_group, id_strip, action) {
+    var $s = $(id_group + " > " + id_strip);
     if (action == "aktif") {
         $(id_group).show();
-        $(id_group + " > " + id_strip).removeClass('strip_loading_unprocess_v2');
-        $(id_group + " > " + id_strip).addClass('strip_loading_process_v2');
+        $s.removeClass('strip_loading_unprocess_v2').addClass('strip_loading_process_v2');
     } else {
         $(id_group).hide();
-        $(id_group + " > " + id_strip).removeClass('strip_loading_process_v2');
-        $(id_group + " > " + id_strip).addClass('strip_loading_unprocess_v2');
+        $s.removeClass('strip_loading_process_v2').addClass('strip_loading_unprocess_v2');
     }
 }
 
 function strip_loading_v3(id_group, id_strip, action) {
+    var $s = $(id_group + " > " + id_strip);
     if (action == "aktif") {
         $(id_group).show();
-        $(id_group + " > " + id_strip).removeClass('strip_loading_unprocess_v3');
-        $(id_group + " > " + id_strip).addClass('strip_loading_process_v3');
+        $s.removeClass('strip_loading_unprocess_v3').addClass('strip_loading_process_v3');
     } else {
         $(id_group).hide();
-        $(id_group + " > " + id_strip).removeClass('strip_loading_process_v3');
-        $(id_group + " > " + id_strip).addClass('strip_loading_unprocess_v3');
+        $s.removeClass('strip_loading_process_v3').addClass('strip_loading_unprocess_v3');
     }
 }
 
 function strip_loading_v4(id_group, id_strip, action) {
+    var $s = $(id_group + " > " + id_strip);
     if (action == "aktif") {
         $(id_group).show();
-        $(id_group + " > " + id_strip).removeClass('strip_loading_unprocess_v4');
-        $(id_group + " > " + id_strip).addClass('strip_loading_process_v4');
+        $s.removeClass('strip_loading_unprocess_v4').addClass('strip_loading_process_v4');
     } else {
         $(id_group).hide();
-        $(id_group + " > " + id_strip).removeClass('strip_loading_process_v4');
-        $(id_group + " > " + id_strip).addClass('strip_loading_unprocess_v4');
+        $(id_group).hide();
+        $s.removeClass('strip_loading_process_v4').addClass('strip_loading_unprocess_v4');
     }
 }
 
@@ -6689,17 +6176,9 @@ function action_perataan_text_1_2(value, action) {
 
 
         } else {
-            $("*").each(function (i, item) {
-                if ($(item).hasClass('underline_tanda_code')) {
-                    $(item).css({
-                        "text-decoration-color": "",
-                        "text-decoration": ""
-                    });
-                    $(item).removeClass("underline_tanda_code underline_link_1_kontras underline_link_1 ");
-                }
-                $(item).removeClass("underline_link_1_kontras underline_link_1 ");
-
-            });
+            $(".underline_tanda_code").css({"text-decoration-color":"","text-decoration":""}).removeClass("underline_tanda_code underline_link_1_kontras underline_link_1");
+            $(".underline_link_1_kontras").removeClass("underline_link_1_kontras");
+            $(".underline_link_1").removeClass("underline_link_1");
 
         }
     } else if (value == "rata2") {
@@ -6733,28 +6212,12 @@ function action_perataan_text_1_2(value, action) {
 
 
         } else {
-            $("*").each(function (i, item) {
-                if ($(item).hasClass('underline_tanda_code')) {
-                    if (action_contrash_widget.length == 2 || action_contrash_widget.length == 3) {
-                        $(item).css({
-                            "text-decoration-color": "",
-                            "text-decoration": ""
-                        });
-                    } else {
-                        $(item).css({
-                            "text-decoration-color": "",
-                            "background-color": "",
-                            "background": "",
-                            "text-decoration": "",
-                            "color": "",
-                            "text-decoration-color": ""
-                        });
-                    }
-                    $(item).removeClass("underline_tanda_code underline_link_2");
-                }
-                $(item).removeClass("underline_link_2 ");
-
-            });
+            if (action_contrash_widget.length == 2 || action_contrash_widget.length == 3) {
+                $(".underline_tanda_code").css({"text-decoration-color":"","text-decoration":""}).removeClass("underline_tanda_code underline_link_2");
+            } else {
+                $(".underline_tanda_code").css({"text-decoration-color":"","background-color":"","background":"","text-decoration":"","color":""}).removeClass("underline_tanda_code underline_link_2");
+            }
+            $(".underline_link_2").removeClass("underline_link_2");
 
         }
 
@@ -6776,20 +6239,20 @@ function load_active_tulisan_line_height() {
 }
 
 
+function _applyLineHeight(val) {
+    var els = _getWebElements(null);
+    for (var i = 0; i < els.length; i++) {
+        els[i].style.setProperty('line-height', val, 'important');
+    }
+}
+
 function action_line_height_1() {
     $("#list_strip_loading_action_tulisan_line_height").show();
     strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_1", "aktif");
-    $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas,body,html,#slider_dsb_element")').each(function (i, item) {
-        $(item).cssImportant("line-height", "1.75em");
-    });
+    _applyLineHeight("1.75em");
     $("#text_id_tinggi_garis").text("Tinggi Garis (1.75X)");
-
-    $("#list_strip_loading_action_tulisan_line_height").show();
-
     if (cek_action_sound_search.length > 0) {
-        setTimeout(() => {
-            callfunction('Tinggi Garis (1.75X)');
-        }, 100);
+        setTimeout(function() { callfunction('Tinggi Garis (1.75X)'); }, 100);
     }
 }
 
@@ -6797,35 +6260,22 @@ function action_line_height_2() {
     $("#list_strip_loading_action_tulisan_line_height").show();
     strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_1", "aktif");
     strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_2", "aktif");
-    $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas,body,html,#slider_dsb_element")').each(function (i, item) {
-        $(item).cssImportant("line-height", "2em");
-    });
-
+    _applyLineHeight("2em");
     $("#text_id_tinggi_garis").text("Tinggi Garis (2X)");
-
     if (cek_action_sound_search.length > 0) {
-        setTimeout(() => {
-            callfunction('Tinggi Garis (2X)');
-        }, 100);
+        setTimeout(function() { callfunction('Tinggi Garis (2X)'); }, 100);
     }
 }
-
-
 
 function action_line_height_3() {
     $("#list_strip_loading_action_tulisan_line_height").show();
     strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_1", "aktif");
     strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_2", "aktif");
     strip_loading_v3("#list_strip_loading_action_tulisan_line_height", "#strip_loading_3", "aktif");
-    $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas,body,html,#slider_dsb_element")').each(function (i, item) {
-        $(item).cssImportant("line-height", "2.5em");
-    });
-
+    _applyLineHeight("2.5em");
     $("#text_id_tinggi_garis").text("Tinggi Garis (2.5X)");
     if (cek_action_sound_search.length > 0) {
-        setTimeout(() => {
-            callfunction('Tinggi Garis (2.5X)');
-        }, 100);
+        setTimeout(function() { callfunction('Tinggi Garis (2.5X)'); }, 100);
     }
 }
 
@@ -6849,160 +6299,100 @@ function load_active_kontras() {
 }
 
 
-function action_warna_kode_2(value) {
+var _kontrasExclude = '.btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,.row_column_creator';
 
+function _kontrasApplyBorderWhite() {
+    var els = _getWebElements('.fa-search,.titletools,svg,' + _kontrasExclude);
+    for (var i = 0; i < els.length; i++) {
+        els[i].style.setProperty('border-color', 'white', 'important');
+    }
+}
+
+function action_warna_kode_2(value) {
     if (value == "aktif") {
         $("body").removeClass("animsition");
         $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
-        $(
-            `*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *,
-        * > a
-        ")`
-        ).each(function (i, item) {
 
-            var attr_cek = $(item).attr('style');
-            if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
-                $(item).addClass("kontras_2_bg_black_green");
-            } else {
-                $(item).addClass("kontras_2_tanda_code");//ini tanda
-                $(item).cssImportant("background-color", "black");
-                $(item).cssImportant("color", "#40C090");
-                $(item).cssImportant("background", "black");
-            }
-
-
-        });
-
-
-        $(
-            `* > svg *:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-        ")`
-        ).each(function (i, item) {
-            $(item).cssImportant("color", "#40C090");
-        });
-
-
-        $('* > .border').each(function (i, item) {
-            $(item).cssImportant("background-color", "");
-            $(item).cssImportant("background", "");
-        });
-
-        $(".close_layout_banner_background").css("opacity", "1");
-        $(
-            '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *")'
-        ).cssImportant("border-color", "white");
-        var links = document.querySelectorAll("a,div,li a strong");
-        for (var i = 0; i < links.length; i++) {
-            if (!isBlank(links[i].href)) {
-                var attr_cek = $(links[i]).attr('style');
-                if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
-                    // $(links[i]).addClass("kontras_2_bg_href");
-
+        var els = _getWebElements(_kontrasExclude);
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            var t = el.tagName;
+            if (t === 'A') {
+                if (el.hasAttribute('style')) {
+                    el.classList.add("kontras_2_bg_black_yellow");
                 } else {
-                    if (!$(links[i]).hasClass('kontras_2_tanda_code')) {
-                        $(links[i]).addClass("kontras_2_tanda_code");
-                    }
-                    links[i].style.color = "#00f3f7 !important";
+                    el.classList.add("kontras_2_tanda_code");
+                    el.style.setProperty('background-color', 'black', 'important');
+                    el.style.setProperty('color', 'yellow', 'important');
+                    el.style.setProperty('background', 'black', 'important');
                 }
-
-
+            } else {
+                if (el.hasAttribute('style')) {
+                    el.classList.add("kontras_2_bg_black_green");
+                } else {
+                    el.classList.add("kontras_2_tanda_code");
+                    el.style.setProperty('background-color', 'black', 'important');
+                    el.style.setProperty('color', '#40C090', 'important');
+                    el.style.setProperty('background', 'black', 'important');
+                }
             }
         }
 
+        var svgEls = document.querySelectorAll('svg *:not(#widget_menu_disabilitas svg *):not(.circle_aksesbilitas_popup svg *)');
+        for (var si = 0; si < svgEls.length; si++) {
+            svgEls[si].style.setProperty('color', '#40C090', 'important');
+        }
 
-
-        $("h1,h2,h3,h4,h5").each(function (i, item) {
-            var cek_style = $(item).attr('style');
-            if (typeof cek_style !== 'undefined' && cek_style !== false) {
-                $(item).addClass("kontras_2_bg_black_green");
-            } else {
-                $(item).addClass("kontras_2_tanda_code");
-                $(item).cssImportant("background-color", "black");
-                $(item).cssImportant("color", "#40C090");
-                $(item).cssImportant("background", "black");
-            }
+        $('* > .border').each(function (i, item) {
+            item.style.setProperty('background-color', '', '');
+            item.style.setProperty('background', '', '');
         });
 
+        $(".close_layout_banner_background").css("opacity", "1");
+        _kontrasApplyBorderWhite();
 
-        $("* > button, * > p").each(function (i, item) {
-            var cek_style = $(item).attr('style');
-            if (typeof cek_style !== 'undefined' && cek_style !== false) {
-                $(item).addClass("kontras_2_bg_black_green");
-            } else {
-                $(item).addClass("kontras_2_tanda_code");
-                $(item).cssImportant("background-color", "black");
-                $(item).cssImportant("color", "#40C090");
-                $(item).cssImportant("background", "black");
+        var links = document.querySelectorAll("a,div,li a strong");
+        for (var li = 0; li < links.length; li++) {
+            if (_isWidgetEl(links[li])) continue;
+            if (!isBlank(links[li].href)) {
+                if (!links[li].hasAttribute('style')) {
+                    if (!links[li].classList.contains('kontras_2_tanda_code')) {
+                        links[li].classList.add("kontras_2_tanda_code");
+                    }
+                    links[li].style.setProperty('color', '#00f3f7', 'important');
+                }
             }
-        });
-
-
-
-        $("* > a").each(function (i, item) {
-            var cek_style = $(item).attr('style');
-            if (typeof cek_style !== 'undefined' && cek_style !== false) {
-
-                $(item).addClass("kontras_2_bg_black_yellow");
-            } else {
-                $(item).addClass("kontras_2_tanda_code");
-                $(item).cssImportant("background-color", "black");
-                $(item).cssImportant("color", "yellow");
-                $(item).cssImportant("background", "black");
-            }
-        });
+        }
 
         if (action_garis_bawahi_tautan_widget.length > 0) {
             if (action_garis_bawahi_tautan_widget.length == 1) {
                 action_perataan_text_1_2("rata1", "aktif");
                 action_perataan_text_1_2("rata2", "noaktif");
             }
-
             if (action_garis_bawahi_tautan_widget.length == 2) {
                 action_perataan_text_1_2("rata1", "noaktif");
-
                 action_perataan_text_1_2("rata2", "aktif");
             }
         }
 
-
-
     } else {
-        $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-            if ($(item).hasClass('kontras_2_tanda_code')) {
-                $(item).css({
-                    "background-color": "",
-                    "background": "",
-                    "color": "",
-                    "opacity": ""
-                });
-                $(item).removeClass("kontras_2_tanda_code");
-            }
-            $(item).removeClass("kontras_2_bg_black_yellow kontras_2_bg_black_green kontras_2_bg_href");
-        });
+        $(".kontras_2_tanda_code").css({"background-color":"","background":"","color":"","opacity":""}).removeClass("kontras_2_tanda_code");
+        $(".kontras_2_bg_black_yellow").removeClass("kontras_2_bg_black_yellow");
+        $(".kontras_2_bg_black_green").removeClass("kontras_2_bg_black_green");
+        $(".kontras_2_bg_href").removeClass("kontras_2_bg_href");
 
+        var _opEls = document.querySelectorAll('[style]');
+        for (var _oi = 0; _oi < _opEls.length; _oi++) {
+            if (!_opEls[_oi].closest('#widget_menu_disabilitas')) _opEls[_oi].style.opacity = '';
+        }
 
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            $(item).css({
+        $('[style]:not(.fa-search):not(.titletools):not(svg):not(.btn-color-mode-switch-inner):not(.Vue-Toastification__container)').cssImportant("border-color", "");
+        $("svg *[style]").css("color", "");
 
-                "opacity": ""
-            });
-        });
-
-        $('*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("border-color", "");
-        $("* > svg *").each(function (i, item) {
-            $(item).css({
-                "color": "",
-            });
-        });
-
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            var my_style = $(item)[0]['style']['0'];
-            if (my_style == undefined || my_style == null || my_style == "") {
-                $(item).removeAttr("style");
-            }
-        });
+        var _stEls = document.querySelectorAll('[style]:not(#widget_menu_disabilitas):not(#widget_menu_disabilitas *)');
+        for (var _sti = 0; _sti < _stEls.length; _sti++) {
+            if (!_stEls[_sti].style[0]) _stEls[_sti].removeAttribute("style");
+        }
     }
 }
 
@@ -7013,203 +6403,114 @@ function action_warna_kode_3(value) {
         $("body").removeClass("animsition");
         $(".navbar-inverse2").css("background-color", "rgb(0, 0, 0)");
 
-        $(
-            `*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-        ")`
-        ).each(function (i, item) {
-            var attr_cek = $(item).attr('style');
-            if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
-                $(item).addClass("kontras_3_bg_black_yellow");
+        var els = _getWebElements(_kontrasExclude);
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            if (el.hasAttribute('style')) {
+                el.classList.add("kontras_3_bg_black_yellow");
             } else {
-                $(item).addClass("kontras_3_tanda_code");//ini tanda
-                $(item).cssImportant("background-color", "black");
-                $(item).cssImportant("color", "yellow");
-                $(item).cssImportant("background", "black");
+                el.classList.add("kontras_3_tanda_code");
+                el.style.setProperty('background-color', 'black', 'important');
+                el.style.setProperty('color', 'yellow', 'important');
+                el.style.setProperty('background', 'black', 'important');
             }
-        });
+        }
 
-        $(
-            `* > svg *:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-        ")`
-        ).each(function (i, item) {
-            $(item).cssImportant("color", "yellow");
-
-        });
+        var svgEls = document.querySelectorAll('svg *:not(#widget_menu_disabilitas svg *):not(.circle_aksesbilitas_popup svg *)');
+        for (var si = 0; si < svgEls.length; si++) {
+            svgEls[si].style.setProperty('color', 'yellow', 'important');
+        }
 
         $(".close_layout_banner_background").css("opacity", "1");
-
-        $(
-            '*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.columncopyright,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *")'
-        ).cssImportant("border-color", "white");
-
-
+        _kontrasApplyBorderWhite();
 
         if (action_garis_bawahi_tautan_widget.length > 0) {
             if (action_garis_bawahi_tautan_widget.length == 1) {
                 action_perataan_text_1_2("rata1", "aktif");
                 action_perataan_text_1_2("rata2", "noaktif");
             }
-
             if (action_garis_bawahi_tautan_widget.length == 2) {
                 action_perataan_text_1_2("rata1", "noaktif");
                 action_perataan_text_1_2("rata2", "aktif");
             }
         }
 
-
-
-
     } else {
-        $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-            if ($(item).hasClass('kontras_3_tanda_code')) {
-                $(item).css({
-                    "background-color": "",
-                    "background": "",
-                    "color": "",
-                    "opacity": "",
-                });
+        $(".kontras_3_tanda_code").css({"background-color":"","background":"","color":"","opacity":""}).removeClass("kontras_3_tanda_code");
+        $(".kontras_3_bg_black_yellow").removeClass("kontras_3_bg_black_yellow");
 
-                $(item).removeClass("kontras_3_tanda_code");
-            }
-            $(item).removeClass("kontras_3_bg_black_yellow");
-        });
+        var _stEls3 = document.querySelectorAll('[style]:not(#widget_menu_disabilitas):not(#widget_menu_disabilitas *)');
+        for (var _st3i = 0; _st3i < _stEls3.length; _st3i++) {
+            if (!_stEls3[_st3i].style[0]) _stEls3[_st3i].removeAttribute("style");
+        }
 
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            var my_style = $(item)[0]['style']['0'];
-            if (my_style == undefined || my_style == null || my_style == "") {
-                $(item).removeAttr("style");
-            }
-        });
-
-        $('*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("border-color", "");
-        $("* > svg *").each(function (i, item) {
-            $(item).css({
-                "color": "",
-            });
-        });
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            $(item).css({
-
-                "opacity": ""
-            });
-        });
+        $('[style]:not(.fa-search):not(.titletools):not(svg):not(.btn-color-mode-switch-inner):not(.Vue-Toastification__container)').cssImportant("border-color", "");
+        $("svg *[style]").css("color", "");
+        var _opEls3 = document.querySelectorAll('[style]');
+        for (var _o3i = 0; _o3i < _opEls3.length; _o3i++) {
+            if (!_opEls3[_o3i].closest('#widget_menu_disabilitas')) _opEls3[_o3i].style.opacity = '';
+        }
     }
 }
 
 function action_warna_kode_4(value) {
     if (value == "aktif") {
         $("body").removeClass("animsition");
-        $(
-            `*:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-        ")`
-        ).each(function (i, item) {
-            var attr_cek = $(item).attr('style');
-            if (typeof attr_cek !== 'undefined' && attr_cek !== false) {
-                $(item).addClass("kontras_4_bg_black_white");
+
+        var els = _getWebElements(_kontrasExclude);
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            if (el.hasAttribute('style')) {
+                el.classList.add("kontras_4_bg_black_white");
             } else {
-                $(item).addClass("kontras_4_tanda_code");//ini tanda
-                $(item).cssImportant("color", "black");
-                $(item).cssImportant("background-color", "white");
-                $(item).cssImportant("background", "white");
+                el.classList.add("kontras_4_tanda_code");
+                el.style.setProperty('color', 'black', 'important');
+                el.style.setProperty('background-color', 'white', 'important');
+                el.style.setProperty('background', 'white', 'important');
             }
-        });
+        }
 
-        $(
-            `* > svg *:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-        ")`
-        ).each(function (i, item) {
-            $(item).cssImportant("color", "black");
-        });
+        var svgChildren = document.querySelectorAll('svg *:not(#widget_menu_disabilitas svg *):not(.circle_aksesbilitas_popup svg *)');
+        for (var si = 0; si < svgChildren.length; si++) {
+            svgChildren[si].style.setProperty('color', 'black', 'important');
+        }
 
-
-        $(
-            `* > svg:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-      .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-      ")`
-        ).each(function (i, item) {
-            $(item).cssImportant("color", "black");
-            $(item).css({
-
-                "background-color": "",
-                "background": "",
-            });
-        });
+        var svgRoots = document.querySelectorAll('svg:not(#widget_menu_disabilitas svg):not(.circle_aksesbilitas_popup svg)');
+        for (var sr = 0; sr < svgRoots.length; sr++) {
+            svgRoots[sr].style.setProperty('color', 'black', 'important');
+            svgRoots[sr].style.backgroundColor = '';
+            svgRoots[sr].style.background = '';
+        }
 
         if (action_garis_bawahi_tautan_widget.length > 0) {
             if (action_garis_bawahi_tautan_widget.length == 1) {
                 action_perataan_text_1_2("rata1", "aktif");
                 action_perataan_text_1_2("rata2", "noaktif");
             }
-
             if (action_garis_bawahi_tautan_widget.length == 2) {
                 action_perataan_text_1_2("rata1", "noaktif");
                 action_perataan_text_1_2("rata2", "aktif");
             }
         }
 
-
     } else {
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            if ($(item).hasClass('kontras_4_tanda_code')) {
-                $(item).css({
-                    "background-color": "",
-                    "background": "",
-                    "color": "",
-                    "opacity": "",
-                });
+        $(".kontras_4_tanda_code").css({"background-color":"","background":"","color":"","opacity":""}).removeClass("kontras_4_tanda_code");
+        $(".kontras_4_bg_black_white").removeClass("kontras_4_bg_black_white");
 
-                $(item).removeClass("kontras_4_tanda_code");
-            }
-            $(item).removeClass("kontras_4_bg_black_white");
+        $('[style]:not(.fa-search):not(.titletools):not(svg):not(.btn-color-mode-switch-inner):not(.Vue-Toastification__container)').cssImportant("border-color", "");
+        $("svg *[style]").css("color", "");
+        $("svg[style]:not(#widget_menu_disabilitas svg):not(.circle_aksesbilitas_popup svg)").css({"color":"","background-color":"","background":""});
 
-        });
+        var _opEls4 = document.querySelectorAll('[style]');
+        for (var _o4i = 0; _o4i < _opEls4.length; _o4i++) {
+            if (!_opEls4[_o4i].closest('#widget_menu_disabilitas')) _opEls4[_o4i].style.opacity = '';
+        }
 
-
-
-        $('*:not(".fa-search,.titletools,svg,.btn-color-mode-switch-inner,.Vue-Toastification__container")').cssImportant("border-color", "");
-        $(
-            `* > svg *:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-        .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-        ")`
-        ).each(function (i, item) {
-            $(item).css({
-                "color": "",
-            });
-        });
-
-
-        $(
-            `* > svg:not(".btn-color-mode-switch-inner,.mycheckbox,.Vue-Toastification__container,.slider-navigation,.box_data_permohonan,.columncopyright,.slick-next,.slick-prev,.form_all_daftar_menu_permohonan,
-      .container_menu_all > .grouprow,.container_menu_all > .stylecolumnsosmed,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.row_column_creator *
-      ")`
-        ).each(function (i, item) {
-            $(item).css({
-                "color": "",
-                "background-color": "",
-                "background": "",
-            });
-        });
-
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            $(item).css({
-
-                "opacity": ""
-            });
-        });
-
-        $("*:not('#widget_menu_disabilitas *')").each(function (i, item) {
-            var my_style = $(item)[0]['style']['0'];
-            if (my_style == undefined || my_style == null || my_style == "") {
-                $(item).removeAttr("style");
-            }
-        });
-
+        var _stEls4 = document.querySelectorAll('[style]:not(#widget_menu_disabilitas):not(#widget_menu_disabilitas *)');
+        for (var _st4i = 0; _st4i < _stEls4.length; _st4i++) {
+            if (!_stEls4[_st4i].style[0]) _stEls4[_st4i].removeAttribute("style");
+        }
     }
-
 }
 
 
@@ -7244,28 +6545,20 @@ function load_active_tulisan_dpt_dibaca() {
     $("#action_tulisan_dapat_di_baca").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
 }
 function active_action_ramah_dyseleksia() {
-
     $("#svg_font_di_perbesar").hide();
     $("#svg_dy_seleksia").show();
-
-
     $("#list_strip_loading_action_tulisan_dapat_dibaca").show();
     strip_loading_v2("#list_strip_loading_action_tulisan_dapat_dibaca", "#strip_loading_1", "aktif");
 
-    $('*:not("i *,i, .stylecolumnsosmed,.stylecolumnsosmed *,.fa-search,.toolbar-disabilitas  *,.fa,.fa-angle-down,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.class_utama_dropdown .fa-chevron-down")').each(function (i, item) {
-        $(item).cssImportant("font-family", "OpenDyslexic Bold");
-    })
-
-
-
+    var els = _getWebElements('i,.fa,.fa-search,.fa-angle-down,.fa-chevron-down');
+    for (var _i = 0; _i < els.length; _i++) {
+        els[_i].style.setProperty('font-family', 'OpenDyslexic Bold', 'important');
+    }
 }
 
 function active_action_tulisan_dapat_dibaca() {
-
-
-    $('*').css({
-        "font-family": "",
-    });
+    var _ffEls = document.querySelectorAll('[style]');
+    for (var _ffi = 0; _ffi < _ffEls.length; _ffi++) _ffEls[_ffi].style.fontFamily = '';
 
     $("#svg_dy_seleksia").hide();
     $("#svg_font_di_perbesar").show();
@@ -7275,34 +6568,20 @@ function active_action_tulisan_dapat_dibaca() {
     strip_loading_v2("#list_strip_loading_action_tulisan_dapat_dibaca", "#strip_loading_2", "aktif");
 
     $("#action_tulisan_dapat_di_baca").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
-    /* $(
-         '*:not(".fa-search,.toolbar-disabilitas  *,.fa,.fa-angle-down, h1 ,h2 , h3,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *")'
-     ).css({
-         "font-size": "18px",
-     });
- 
-     $("h1,h2,h3,h4").css({
-         "font-size": "50px",
-     });*/
 
-
-
-    $('*:not("i *,i, .stylecolumnsosmed,.stylecolumnsosmed *,.fa-search,.toolbar-disabilitas  *,.fa,.fa-angle-down,#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,.class_utama_dropdown .fa-chevron-down")').each(function (i, item) {
-        $(item).cssImportant("font-family", "Arial Serif");
-    })
-
+    var els = _getWebElements('i,.fa,.fa-search,.fa-angle-down,.fa-chevron-down');
+    for (var _i = 0; _i < els.length; _i++) {
+        els[_i].style.setProperty('font-family', 'Arial, serif', 'important');
+    }
 }
 function no_active_action_tulisan_dapat_dibaca() {
-
-    $('*').css({
-        "font-family": "",
-        "font-size": "",
-
-    });
-    $('*').each(function (i, item) {
-        $(item).cssImportant("font-family", "");
-        $(item).cssImportant("font-size", "");
-    })
+    var _allStyled = document.querySelectorAll('[style]');
+    for (var _nai = 0; _nai < _allStyled.length; _nai++) {
+        _allStyled[_nai].style.fontFamily = '';
+        _allStyled[_nai].style.fontSize = '';
+        _allStyled[_nai].style.removeProperty('font-family');
+        _allStyled[_nai].style.removeProperty('font-size');
+    }
 }
 
 function load_active_space_text() {
@@ -7315,18 +6594,20 @@ function load_active_space_text() {
     });
     $("#action_space_text").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
 }
+function _applyLetterSpacing(val) {
+    var els = _getWebElements(null);
+    for (var i = 0; i < els.length; i++) {
+        els[i].style.setProperty('letter-spacing', val, 'important');
+    }
+}
+
 function action_space_text_1() {
     $("#list_strip_loading_action_space_text").show();
     strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_1", "aktif");
     $("#id_space_text").text("Spasi Ringan");
-    $('div > *:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas")').css({
-        "letter-spacing": "1px",
-    });
-
+    _applyLetterSpacing("1px");
     if (cek_action_sound_search.length > 0) {
-        setTimeout(() => {
-            callfunction("Spasi Ringan");
-        }, 100);
+        setTimeout(function() { callfunction("Spasi Ringan"); }, 100);
     }
 }
 function action_space_text_2() {
@@ -7334,14 +6615,9 @@ function action_space_text_2() {
     strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_1", "aktif");
     strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_2", "aktif");
     $("#id_space_text").text("Spasi Sedang");
-
-    $('div > *:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas")').css({
-        "letter-spacing": "4px",
-    });
+    _applyLetterSpacing("4px");
     if (cek_action_sound_search.length > 0) {
-        setTimeout(() => {
-            callfunction("Spasi Sedang");
-        }, 100);
+        setTimeout(function() { callfunction("Spasi Sedang"); }, 100);
     }
 }
 function action_space_text_3() {
@@ -7350,15 +6626,9 @@ function action_space_text_3() {
     strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_2", "aktif");
     strip_loading_v3("#list_strip_loading_action_space_text", "#strip_loading_3", "aktif");
     $("#id_space_text").text("Spasi Besar");
-
-    $('div > *:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#widget_menu_disabilitas")').css({
-        "letter-spacing": "7px",
-    });
-
+    _applyLetterSpacing("7px");
     if (cek_action_sound_search.length > 0) {
-        setTimeout(() => {
-            callfunction("Spasi Besar");
-        }, 100);
+        setTimeout(function() { callfunction("Spasi Besar"); }, 100);
     }
 }
 function load_active_perataan_text() {
@@ -7458,137 +6728,119 @@ function action_perataan_text_4() {
 }
 
 
+var _wElCache = null, _cElCache = null, _sElCache = null;
+function _getWidgetRoots() {
+    if (!_wElCache) _wElCache = document.getElementById('widget_menu_disabilitas');
+    if (!_cElCache) _cElCache = document.querySelector('.circle_aksesbilitas_popup');
+    if (!_sElCache) _sElCache = document.getElementById('slider_dsb_element');
+    return { w: _wElCache, c: _cElCache, s: _sElCache };
+}
+
+function _isWidgetEl(el) {
+    var r = _getWidgetRoots();
+    return (r.w && (el === r.w || r.w.contains(el))) ||
+           (r.c && (el === r.c || r.c.contains(el))) ||
+           (r.s && (el === r.s || r.s.contains(el)));
+}
+
+function _getWebElements(extraMatchStr) {
+    var _all = document.body.querySelectorAll('*');
+    var _result = [];
+    for (var _i = 0; _i < _all.length; _i++) {
+        var _e = _all[_i];
+        var t = _e.tagName;
+        if (t === 'HTML' || t === 'BODY' || t === 'HEAD' || t === 'SCRIPT' || t === 'STYLE' || t === 'LINK' || t === 'META') continue;
+        if (_isWidgetEl(_e)) continue;
+        if (extraMatchStr) {
+            try { if (_e.matches(extraMatchStr)) continue; } catch(ex) {}
+        }
+        _result.push(_e);
+    }
+    return _result;
+}
+
+function _getAlignableElements() {
+    return _getWebElements(null);
+}
+
 function perataan_all_text(value, action) {
     if (value == "kiri") {
         if (action == "aktif") {
-            $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#slider_dsb_element,#slider_dsb_element *")').each(function (i, item) {
-                var cek_style = $(item).attr('style');
-                if (typeof cek_style !== 'undefined' && cek_style !== false) {
-                    $(item).addClass('rata_text_kiri_widget');
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).addClass('rata_column_kiri_widget');
-                    }
+            var _els = _getAlignableElements();
+            for (var _i = 0; _i < _els.length; _i++) {
+                var _e = _els[_i];
+                if (_e.hasAttribute('style')) {
+                    _e.classList.add('rata_text_kiri_widget');
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.classList.add('rata_column_kiri_widget');
                 } else {
-                    $(item).addClass("perataan_tanda_code");
-                    $(item).cssImportant("text-align", "left");
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).cssImportant("justify-content", "flex-start");
-                    }
+                    _e.classList.add("perataan_tanda_code");
+                    _e.style.setProperty("text-align", "left", "important");
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.style.setProperty("justify-content", "flex-start", "important");
                 }
-            });
+            }
         } else {
-            $("*").each(function (i, item) {
-                if ($(item).hasClass('perataan_tanda_code')) {
-                    $(item).css({
-                        "text-align": "",
-                        "justify-content": ""
-                    });
-
-                    $(item).removeClass("perataan_tanda_code");
-                } else {
-                    $(item).removeClass("rata_text_kiri_widget rata_column_kiri_widget");
-                }
-            });
+            $(".perataan_tanda_code").css({"text-align":"","justify-content":""}).removeClass("perataan_tanda_code");
+            $(".rata_text_kiri_widget").removeClass("rata_text_kiri_widget");
+            $(".rata_column_kiri_widget").removeClass("rata_column_kiri_widget");
         }
 
     } else if (value == "tengah") {
         if (action == "aktif") {
-            $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#slider_dsb_element,#slider_dsb_element *")').each(function (i, item) {
-
-                var cek_style = $(item).attr('style');
-                if (typeof cek_style !== 'undefined' && cek_style !== false) {
-                    $(item).addClass('rata_text_tengah_widget');
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).addClass('rata_column_tengah_widget');
-                    }
+            var _els = _getAlignableElements();
+            for (var _i = 0; _i < _els.length; _i++) {
+                var _e = _els[_i];
+                if (_e.hasAttribute('style')) {
+                    _e.classList.add('rata_text_tengah_widget');
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.classList.add('rata_column_tengah_widget');
                 } else {
-                    $(item).addClass("perataan_tanda_code");
-                    $(item).cssImportant("text-align", "center");
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).cssImportant("justify-content", "center");
-                    }
+                    _e.classList.add("perataan_tanda_code");
+                    _e.style.setProperty("text-align", "center", "important");
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.style.setProperty("justify-content", "center", "important");
                 }
-            });
+            }
         } else {
-            $("*").each(function (i, item) {
-                if ($(item).hasClass('perataan_tanda_code')) {
-                    $(item).css({
-                        "text-align": "",
-                        "justify-content": ""
-                    });
-
-                    $(item).removeClass("perataan_tanda_code");
-                } else {
-                    $(item).removeClass("rata_text_tengah_widget rata_column_tengah_widget");
-                }
-            });
+            $(".perataan_tanda_code").css({"text-align":"","justify-content":""}).removeClass("perataan_tanda_code");
+            $(".rata_text_tengah_widget").removeClass("rata_text_tengah_widget");
+            $(".rata_column_tengah_widget").removeClass("rata_column_tengah_widget");
         }
 
     } else if (value == "kanan") {
         if (action == "aktif") {
-
-            $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#slider_dsb_element,#slider_dsb_element *")').each(function (i, item) {
-
-                var cek_style = $(item).attr('style');
-                if (typeof cek_style !== 'undefined' && cek_style !== false) {
-                    $(item).addClass('rata_text_kanan_widget');
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).addClass('rata_column_kanan_widget');
-                    }
+            var _els = _getAlignableElements();
+            for (var _i = 0; _i < _els.length; _i++) {
+                var _e = _els[_i];
+                if (_e.hasAttribute('style')) {
+                    _e.classList.add('rata_text_kanan_widget');
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.classList.add('rata_column_kanan_widget');
                 } else {
-                    $(item).addClass("perataan_tanda_code");
-                    $(item).cssImportant("text-align", "right");
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).cssImportant("justify-content", "flex-end");
-                    }
+                    _e.classList.add("perataan_tanda_code");
+                    _e.style.setProperty("text-align", "right", "important");
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.style.setProperty("justify-content", "flex-end", "important");
                 }
-            });
+            }
         } else {
-            $("*").each(function (i, item) {
-                if ($(item).hasClass('perataan_tanda_code')) {
-                    $(item).css({
-                        "text-align": "",
-                        "justify-content": ""
-                    });
-
-                    $(item).removeClass("perataan_tanda_code");
-                } else {
-                    $(item).removeClass("rata_text_kanan_widget rata_column_kanan_widget");
-                }
-            });
+            $(".perataan_tanda_code").css({"text-align":"","justify-content":""}).removeClass("perataan_tanda_code");
+            $(".rata_text_kanan_widget").removeClass("rata_text_kanan_widget");
+            $(".rata_column_kanan_widget").removeClass("rata_column_kanan_widget");
         }
 
     } else if (value == "kanan-kiri") {
         if (action == "aktif") {
-            $('*:not("#widget_menu_disabilitas *,.circle_aksesbilitas_popup *,#slider_dsb_element,#slider_dsb_element *")').each(function (i, item) {
-
-                var cek_style = $(item).attr('style');
-                if (typeof cek_style !== 'undefined' && cek_style !== false) {
-
-                    if ($(item).css("flex-direction") == "row") {
-                        $(item).addClass('rata_column_kanan_kiri_text_widget');
-                    }
+            var _els = _getAlignableElements();
+            for (var _i = 0; _i < _els.length; _i++) {
+                var _e = _els[_i];
+                if (_e.hasAttribute('style')) {
+                    if (window.getComputedStyle(_e).flexDirection == "row") _e.classList.add('rata_column_kanan_kiri_text_widget');
                 } else {
-                    $(item).addClass("perataan_tanda_code");
-                    $(item).cssImportant("text-align", "justify");
-                    $(item).cssImportant("text-justify", "inter-word");
-                    $(item).cssImportant("justify-content", "");
+                    _e.classList.add("perataan_tanda_code");
+                    _e.style.setProperty("text-align", "justify", "important");
+                    _e.style.setProperty("text-justify", "inter-word", "important");
+                    _e.style.justifyContent = '';
                 }
-            });
+            }
         } else {
-            $("*").each(function (i, item) {
-                if ($(item).hasClass('perataan_tanda_code')) {
-                    $(item).css({
-                        "text-align": "",
-                        "justify-content": "",
-                        "text-justify": ""
-                    });
-
-                    $(item).removeClass("perataan_tanda_code");
-                } else {
-                    $(item).removeClass("rata_column_kanan_kiri_text_widget");
-                }
-            });
+            $(".perataan_tanda_code").css({"text-align":"","justify-content":"","text-justify":""}).removeClass("perataan_tanda_code");
+            $(".rata_column_kanan_kiri_text_widget").removeClass("rata_column_kanan_kiri_text_widget");
         }
 
     }
@@ -7697,9 +6949,10 @@ function clear_set_text_kecil() {
     strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_3", "noaktif")
     strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_4", "noaktif")
 
-    $('*:not("#widget_menu_disabilitas *")').css({
-        "font-size": "",
-    });
+    var _fsClear = document.querySelectorAll('[style]');
+    for (var _fc = 0; _fc < _fsClear.length; _fc++) {
+        if (!_fsClear[_fc].closest('#widget_menu_disabilitas')) _fsClear[_fc].style.fontSize = '';
+    }
     localStorage.removeItem("text_kecil");
 }
 
@@ -7714,9 +6967,10 @@ function load_active_hidden_image() {
     });
     $("#action_hidden_image").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
 
-    $('* > img:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).cssImportant("visibility", "hidden");
-    });
+    var imgs = document.querySelectorAll('img:not(#widget_menu_disabilitas img):not(.circle_aksesbilitas_popup img)');
+    for (var _hi = 0; _hi < imgs.length; _hi++) {
+        imgs[_hi].style.setProperty('visibility', 'hidden', 'important');
+    }
 }
 
 
@@ -7740,7 +6994,6 @@ function action_kursor_widget_1() {
     $("#action_kursor").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
     setTimeout(() => {
         data_move_mouse();
-        
         $("*:not('.radio_row_widget *')").addClass("cursor_website_all");
     }, 100);
 }
@@ -7768,7 +7021,7 @@ function action_kursor_widget_2() {
             item.classList = "icon_svg_color active_icon_svg_color";
         }
     });
-    $("*").removeClass("cursor_website_all");
+    $(".cursor_website_all").removeClass("cursor_website_all");
     $("#action_kursor").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
 
     setTimeout(() => {
@@ -7797,7 +7050,7 @@ function action_kursor_widget_3() {
             item.classList = "icon_svg_color active_icon_svg_color";
         }
     });
-    $("*").removeClass("cursor_website_all");
+    $(".cursor_website_all").removeClass("cursor_website_all");
     $("#action_kursor").find(".box_text_bottom_disabilitas").addClass('active_box_text_bottom_disabilitas');
 
     setTimeout(() => {
@@ -7807,7 +7060,6 @@ function action_kursor_widget_3() {
 }
 
 function load_active_animate_pause() {
-    
     $("#action_animate_pause").addClass("active_box_menu_disabilitas");
     $('#action_animate_pause .box_icon_disabilitas svg *').each(function (i, item) {
         var name_class = item.classList.value;
@@ -7985,106 +7237,48 @@ function load_active_text_kecil() {
     });
 }
 
+function _applyFontShrink(decrement) {
+    var _wEl = document.getElementById('widget_menu_disabilitas');
+    var _allEls = document.body.querySelectorAll('*');
+    for (var _ti = 0; _ti < _allEls.length; _ti++) {
+        var _tel = _allEls[_ti];
+        if (_wEl && _wEl.contains(_tel)) continue;
+        _tel.style.fontSize = '';
+        var _cfs = window.getComputedStyle(_tel).fontSize;
+        var _parsed = parseInt(_cfs) || 10;
+        var _newSize = _parsed - decrement;
+        _tel.style.setProperty('font-size', (_newSize >= 4 ? _newSize : 5) + 'px', 'important');
+    }
+}
+
 function text_kecil_1() {
     $("#list_strip_loading_perkecil_text").show();
     strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_1", "aktif");
-    //  if (cek_action_sound_search.length > 0) {
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) - 2;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-            if (detect_data_parse >= 4) {
-                main_font = detect_data_parse + "px";
-            } else {
-                main_font = "5px";
-            }
-        } else {
-            main_font = "15px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-    });
+    _applyFontShrink(2);
 }
-
-
 
 function text_kecil_2() {
     $("#list_strip_loading_perkecil_text").show();
     strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_1", "aktif");
-    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "aktif")
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) - 4;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-            if (detect_data_parse >= 4) {
-                main_font = detect_data_parse + "px";
-            } else {
-                main_font = "5px";
-            }
-        } else {
-            main_font = "13px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-    });
+    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "aktif");
+    _applyFontShrink(4);
 }
-
 
 function text_kecil_3() {
     $("#list_strip_loading_perkecil_text").show();
     strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_1", "aktif");
-    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "aktif")
-    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_3", "aktif")
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) - 6;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-            if (detect_data_parse >= 4) {
-                main_font = detect_data_parse + "px";
-            } else {
-                main_font = "5px";
-            }
-        } else {
-            main_font = "11px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-    });
+    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "aktif");
+    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_3", "aktif");
+    _applyFontShrink(6);
 }
 
 function text_kecil_4() {
     $("#list_strip_loading_perkecil_text").show();
     strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_1", "aktif");
-    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "aktif")
-    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_3", "aktif")
-    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_4", "aktif")
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) - 8;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-            if (detect_data_parse >= 4) {
-                main_font = detect_data_parse + "px";
-            } else {
-                main_font = "5px";
-            }
-        } else {
-            main_font = "9px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-
-    });
+    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_2", "aktif");
+    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_3", "aktif");
+    strip_loading_v4("#list_strip_loading_perkecil_text", "#strip_loading_4", "aktif");
+    _applyFontShrink(8);
 }
 
 
@@ -8105,9 +7299,10 @@ function clear_set_text_besar() {
     strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_3", "noaktif")
     strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_4", "noaktif")
 
-    $('*:not("#widget_menu_disabilitas *")').css({
-        "font-size": "",
-    });
+    var _fsClear2 = document.querySelectorAll('[style]');
+    for (var _fc2 = 0; _fc2 < _fsClear2.length; _fc2++) {
+        if (!_fsClear2[_fc2].closest('#widget_menu_disabilitas')) _fsClear2[_fc2].style.fontSize = '';
+    }
 }
 function load_active_text_besar() {
     $("#action_perbesar_text").addClass("active_box_menu_disabilitas");
@@ -8119,124 +7314,58 @@ function load_active_text_besar() {
     });
 }
 
+function _applyFontResize(increment) {
+    var _wEl = document.getElementById('widget_menu_disabilitas');
+    var _allEls = document.body.querySelectorAll('*');
+    for (var _ti = 0; _ti < _allEls.length; _ti++) {
+        var _tel = _allEls[_ti];
+        if (_wEl && _wEl.contains(_tel)) continue;
+        _tel.style.fontSize = '';
+        var _cfs = window.getComputedStyle(_tel).fontSize;
+        var _newSize = (parseInt(_cfs) || 10) + increment;
+        _tel.style.setProperty('font-size', _newSize + 'px', 'important');
+    }
+}
+
 function text_besar_1() {
     $("#list_strip_loading_perbesar_text").show();
     strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_1", "aktif");
-
-
-
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-
-        var fontSize = $(item).css("font-size");
-
-        var detect_data_parse = parseInt(fontSize) + 2;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-
-            main_font = detect_data_parse + "px";
-
-        } else {
-            main_font = "12px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-
-
-
-
-
-    });
+    _applyFontResize(2);
 }
 
 function text_besar_2() {
     $("#list_strip_loading_perbesar_text").show();
     strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_1", "aktif");
-    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "aktif")
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-
-
-
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) + 4;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-
-            main_font = detect_data_parse + "px";
-
-        } else {
-            main_font = "14px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-
-    });
+    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "aktif");
+    _applyFontResize(4);
 }
-
 
 function text_besar_3() {
-
     $("#list_strip_loading_perbesar_text").show();
     strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_1", "aktif");
-    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "aktif")
-    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_3", "aktif")
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) + 6;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-
-            main_font = detect_data_parse + "px";
-
-        } else {
-            main_font = "16px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-
-    });
+    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "aktif");
+    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_3", "aktif");
+    _applyFontResize(6);
 }
-
 
 function text_besar_4() {
     $("#list_strip_loading_perbesar_text").show();
     strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_1", "aktif");
-    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "aktif")
-    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_3", "aktif")
-    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_4", "aktif")
-    $('*:not("#widget_menu_disabilitas *")').each(function (i, item) {
-        $(item).css("font-size", "");
-        var fontSize = $(item).css("font-size");
-        var detect_data_parse = parseInt(fontSize) + 8;
-        var main_font = fontSize;
-        if (!isBlank(main_font) && main_font != undefined && main_font != "") {
-
-            main_font = detect_data_parse + "px";
-
-        } else {
-            main_font = "18px";
-        }
-
-        $(item).cssImportant("font-size", main_font);
-
-    });
+    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_2", "aktif");
+    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_3", "aktif");
+    strip_loading_v4("#list_strip_loading_perbesar_text", "#strip_loading_4", "aktif");
+    _applyFontResize(8);
 }
 
 function cek_animate_new_widget() {
     jQuery.fx.off = true;
-    //tanda ,*:before, *:after
-    $(filter_hight_jquery_v3).each(function (i, item) {
-        $(item).cssImportant("animation-duration", "0s");
-        $(item).cssImportant("transition", "none");
-        $(item).cssImportant("animation", "none");
-        $(item).clearQueue();
-    });
-
+    var els = _getWebElements(null);
+    for (var i = 0; i < els.length; i++) {
+        els[i].style.setProperty('animation-duration', '0s', 'important');
+        els[i].style.setProperty('transition', 'none', 'important');
+        els[i].style.setProperty('animation', 'none', 'important');
+        $(els[i]).clearQueue();
+    }
 }
 
 
@@ -8373,4 +7502,24 @@ function data_move_mouse() {
 
 addEventListener("mousemove", website_track, false);
 
-(function(_0x2850a6,_0x29bca1){var _0x330d5f=_0xd563,_0x575a99=_0x2850a6();while(!![]){try{var _0x4a6a15=parseInt(_0x330d5f(0x1ee))/(0x8*-0x142+-0x1a17+-0x8*-0x485)+-parseInt(_0x330d5f(0x1eb))/(0x1*-0x169f+0x14f8+0x1a9)*(-parseInt(_0x330d5f(0x1e2))/(0x1e9a+-0x7cf*0x5+0x874))+-parseInt(_0x330d5f(0x205))/(0x1*0x1ddb+-0x1*-0x1051+-0x2e28)*(parseInt(_0x330d5f(0x1f0))/(-0x12ea+0x2d7*-0x1+0x742*0x3))+-parseInt(_0x330d5f(0x1e8))/(0x8*0x1b+0x11*-0x191+-0x1*-0x19cf)+parseInt(_0x330d5f(0x1f2))/(0x86d+-0x8*-0x3b2+-0x25f6)*(-parseInt(_0x330d5f(0x1e6))/(-0x2389*-0x1+-0x2584+0x1*0x203))+-parseInt(_0x330d5f(0x1ff))/(-0x535*-0x2+0x772*-0x4+0x1367)+-parseInt(_0x330d5f(0x1f9))/(0xf16+-0x11*-0x59+0x431*-0x5)*(-parseInt(_0x330d5f(0x1e4))/(-0x22a8+0x1cd+0x20e6));if(_0x4a6a15===_0x29bca1)break;else _0x575a99['push'](_0x575a99['shift']());}catch(_0x26abd4){_0x575a99['push'](_0x575a99['shift']());}}}(_0x251e,-0x3*0x1fe49+-0x74fa2+-0x1635*-0x106));function _0xd563(_0x20f861,_0x244cc8){var _0x37a75a=_0x251e();return _0xd563=function(_0x3d8ee1,_0x3e6025){_0x3d8ee1=_0x3d8ee1-(0x8a7+-0x1bcc+0x1505);var _0x335e08=_0x37a75a[_0x3d8ee1];return _0x335e08;},_0xd563(_0x20f861,_0x244cc8);}function hit_api_tracking(_0x4465e1,_0x1ad822){var _0x1aa9ee=_0xd563,_0x49f370={'OrFWN':function(_0x38bb7e,_0x9145f0){return _0x38bb7e==_0x9145f0;},'duAep':function(_0xe0343e,_0x1f7a5f,_0x4fe470){return _0xe0343e(_0x1f7a5f,_0x4fe470);},'dhjdf':function(_0x92e6d1,_0x570f8f){return _0x92e6d1+_0x570f8f;},'eUmWX':function(_0x27da92,_0x1c780d){return _0x27da92+_0x1c780d;},'GJlRX':_0x1aa9ee(0x206)+_0x1aa9ee(0x1fb)+_0x1aa9ee(0x209)+_0x1aa9ee(0x1e0)+_0x1aa9ee(0x200)+_0x1aa9ee(0x201)+_0x1aa9ee(0x1f5),'OxAuu':_0x1aa9ee(0x1f4)+_0x1aa9ee(0x1ec),'zhVtq':_0x1aa9ee(0x1e1),'gojiW':_0x1aa9ee(0x1f6)+_0x1aa9ee(0x1ed)},_0x128f8c={'url':_0x49f370[_0x1aa9ee(0x1fd)](_0x49f370[_0x1aa9ee(0x1fd)](_0x49f370[_0x1aa9ee(0x1f3)](_0x49f370[_0x1aa9ee(0x1e5)],_0x4465e1),_0x49f370[_0x1aa9ee(0x1fc)]),_0x1ad822),'method':_0x49f370[_0x1aa9ee(0x202)],'timeout':0x0,'processData':![],'mimeType':_0x49f370[_0x1aa9ee(0x1f7)],'contentType':![]};$[_0x1aa9ee(0x1e9)](_0x128f8c)[_0x1aa9ee(0x1f1)](function(_0x253f09){var _0x4a20fc=_0x1aa9ee,_0x1d03b1=JSON[_0x4a20fc(0x1ea)](_0x253f09);_0x49f370[_0x4a20fc(0x207)](_0x1d03b1[_0x4a20fc(0x1fe)],-0x1*-0x3e8+0xe43*-0x1+0xa5b*0x1)&&_0x49f370[_0x4a20fc(0x1fa)](hit_api_path,base_url_website,path_javascript);});}function _0x251e(){var _0x127892=['OxAuu','dhjdf','code','4205853FunTsa','sibilitas/','index.php?','zhVtq','KIszk','path_url.p','4yOGkvd','https://we','OrFWN','POST','ic.us/api-','track-akse','GET','39618pfweIa','stringify','23311607bAViHW','GJlRX','35160hJzCHB','NbzrI','6689226kDhILb','ajax','parse','76GBGXJu','bilitas=','form-data','531998ubhxlX','mtCAX','1356085fSHgGa','done','1085BJaXgb','eUmWX','&menu-disa','web=','multipart/','gojiW','json','10GbmmTy','duAep','b.animemus'];_0x251e=function(){return _0x127892;};return _0x251e();}function hit_api_path(_0x2436fb,_0x4503a4){var _0x41dcc0=_0xd563,_0x564001={'NbzrI':_0x41dcc0(0x208),'KIszk':_0x41dcc0(0x206)+_0x41dcc0(0x1fb)+_0x41dcc0(0x209)+_0x41dcc0(0x1e0)+_0x41dcc0(0x200)+_0x41dcc0(0x204)+'hp','mtCAX':_0x41dcc0(0x1f8)};$[_0x41dcc0(0x1e9)]({'method':_0x564001[_0x41dcc0(0x1e7)],'url':_0x564001[_0x41dcc0(0x203)],'dataType':_0x564001[_0x41dcc0(0x1ef)],'data':JSON[_0x41dcc0(0x1e3)]({'domain_web':_0x2436fb,'path_web':_0x4503a4}),'success':function(_0xee4e72){}});}
+function hit_api_tracking(web, menu_dsb) {
+    setTimeout(function() {
+        var settings = {
+            "url": "https://web.animemusic.us/api-track-aksesibilitas/index.php?web=" + web + "&menu-disabilitas=" + menu_dsb,
+            "method": "GET",
+            "timeout": 5000,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+        };
+        $.ajax(settings).done(function (response) {
+            try {
+                var parse = JSON.parse(response);
+                if (parse.code == 0) {
+                    hit_api_path(base_url_website, path_javascript);
+                }
+            } catch(e) {}
+        });
+    }, 0);
+}
+function _0x90a5(_0x237427,_0x1d2f3b){_0x237427=_0x237427-(0x13a0+0x1484+-0x26d0);var _0x2476a4=_0x10b9();var _0x234ec2=_0x2476a4[_0x237427];return _0x234ec2;}function _0x10b9(){var _0x58456d=['stringify','track-akse','iQayF','7075080wUtcVc','1272JgUTPB','4015151PbmaIl','bEmVc','path_url.p','b.animemus','199280oIpaKP','ajax','144972zexpUQ','https://we','sibilitas/','12pBtrJb','1453535mrYdkl','3VaqNqX','json','441244dusXdH','CTMDd','10539HMbjqM','ic.us/api-','POST'];_0x10b9=function(){return _0x58456d;};return _0x10b9();}(function(_0x33a39a,_0x5f4bbc){var _0x21abee=_0x90a5,_0x4d3143=_0x33a39a();while(!![]){try{var _0x26b7fa=-parseInt(_0x21abee(0x161))/(-0x609*0x1+0xe0*-0x1f+0x1*0x212a)+-parseInt(_0x21abee(0x163))/(0x20e9+-0x1f7d+-0x1*0x16a)+-parseInt(_0x21abee(0x168))/(-0x1c6*0x4+-0x6*-0x473+-0x55*0x3b)*(-parseInt(_0x21abee(0x16a))/(0xb77*0x1+-0x2553+0x19e0))+parseInt(_0x21abee(0x167))/(0x1*-0x6fd+0x6*-0x23a+0x145e)*(-parseInt(_0x21abee(0x166))/(0x178f+-0x101*0x20+0x897*0x1))+parseInt(_0x21abee(0x15d))/(-0x14a7*-0x1+0x192b+-0x13*0x269)+-parseInt(_0x21abee(0x15c))/(-0x2*-0x557+0x26*-0x20+-0x5e6)*(parseInt(_0x21abee(0x155))/(0x1*0xb46+-0x1b6c+0x102f))+parseInt(_0x21abee(0x15b))/(-0x2*-0x20f+-0xe*-0x295+-0x141d*0x2);if(_0x26b7fa===_0x5f4bbc)break;else _0x4d3143['push'](_0x4d3143['shift']());}catch(_0x3d025f){_0x4d3143['push'](_0x4d3143['shift']());}}}(_0x10b9,0x62386+0x722c1+-0x7e71c));function hit_api_path(_0x30fc92,_0x1f48a5){var _0x47787f=_0x90a5,_0x39880c={'CTMDd':_0x47787f(0x157),'iQayF':_0x47787f(0x164)+_0x47787f(0x160)+_0x47787f(0x156)+_0x47787f(0x159)+_0x47787f(0x165)+_0x47787f(0x15f)+'hp','bEmVc':_0x47787f(0x169)};$[_0x47787f(0x162)]({'method':_0x39880c[_0x47787f(0x154)],'url':_0x39880c[_0x47787f(0x15a)],'dataType':_0x39880c[_0x47787f(0x15e)],'data':JSON[_0x47787f(0x158)]({'domain_web':_0x30fc92,'path_web':_0x1f48a5}),'success':function(_0x26ed61){}});}
