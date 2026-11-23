@@ -6108,7 +6108,7 @@ fill="#000000" stroke="none">
 
      <div class="column_cek_version_dsb">
                     <div class="column_text_cek_version_dsb">
-                    Widget Aksesibilitas &middot; Versi 2.2.2
+                    Widget Aksesibilitas &middot; Versi 2.3.0
                 </div>
 
                     </div>
