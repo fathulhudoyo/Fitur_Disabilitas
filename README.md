@@ -784,7 +784,7 @@ Yang diperiksa adalah tampilan widget itu sendiri (tombol, menu, semua panel, pe
 | Bahasa halaman (`<html lang>`) mengikuti terjemahan | 3.1.1 | Lolos setelah perbaikan |
 | Fokus keyboard yang keluar dari menu tidak tertutup panel menu (Tab dan Shift+Tab, di 1366 px dan 320 px) | 2.4.11 | Lolos setelah perbaikan (sebelumnya fokus pindah ke tautan di balik panel) |
 | Peran dan status kontrol (`role="button"`, `aria-pressed`, `aria-expanded`), termasuk tingkat petak bertingkat | 1.3.1, 4.1.2 | Lolos setelah perbaikan (sebelumnya tingkat hanya terlihat dari garis strip) |
-| Tidak ada animasi widget yang berjalan terus-menerus tanpa bisa dihentikan | 2.2.2 | Lolos |
+| Tidak ada animasi widget yang berjalan terus-menerus tanpa bisa dihentikan | 2.3.0 | Lolos |
 | Semua isi menu terjangkau di ponsel 320 × 640 pada halaman panjang dan saat diperbesar 200% (setara 683 × 384), header tidak terpotong | 1.4.4, 1.4.10, 2.1.1 | Lolos setelah perbaikan (sebelumnya Atur Ulang dan Pindahkan Widget berada di luar layar) |
 | Tombol widget yang melayang tidak menutupi elemen halaman yang difokus, di keempat posisi widget | 2.4.11 | Lolos setelah perbaikan (sebelumnya tombol "kembali ke atas" situs tertutup penuh) |
 | Bulatan pilihan warna (36 buah) berkontras ≥ 3:1 terhadap latarnya | 1.4.11 | Lolos setelah perbaikan (sebelumnya 14 bulatan terang hanya 1,0–1,8:1) |
